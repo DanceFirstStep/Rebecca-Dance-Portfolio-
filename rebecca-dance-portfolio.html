@@ -38,8 +38,8 @@
             height: 100%;
             z-index: -2;
             background: 
-                radial-gradient(circle at 20% 30%, rgba(70, 70, 160, 0.15) 0%, transparent 25%),
-                radial-gradient(circle at 80% 70%, rgba(80, 90, 180, 0.15) 0%, transparent 25%);
+                radial-gradient(circle at 20% 30%, rgba(106, 90, 205, 0.15) 0%, transparent 25%),
+                radial-gradient(circle at 80% 70%, rgba(147, 112, 219, 0.15) 0%, transparent 25%);
             animation: gradientBG 45s ease infinite;
             background-size: 400% 400%;
         }
@@ -788,6 +788,59 @@
             50% { opacity: 0.9; }
         }
         
+        /* Visual decorations */
+        .visual-element {
+            position: absolute;
+            z-index: -1;
+            opacity: 0.08;
+        }
+        
+        .element-1 {
+            top: 10%;
+            left: 5%;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6a5acd, #9370db);
+            filter: blur(15px);
+            animation: float 15s infinite ease-in-out;
+        }
+        
+        .element-2 {
+            bottom: 15%;
+            right: 8%;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #5d54a4, #3a0066);
+            filter: blur(20px);
+            animation: float 18s infinite ease-in-out reverse;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+            50% {
+                transform: translate(20px, -30px);
+            }
+        }
+        
+        /* Sensual City special glow effect */
+        .sensual .link-icon {
+            animation: sensualGlow 3s infinite alternate;
+        }
+        
+        @keyframes sensualGlow {
+            0% {
+                box-shadow: 0 0 10px rgba(155, 89, 182, 0.6);
+            }
+            100% {
+                box-shadow: 0 0 25px rgba(155, 89, 182, 0.8), 
+                            0 0 40px rgba(142, 68, 173, 0.5);
+            }
+        }
+        
         @media (max-width: 768px) {
             body {
                 padding: 12px;
@@ -813,6 +866,11 @@
             
             .tagline {
                 font-size: 1.15rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+                margin: 28px 0 22px;
             }
             
             .link-card {
@@ -964,6 +1022,8 @@
 </head>
 <body>
   <div class="background"></div>
+  <div class="visual-element element-1"></div>
+  <div class="visual-element element-2"></div>
   
   <div id="music-particles-container"></div>
   
@@ -1168,74 +1228,45 @@
   <script>
     // Signature line access functionality
     const signatureLine = document.getElementById('signature-line');
+    const portalUrl = "https://dancefirststep.github.io/Member-portal-access/";
     
     let clickCount = 0;
     let clickTimer;
     
-    signatureLine.addEventListener('click', function(event) {
+    signatureLine.addEventListener('click', function() {
       clickCount++;
-      
-      // Visual feedback for each click
-      this.style.background = `linear-gradient(to right, transparent, #9370db, #6a5acd, transparent)`;
-      this.style.height = '4px';
-      
-      // Create click feedback animation
-      const feedback = document.createElement('div');
-      feedback.className = 'click-feedback';
-      feedback.textContent = clickCount;
-      document.body.appendChild(feedback);
-      
-      // Create music particles at click location
-      createMusicParticle(event);
-      
-      setTimeout(() => {
-        if (clickCount < 3) {
-          this.style.background = `linear-gradient(to right, transparent, #6a5acd, #9370db, transparent)`;
-          this.style.height = '2px';
-        }
-        feedback.remove();
-      }, 300);
       
       if (clickCount === 1) {
         // First click - start timer
         clickTimer = setTimeout(() => {
           clickCount = 0;
-          this.style.background = `linear-gradient(to right, transparent, #6a5acd, #9370db, transparent)`;
-          this.style.height = '2px';
         }, 1500);
       } else if (clickCount === 3) {
         // Triple click detected
         clearTimeout(clickTimer);
         clickCount = 0;
         
-        // Visual confirmation
-        this.style.background = `linear-gradient(to right, transparent, #27ae60, #2ecc71, transparent)`;
-        this.style.height = '4px';
+        // Create magical particles for portal access
+        const event = { clientX: window.innerWidth/2, clientY: window.innerHeight/2 };
+        createMusicParticle(event, 'portal');
+        setTimeout(() => createMusicParticle(event, 'portal'), 100);
+        setTimeout(() => createMusicParticle(event, 'portal'), 200);
+        setTimeout(() => createMusicParticle(event, 'portal'), 300);
         
-        // Create magical particles at center
-        createMusicParticle({clientX: window.innerWidth/2, clientY: window.innerHeight/2});
-        setTimeout(() => createMusicParticle({clientX: window.innerWidth/2, clientY: window.innerHeight/2}), 150);
-        setTimeout(() => createMusicParticle({clientX: window.innerWidth/2, clientY: window.innerHeight/2}), 300);
-        setTimeout(() => createMusicParticle({clientX: window.innerWidth/2, clientY: window.innerHeight/2}), 450);
-        
-        // Open portal in new tab after brief delay
+        // Open portal in new tab
         setTimeout(() => {
-          window.open('https://dancefirststep.github.io/Member-portal-access/', '_blank');
-          this.style.background = `linear-gradient(to right, transparent, #6a5acd, #9370db, transparent)`;
-          this.style.height = '2px';
-        }, 800);
+          window.open(portalUrl, '_blank');
+        }, 500);
       }
     });
 
-    // Enhanced organic music particles with natural falling effect
-    function createMusicParticle(event) {
+    // Enhanced musical particle animation
+    function createMusicParticle(event, context = 'default') {
       const container = document.getElementById('music-particles-container');
-      const particleCount = 6;
       
-      // Use only standard music note symbols with proper font fallbacks
-      const symbols = ['♪', '♫'];
+      const symbols = ['♪', '♫', '♬', '♩'];
       
-      for (let i = 0; i < particleCount; i++) {
+      for (let i = 0; i < 6; i++) {
         const particle = document.createElement('div');
         particle.className = 'music-particle';
         
@@ -1251,13 +1282,13 @@
         particle.style.top = `${posY}px`;
         
         // Natural falling trajectory
-        const translateX = (Math.random() - 0.5) * 150; // Horizontal drift
-        const translateY = 200 + Math.random() * 100;   // Downward movement
+        const translateX = (Math.random() - 0.5) * 150;
+        const translateY = 200 + Math.random() * 100;
         
         // Rotation effect for natural fall
         const rotation = Math.random() * 360 - 180;
         
-        // Random duration for varied falling speeds
+        // Random duration
         const duration = 1.5 + Math.random() * 1.5;
         
         // Set CSS variables
@@ -1266,21 +1297,21 @@
         particle.style.setProperty('--rotation', `${rotation}deg`);
         particle.style.setProperty('--duration', `${duration}s`);
         
-        // Random size between 20px and 40px
+        // Random size
         const size = 20 + Math.random() * 20;
         particle.style.fontSize = `${size}px`;
         
-        // Random color from blue to purple
-        const colorValue = 0.5 + Math.random() * 0.5;
-        const color = `rgba(${Math.floor(147 - colorValue * 50)}, ${Math.floor(112 - colorValue * 50)}, ${Math.floor(219 + colorValue * 50)}, 1)`;
+        // Context-based colors
+        let color;
+        if (context === 'portal') {
+          color = `rgba(147, 112, 219, ${0.7 + Math.random() * 0.3})`;
+        } else {
+          color = `rgba(${Math.floor(147 - Math.random() * 50)}, ${Math.floor(112 - Math.random() * 50)}, ${Math.floor(219 + Math.random() * 50)}, 1)`;
+        }
         particle.style.color = color;
         
-        // Add a slight glow effect
+        // Add a glow effect
         particle.style.textShadow = `0 0 ${size/2}px ${color}`;
-        
-        // Apply physics-based easing
-        const easing = `cubic-bezier(${0.1 + Math.random() * 0.2}, ${0.1 + Math.random() * 0.3}, ${0.7 + Math.random() * 0.3}, 1)`;
-        particle.style.animationTimingFunction = easing;
         
         container.appendChild(particle);
         
@@ -1298,32 +1329,42 @@
       
       clickableElements.forEach(el => {
         el.addEventListener('click', function(e) {
-          createMusicParticle(e);
+          // Determine context for music particles
+          let context = 'default';
+          if (this.classList.contains('sensual')) context = 'sensual';
           
-          this.classList.add('selected');
-          
-          setTimeout(() => {
-            this.classList.remove('selected');
-          }, 800);
+          createMusicParticle(e, context);
           
           const url = this.getAttribute('data-url');
           
           if (this.classList.contains('cash')) {
             setTimeout(() => {
-              alert('Cash payments accepted at all class locations. Exact change is appreciated.');
-            }, 100);
+              // Enhanced cash notification
+              const cashMsg = document.createElement('div');
+              cashMsg.textContent = '💵 Cash accepted at all locations!';
+              cashMsg.style.position = 'fixed';
+              cashMsg.style.bottom = '20px';
+              cashMsg.style.left = '50%';
+              cashMsg.style.transform = 'translateX(-50%)';
+              cashMsg.style.backgroundColor = 'rgba(39, 174, 96, 0.9)';
+              cashMsg.style.color = 'white';
+              cashMsg.style.padding = '12px 24px';
+              cashMsg.style.borderRadius = '25px';
+              cashMsg.style.zIndex = '10000';
+              cashMsg.style.boxShadow = '0 4px 20px rgba(0,0,0,0.3)';
+              cashMsg.style.animation = 'fadeInUp 0.4s ease-out';
+              document.body.appendChild(cashMsg);
+              
+              setTimeout(() => {
+                cashMsg.style.animation = 'fadeOut 0.4s ease-out';
+                setTimeout(() => cashMsg.remove(), 400);
+              }, 2000);
+            }, 150);
           } 
           else if (url) {
             setTimeout(() => {
-              // Open link in new tab
-              const anchor = document.createElement('a');
-              anchor.href = url;
-              anchor.target = '_blank';
-              anchor.rel = 'noopener noreferrer';
-              document.body.appendChild(anchor);
-              anchor.click();
-              document.body.removeChild(anchor);
-            }, 100);
+              window.open(url, '_blank');
+            }, 300);
           }
         });
       });
@@ -1332,14 +1373,20 @@
       const nonLinkCards = document.querySelectorAll('.non-link-card');
       nonLinkCards.forEach(card => {
         card.addEventListener('click', function(e) {
-          createMusicParticle(e);
-          
-          this.classList.add('selected');
-          
-          setTimeout(() => {
-            this.classList.remove('selected');
-          }, 800);
+          let context = 'default';
+          if (this.classList.contains('sensual')) context = 'sensual';
+          createMusicParticle(e, context);
         });
+      });
+      
+      // Special effect for Sensual City card
+      const sensualCard = document.querySelector('.sensual');
+      sensualCard.addEventListener('mouseover', function() {
+        this.classList.add('sensual-hover');
+      });
+      
+      sensualCard.addEventListener('mouseout', function() {
+        this.classList.remove('sensual-hover');
       });
       
       const registrationForm = document.getElementById('dance-registration');
@@ -1395,12 +1442,16 @@
           submitBtn.textContent = 'Complete Registration';
           submitBtn.disabled = false;
           
-          // Create magical celebration particles
-          const event = { clientX: window.innerWidth/2, clientY: window.innerHeight/2 };
-          createMusicParticle(event);
-          setTimeout(() => createMusicParticle(event), 150);
-          setTimeout(() => createMusicParticle(event), 300);
-          setTimeout(() => createMusicParticle(event), 450);
+          // Create magical celebration particles at form center
+          const formRect = registrationForm.getBoundingClientRect();
+          const event = { 
+            clientX: formRect.left + formRect.width/2,
+            clientY: formRect.top + formRect.height/2
+          };
+          createMusicParticle(event, 'portal');
+          setTimeout(() => createMusicParticle(event, 'portal'), 150);
+          setTimeout(() => createMusicParticle(event, 'portal'), 300);
+          setTimeout(() => createMusicParticle(event, 'portal'), 450);
         }, 1000);
       });
       
