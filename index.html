@@ -23,21 +23,11 @@
             overflow-x: hidden;
             position: relative;
             color: #333;
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e7f1 100%);
             line-height: 1.6;
             font-size: 1rem;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-        }
-        
-        .background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e7f1 100%);
         }
         
         .container {
@@ -48,7 +38,7 @@
             overflow: hidden;
             position: relative;
             z-index: 10;
-            margin: 0;
+            margin: 30px 0;
             padding: 25px 20px;
             box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
         }
@@ -770,8 +760,6 @@
     </style>
 </head>
 <body>
-  <div class="background"></div>
-  
   <div class="container">
     <div class="logo-container">
         <div class="logo-ring"></div>
@@ -840,7 +828,11 @@
             <div class="schedule-list">
               <div class="schedule-item">
                 <span class="schedule-day">Friday:</span>
-                <span class="schedule-info">7pm: Salsa & Bachata</span>
+                <span class="schedule-info">7pm: Salsa</span>
+              </div>
+              <div class="schedule-item">
+                <span class="schedule-day"></span>
+                <span class="schedule-info">8pm: Bachata</span>
               </div>
             </div>
           </div>
@@ -856,7 +848,11 @@
             <div class="schedule-list">
               <div class="schedule-item">
                 <span class="schedule-day">Saturday:</span>
-                <span class="schedule-info">Salsa & Bachata at 4pm</span>
+                <span class="schedule-info">4pm: Salsa</span>
+              </div>
+              <div class="schedule-item">
+                <span class="schedule-day"></span>
+                <span class="schedule-info">5pm: Bachata</span>
               </div>
             </div>
           </div>
@@ -904,8 +900,8 @@
             <select id="location" class="form-select" required>
               <option value="">Select class location</option>
               <option value="stardust">Stardust Ballroom - Mon: 6:30pm Bachata, Thu: 6:30pm Salsa & Bachata</option>
-              <option value="letsbailar">Let's Bailar - Fri: 7pm Salsa & Bachata</option>
-              <option value="estilo">Estilo Dance - Sat: 4pm Salsa & Bachata</option>
+              <option value="letsbailar">Let's Bailar - Fri: 7pm Salsa, 8pm Bachata</option>
+              <option value="estilo">Estilo Dance - Sat: 4pm Salsa, 5pm Bachata</option>
               <option value="sensual">Sensual City - Tue: 8pm Intro Bachata, 9pm Sensual Fundamentals, 10pm Practica</option>
             </select>
           </div>
@@ -979,128 +975,149 @@
     let clickCount = 0;
     let clickTimer;
     
-    signatureLine.addEventListener('click', function() {
-      clickCount++;
-      
-      if (clickCount === 1) {
-        // First click - start timer
-        clickTimer = setTimeout(() => {
-          clickCount = 0;
-        }, 1500);
-      } else if (clickCount === 3) {
-        // Triple click detected
-        clearTimeout(clickTimer);
-        clickCount = 0;
-        
-        // Open portal in new tab
-        setTimeout(() => {
-          window.open(portalUrl, '_blank');
-        }, 500);
-      }
-    });
+    if (signatureLine) {
+        signatureLine.addEventListener('click', function() {
+            clickCount++;
+            
+            if (clickCount === 1) {
+                clickTimer = setTimeout(() => {
+                    clickCount = 0;
+                }, 1500);
+            } else if (clickCount === 3) {
+                clearTimeout(clickTimer);
+                clickCount = 0;
+                setTimeout(() => {
+                    window.open(portalUrl, '_blank');
+                }, 500);
+            }
+        });
+    }
+
+    // Add triple-click functionality to the music note logo
+    const musicNote = document.querySelector('.logo');
+    let musicNoteClickCount = 0;
+    let musicNoteClickTimer;
+
+    if (musicNote) {
+        musicNote.addEventListener('click', function() {
+            musicNoteClickCount++;
+            
+            if (musicNoteClickCount === 1) {
+                musicNoteClickTimer = setTimeout(() => {
+                    musicNoteClickCount = 0;
+                }, 1500);
+            } else if (musicNoteClickCount === 3) {
+                clearTimeout(musicNoteClickTimer);
+                musicNoteClickCount = 0;
+                setTimeout(() => {
+                    window.open(portalUrl, '_blank');
+                }, 500);
+            }
+        });
+    }
 
     document.addEventListener('DOMContentLoaded', function() {
-      const clickableElements = document.querySelectorAll('.clickable');
-      
-      clickableElements.forEach(el => {
-        el.addEventListener('click', function(e) {
-          const url = this.getAttribute('data-url');
-          
-          if (this.classList.contains('cash')) {
-            setTimeout(() => {
-              // Enhanced cash notification
-              const cashMsg = document.createElement('div');
-              cashMsg.textContent = '💵 Cash accepted at all locations!';
-              cashMsg.style.position = 'fixed';
-              cashMsg.style.bottom = '20px';
-              cashMsg.style.left = '50%';
-              cashMsg.style.transform = 'translateX(-50%)';
-              cashMsg.style.backgroundColor = 'rgba(39, 174, 96, 0.9)';
-              cashMsg.style.color = 'white';
-              cashMsg.style.padding = '12px 24px';
-              cashMsg.style.borderRadius = '25px';
-              cashMsg.style.zIndex = '10000';
-              cashMsg.style.boxShadow = '0 4px 20px rgba(0,0,0,0.3)';
-              cashMsg.style.animation = 'fadeInUp 0.4s ease-out';
-              document.body.appendChild(cashMsg);
-              
-              setTimeout(() => {
-                cashMsg.style.animation = 'fadeOut 0.4s ease-out';
-                setTimeout(() => cashMsg.remove(), 400);
-              }, 2000);
-            }, 150);
-          } 
-          else if (url) {
-            setTimeout(() => {
-              window.open(url, '_blank');
-            }, 300);
-          }
+        const clickableElements = document.querySelectorAll('.clickable');
+        
+        clickableElements.forEach(el => {
+            el.addEventListener('click', function(e) {
+                const url = this.getAttribute('data-url');
+                
+                if (this.classList.contains('cash')) {
+                    setTimeout(() => {
+                        // Enhanced cash notification
+                        const cashMsg = document.createElement('div');
+                        cashMsg.textContent = '💵 Cash accepted at all locations!';
+                        cashMsg.style.position = 'fixed';
+                        cashMsg.style.bottom = '20px';
+                        cashMsg.style.left = '50%';
+                        cashMsg.style.transform = 'translateX(-50%)';
+                        cashMsg.style.backgroundColor = 'rgba(39, 174, 96, 0.9)';
+                        cashMsg.style.color = 'white';
+                        cashMsg.style.padding = '12px 24px';
+                        cashMsg.style.borderRadius = '25px';
+                        cashMsg.style.zIndex = '10000';
+                        cashMsg.style.boxShadow = '0 4px 20px rgba(0,0,0,0.3)';
+                        cashMsg.style.animation = 'fadeInUp 0.4s ease-out';
+                        document.body.appendChild(cashMsg);
+                        
+                        setTimeout(() => {
+                            cashMsg.style.animation = 'fadeOut 0.4s ease-out';
+                            setTimeout(() => cashMsg.remove(), 400);
+                        }, 2000);
+                    }, 150);
+                } 
+                else if (url) {
+                    setTimeout(() => {
+                        window.open(url, '_blank');
+                    }, 300);
+                }
+            });
         });
-      });
-      
-      const registrationForm = document.getElementById('dance-registration');
-      const thankYouMessage = document.getElementById('thank-you-message');
-      const submitBtn = registrationForm.querySelector('button[type="submit"]');
-      const registerAgainBtn = document.getElementById('register-again-btn');
-      
-      function resetForm() {
-        registrationForm.reset();
-        thankYouMessage.style.display = 'none';
-        registrationForm.style.display = 'block';
-      }
-      
-      registerAgainBtn.addEventListener('click', function() {
-        resetForm();
-      });
-      
-      registrationForm.addEventListener('submit', function(e) {
-        e.preventDefault();
         
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const location = document.getElementById('location').value;
+        const registrationForm = document.getElementById('dance-registration');
+        const thankYouMessage = document.getElementById('thank-you-message');
+        const submitBtn = registrationForm.querySelector('button[type="submit"]');
+        const registerAgainBtn = document.getElementById('register-again-btn');
         
-        if (!name.trim()) {
-          alert('Please enter your name.');
-          return;
+        function resetForm() {
+            registrationForm.reset();
+            thankYouMessage.style.display = 'none';
+            registrationForm.style.display = 'block';
         }
         
-        if (!email.trim()) {
-          alert('Please enter your email address.');
-          return;
-        }
+        registerAgainBtn.addEventListener('click', function() {
+            resetForm();
+        });
         
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-          alert('Please enter a valid email address.');
-          return;
-        }
+        registrationForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const location = document.getElementById('location').value;
+            
+            if (!name.trim()) {
+                alert('Please enter your name.');
+                return;
+            }
+            
+            if (!email.trim()) {
+                alert('Please enter your email address.');
+                return;
+            }
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+            
+            if (!location) {
+                alert('Please select a class location.');
+                return;
+            }
+            
+            submitBtn.textContent = 'Processing...';
+            submitBtn.disabled = true;
+            
+            setTimeout(function() {
+                registrationForm.style.display = 'none';
+                thankYouMessage.style.display = 'block';
+                thankYouMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                submitBtn.textContent = 'Complete Registration';
+                submitBtn.disabled = false;
+            }, 1000);
+        });
         
-        if (!location) {
-          alert('Please select a class location.');
-          return;
-        }
+        // Initial animations
+        setTimeout(() => {
+            document.querySelector('h1').style.animation = 'fadeInUp 1s ease-out forwards';
+        }, 300);
         
-        submitBtn.textContent = 'Processing...';
-        submitBtn.disabled = true;
-        
-        setTimeout(function() {
-          registrationForm.style.display = 'none';
-          thankYouMessage.style.display = 'block';
-          thankYouMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          submitBtn.textContent = 'Complete Registration';
-          submitBtn.disabled = false;
-        }, 1000);
-      });
-      
-      // Initial animations
-      setTimeout(() => {
-        document.querySelector('h1').style.animation = 'fadeInUp 1s ease-out forwards';
-      }, 300);
-      
-      setTimeout(() => {
-        document.querySelector('.tagline').style.animation = 'fadeIn 1.5s ease-out forwards';
-      }, 600);
+        setTimeout(() => {
+            document.querySelector('.tagline').style.animation = 'fadeIn 1.5s ease-out forwards';
+        }, 600);
     });
   </script>
 </body>
