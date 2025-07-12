@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rebecca Bachata | Professional Dance Instructor</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -23,24 +23,44 @@
             overflow-x: hidden;
             position: relative;
             color: #333;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e7f1 100%);
+            background: linear-gradient(135deg, #1a1f3a, #2d1b33, #1f2a5c);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
             line-height: 1.6;
             font-size: 1rem;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
         
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: rgba(255, 255, 255, 0.97);
+        }
+        
         .container {
             width: 100%;
             max-width: 850px;
-            background: #fff;
+            background: rgba(255, 255, 255, 0.97);
             border-radius: 20px;
             overflow: hidden;
             position: relative;
             z-index: 10;
             margin: 30px 0;
             padding: 25px 20px;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
         }
         
         .logo-container {
@@ -53,7 +73,7 @@
         .logo {
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #e67e22, #f1c40f);
+            background: linear-gradient(135deg, #d35400, #e67e22);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -132,7 +152,7 @@
         .tagline {
             font-size: 1.25rem;
             font-weight: 300;
-            color: #7f8c8d;
+            color: #555;
             margin-top: 12px;
             max-width: 600px;
             margin: 20px auto 0;
@@ -161,7 +181,7 @@
             transform: translateX(-50%);
             width: 120px;
             height: 4px;
-            background: linear-gradient(to right, #e67e22, #f1c40f);
+            background: linear-gradient(to right, #d35400, #e67e22);
             border-radius: 3px;
         }
         
@@ -193,7 +213,7 @@
         
         .link-card:hover {
             background: #f9f9f9;
-            border-color: #f1c40f;
+            border-color: #e67e22;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
             transform: translateY(-5px);
         }
@@ -246,7 +266,7 @@
         }
         
         .stardust-icon {
-            background: linear-gradient(135deg, #e67e22, #f1c40f) !important;
+            background: linear-gradient(135deg, #d35400, #e67e22) !important;
         }
         
         .letsbailar-icon {
@@ -287,14 +307,14 @@
         
         .link-subtitle {
             font-size: 1.05rem;
-            color: #7f8c8d;
+            color: #555;
             line-height: 1.5;
         }
         
         .schedule-detail {
             display: block;
             margin-top: 6px;
-            color: #e67e22;
+            color: #d35400;
             font-weight: 600;
             font-size: 0.95rem;
         }
@@ -315,13 +335,13 @@
             min-width: 95px;
             text-align: right;
             padding-right: 14px;
-            color: #e67e22;
+            color: #d35400;
             font-size: 1.05rem;
         }
         
         .schedule-info {
             flex: 1;
-            color: #34495e;
+            color: #444;
             font-size: 1.05rem;
         }
         
@@ -357,14 +377,14 @@
             transform: translateX(-50%);
             width: 120px;
             height: 4px;
-            background: linear-gradient(to right, #e67e22, #f1c40f);
+            background: linear-gradient(to right, #d35400, #e67e22);
             border-radius: 2px;
         }
         
         .partner-notice {
             text-align: center;
             margin-bottom: 22px;
-            color: #7f8c8d;
+            color: #555;
             font-size: 1.15rem;
             font-weight: 500;
             display: block;
@@ -392,13 +412,13 @@
         
         .form-input:focus {
             outline: none;
-            border-color: #f1c40f;
+            border-color: #e67e22;
             background: #fff;
-            box-shadow: 0 0 0 3px rgba(241, 196, 15, 0.15);
+            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.15);
         }
         
         .form-input::placeholder {
-            color: #95a5a6;
+            color: #888;
             font-size: 1.05rem;
         }
         
@@ -411,7 +431,7 @@
             color: #333;
             font-size: 1.1rem;
             appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e67e22'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23d35400'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
             background-position: right 18px center;
             background-size: 20px;
@@ -421,13 +441,13 @@
         
         .form-select:focus {
             outline: none;
-            border-color: #f1c40f;
+            border-color: #e67e22;
             background: #fff;
-            box-shadow: 0 0 0 3px rgba(241, 196, 15, 0.15);
+            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.15);
         }
         
         .submit-btn {
-            background: linear-gradient(135deg, #e67e22, #f1c40f);
+            background: linear-gradient(135deg, #d35400, #e67e22);
             color: #fff;
             border: none;
             border-radius: 14px;
@@ -448,7 +468,7 @@
         
         .submit-btn:hover {
             transform: translateY(-5px);
-            background: linear-gradient(135deg, #d46c1a, #e0b30e);
+            background: linear-gradient(135deg, #c14d00, #d46c1a);
             box-shadow: 0 12px 30px rgba(230, 126, 34, 0.4);
         }
         
@@ -490,14 +510,14 @@
             transform: translateX(-50%);
             width: 100px;
             height: 4px;
-            background: linear-gradient(to right, #e67e22, #f1c40f);
+            background: linear-gradient(to right, #d35400, #e67e22);
             border-radius: 2px;
         }
         
         .thank-you-message p {
             font-size: 1.15rem;
             margin-bottom: 26px;
-            color: #7f8c8d;
+            color: #555;
             line-height: 1.7;
         }
         
@@ -524,7 +544,7 @@
             margin-top: 36px;
             padding: 26px;
             text-align: center;
-            color: #7f8c8d;
+            color: #555;
             font-size: 1.05rem;
             border-top: 1px solid #eee;
             line-height: 1.7;
@@ -544,7 +564,7 @@
         .signature-line {
             width: 200px;
             height: 2px;
-            background: linear-gradient(to right, transparent, #e67e22, #f1c40f, transparent);
+            background: linear-gradient(to right, transparent, #d35400, #e67e22, transparent);
             position: relative;
             transition: all 0.4s ease;
         }
@@ -561,28 +581,215 @@
         
         .signature-line:hover {
             height: 3px;
-            background: linear-gradient(to right, transparent, #f1c40f, #e67e22, transparent);
+            background: linear-gradient(to right, transparent, #e67e22, #d35400, transparent);
         }
         
-        .note-instruction {
+        .class-notification {
+            background: linear-gradient(135deg, #d35400, #e67e22);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            text-align: center;
+            margin: 25px 0 15px;
+            box-shadow: 0 5px 20px rgba(230, 126, 34, 0.3);
+            animation: slideDown 0.5s ease-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-weight: 500;
+        }
+        
+        @keyframes slideDown {
+            from { transform: translateY(-30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .notification-icon {
+            font-size: 1.8rem;
+        }
+        
+        .tap-counter {
             position: absolute;
-            bottom: 20px;
+            top: -10px;
+            right: -10px;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #d35400, #e67e22);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.4rem;
+            z-index: 10;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transform: scale(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .tap-counter.visible {
+            transform: scale(1);
+        }
+        
+        .logo-pulse {
+            animation: pulse 1s ease-out;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(230, 126, 34, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(230, 126, 34, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(230, 126, 34, 0); }
+        }
+        
+        .welcome-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 3000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.8s ease;
+        }
+        
+        .welcome-screen.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .welcome-screen-text {
+            font-size: 4.5rem;
+            font-weight: 700;
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+            letter-spacing: 4px;
+            animation: textGlow 2s infinite alternate;
+        }
+        
+        @keyframes textGlow {
+            0% { text-shadow: 0 0 10px rgba(255, 255, 255, 0.7); }
+            100% { text-shadow: 0 0 30px rgba(255, 255, 255, 1), 0 0 50px rgba(255, 255, 255, 0.8); }
+        }
+        
+        .progress-bar {
+            width: 80%;
+            max-width: 500px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 30px;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(to right, #d35400, #e67e22);
+            border-radius: 10px;
+            transition: width 3s linear;
+        }
+        
+        .welcome-screen-subtext {
+            font-size: 1.8rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            max-width: 600px;
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+        
+        /* FIXED VENMO ICON STYLES */
+        .venmo-icon-fixed {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .venmo-icon-fixed svg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70%;
+            height: 70%;
+        }
+        
+        /* FIXED VENMO ICON COLORS */
+        .venmo-icon-fixed .venmo-blue {
+            fill: #008CFF;
+        }
+        
+        .venmo-icon-fixed .venmo-white {
+            fill: #ffffff;
+        }
+        
+        .notification {
+            position: fixed;
+            bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(255, 255, 255, 0.9);
-            padding: 8px 16px;
-            border-radius: 20px;
-            color: #e67e22;
-            font-size: 0.9rem;
-            text-align: center;
-            width: 250px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            animation: fadePulse 4s infinite;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: slideIn 0.5s ease-out, fadeOut 0.5s ease-in 2.5s forwards;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
         
-        @keyframes fadePulse {
-            0%, 100% { opacity: 0.8; }
-            50% { opacity: 1; }
+        .notification-success {
+            background: linear-gradient(to right, #27ae60, #2ecc71);
+            color: white;
+        }
+        
+        .notification-info {
+            background: linear-gradient(to right, #3498db, #2980b9);
+            color: white;
+        }
+        
+        @keyframes slideIn {
+            from { bottom: -100px; opacity: 0; }
+            to { bottom: 30px; opacity: 1; }
+        }
+        
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; bottom: -100px; }
+        }
+        
+        .new-class-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(155, 89, 182, 0.3);
+            z-index: 2;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 4px 15px rgba(155, 89, 182, 0.3); }
+            50% { transform: scale(1.05); box-shadow: 0 6px 20px rgba(155, 89, 182, 0.4); }
+            100% { transform: scale(1); box-shadow: 0 4px 15px rgba(155, 89, 182, 0.3); }
         }
         
         @media (max-width: 768px) {
@@ -648,12 +855,6 @@
             
             .signature-container {
                 width: 260px;
-            }
-            
-            .note-instruction {
-                bottom: 15px;
-                width: 220px;
-                font-size: 0.8rem;
             }
         }
         
@@ -750,23 +951,27 @@
             .signature-container {
                 width: 220px;
             }
-            
-            .note-instruction {
-                bottom: 10px;
-                width: 200px;
-                font-size: 0.75rem;
-            }
         }
     </style>
 </head>
 <body>
+  <div class="background"></div>
+  
+  <div class="welcome-screen" id="welcome-screen">
+    <div class="welcome-screen-text">WELCOME</div>
+    <div class="welcome-screen-subtext">To our dance community! Redirecting to Member Portal...</div>
+    <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+    </div>
+  </div>
+  
   <div class="container">
-    <div class="logo-container">
+    <div class="logo-container" id="logo-container">
         <div class="logo-ring"></div>
-        <div class="logo">
+        <div class="logo" id="music-note">
           <i class="fas fa-music"></i>
         </div>
-      </div>
+    </div>
     <header>
       <h1>Rebecca Bachata</h1>
       <p class="tagline">Professional Bachata Instruction | Express Yourself Through Movement</p>
@@ -796,92 +1001,15 @@
         </div>
       </div>
       
-      <h2 class="section-title">Class Schedule</h2>
-      <div class="links-grid">
-        <div class="link-card clickable stardust" data-url="https://www.facebook.com/share/1TVjMczGK3/?mibextid=wwXIfr">
-          <div class="link-icon stardust-icon">
-            <i class="fas fa-star"></i>
-          </div>
-          <div class="link-text">
-            <div class="link-title">Stardust Ballroom</div>
-            <div class="link-subtitle">Bellmawr, New Jersey</div>
-            <div class="schedule-list">
-              <div class="schedule-item">
-                <span class="schedule-day">Monday:</span>
-                <span class="schedule-info">Bachata 6:30pm + next level</span>
-              </div>
-              <div class="schedule-item">
-                <span class="schedule-day">Thursday:</span>
-                <span class="schedule-info">Salsa 6:30pm & Bachata</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="link-card clickable letsbailar" data-url="https://www.facebook.com/share/1QfGefKoK5/?mibextid=wwXIfr">
-          <div class="link-icon letsbailar-icon">
-            <i class="fas fa-city"></i>
-          </div>
-          <div class="link-text">
-            <div class="link-title">Let's Bailar Dance Studio</div>
-            <div class="link-subtitle">Philly - Chinese Assoc.</div>
-            <div class="schedule-list">
-              <div class="schedule-item">
-                <span class="schedule-day">Friday:</span>
-                <span class="schedule-info">7pm: Salsa</span>
-              </div>
-              <div class="schedule-item">
-                <span class="schedule-day"></span>
-                <span class="schedule-info">8pm: Bachata</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="link-card estilo non-link-card">
-          <div class="link-icon estilo-icon">
-            <i class="fas fa-building"></i>
-          </div>
-          <div class="link-text">
-            <div class="link-title">Estilo Dance Studio</div>
-            <div class="link-subtitle">Fishtown, Philadelphia</div>
-            <div class="schedule-list">
-              <div class="schedule-item">
-                <span class="schedule-day">Saturday:</span>
-                <span class="schedule-info">4pm: Salsa</span>
-              </div>
-              <div class="schedule-item">
-                <span class="schedule-day"></span>
-                <span class="schedule-info">5pm: Bachata</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- UPDATED SENSUAL CITY SCHEDULE -->
-        <div class="link-card sensual non-link-card">
-          <div class="link-icon sensual-icon">
-            <i class="fas fa-building"></i>
-          </div>
-          <div class="link-text">
-            <div class="link-title">Sensual City</div>
-            <div class="link-subtitle">W Girard Ave, Philadelphia</div>
-            <div class="schedule-list">
-              <div class="schedule-item">
-                <span class="schedule-day">Tuesday:</span>
-                <span class="schedule-info">8pm: Intro Bachata</span>
-              </div>
-              <div class="schedule-item">
-                <span class="schedule-day"></span>
-                <span class="schedule-info">9pm: Sensual Fundamentals</span>
-              </div>
-              <div class="schedule-item">
-                <span class="schedule-day"></span>
-                <span class="schedule-info">10pm: Practica</span>
-              </div>
-            </div>
-          </div>
-        </div>
+      <h2 class="section-title">Join Our Class</h2>
+      
+      <div id="class-notification" class="class-notification">
+        <i class="fas fa-calendar-check notification-icon"></i>
+        <span id="notification-text">Join us tonight!</span>
+      </div>
+      
+      <div class="links-grid" id="schedule-grid">
+        <!-- Schedule will be inserted here -->
       </div>
       
       <div class="registration-form">
@@ -922,7 +1050,13 @@
       <div class="links-grid">
         <div class="link-card clickable venmo" data-url="https://venmo.com/code?user_id=2575920015605760344&created=1750346816">
           <div class="link-icon">
-            <i class="fab fa-vimeo-v"></i>
+            <!-- FIXED VENMO ICON SOLUTION -->
+            <div class="venmo-icon-fixed">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path class="venmo-blue" d="M19.5 15c-2.5 0-4.8-1.3-6-3.2-.5.8-1.1 1.5-1.8 2.1-.7.6-1.5 1-2.4 1.4-.9.3-1.8.5-2.7.5H2V7.5h2.7c.8 0 1.6.2 2.3.5.7.3 1.3.7 1.8 1.2.5.5.9 1.1 1.2 1.8.3-.8.6-1.4 1-1.9.4-.5.9-.8 1.5-1.1.6-.2 1.3-.4 2-.4H22V15h-2.5z"/>
+                <path class="venmo-white" d="M11.1 7.5c-.5.8-1.1 1.5-1.8 2.1-.7.6-1.5 1-2.4 1.4-.9.3-1.8.5-2.7.5H2V7.5h2.7c.8 0 1.6.2 2.3.5.7.3 1.3.7 1.8 1.2.5.5.9 1.1 1.2 1.8.3-.8.6-1.4 1-1.9.4-.5.9-.8 1.5-1.1.6-.2 1.3-.4 2-.4H22V15h-2.5c-2.5 0-4.8-1.3-6-3.2-.5.8-1.1 1.5-1.8 2.1-.7.6-1.5 1-2.4 1.4-.9.3-1.8.5-2.7.5H2V7.5h2.7c.8 0 1.6.2 2.3.5.7.3 1.3.7 1.8 1.2.5.5.9 1.1 1.2 1.8.3-.8.6-1.4 1-1.9.4-.5.9-.8 1.5-1.1.6-.2 1.3-.4 2-.4H22V7.5H11.1z"/>
+              </svg>
+            </div>
           </div>
           <div class="link-text">
             <div class="link-title">Venmo</div>
@@ -965,95 +1099,294 @@
     </footer>
   </div>
 
-  <div class="note-instruction">Triple-click the orange line to access the student portal</div>
-
   <script>
-    // Signature line access functionality
-    const signatureLine = document.getElementById('signature-line');
-    const portalUrl = "https://dancefirststep.github.io/Member-portal-access/";
-    
-    let clickCount = 0;
-    let clickTimer;
-    
-    if (signatureLine) {
-        signatureLine.addEventListener('click', function() {
-            clickCount++;
-            
-            if (clickCount === 1) {
-                clickTimer = setTimeout(() => {
-                    clickCount = 0;
-                }, 1500);
-            } else if (clickCount === 3) {
-                clearTimeout(clickTimer);
-                clickCount = 0;
-                setTimeout(() => {
-                    window.open(portalUrl, '_blank');
-                }, 500);
-            }
-        });
-    }
-
-    // Add triple-click functionality to the music note logo
-    const musicNote = document.querySelector('.logo');
-    let musicNoteClickCount = 0;
-    let musicNoteClickTimer;
-
-    if (musicNote) {
-        musicNote.addEventListener('click', function() {
-            musicNoteClickCount++;
-            
-            if (musicNoteClickCount === 1) {
-                musicNoteClickTimer = setTimeout(() => {
-                    musicNoteClickCount = 0;
-                }, 1500);
-            } else if (musicNoteClickCount === 3) {
-                clearTimeout(musicNoteClickTimer);
-                musicNoteClickCount = 0;
-                setTimeout(() => {
-                    window.open(portalUrl, '_blank');
-                }, 500);
-            }
-        });
-    }
-
     document.addEventListener('DOMContentLoaded', function() {
+      const classSchedule = [
+        {
+          studio: "Stardust Ballroom",
+          location: "Bellmawr, New Jersey",
+          icon: "stardust-icon",
+          iconSymbol: "fas fa-star",
+          schedule: [
+            { day: "Monday", time: "6:30pm", class: "Bachata" },
+            { day: "Thursday", time: "6:30pm", class: "Salsa & Bachata" }
+          ],
+          url: "https://www.facebook.com/share/1TVjMczGK3/?mibextid=wwXIfr",
+          id: "stardust"
+        },
+        {
+          studio: "Let's Bailar Dance Studio",
+          location: "Philly - Chinese Assoc.",
+          icon: "letsbailar-icon",
+          iconSymbol: "fas fa-city",
+          schedule: [
+            { day: "Friday", time: "7:00pm", class: "Salsa" },
+            { day: "Friday", time: "8:00pm", class: "Bachata" }
+          ],
+          url: "https://www.facebook.com/share/1QfGefKoK5/?mibextid=wwXIfr",
+          id: "letsbailar"
+        },
+        {
+          studio: "Estilo Dance Studio",
+          location: "Fishtown, Philadelphia",
+          icon: "estilo-icon",
+          iconSymbol: "fas fa-building",
+          schedule: [
+            { day: "Saturday", time: "4:00pm", class: "Salsa" },
+            { day: "Saturday", time: "5:00pm", class: "Bachata" }
+          ],
+          url: "#",
+          id: "estilo"
+        },
+        {
+          studio: "Sensual City",
+          location: "W Girard Ave, Philadelphia",
+          icon: "sensual-icon",
+          iconSymbol: "fas fa-building",
+          schedule: [
+            { day: "Tuesday", time: "8:00pm", class: "Intro Bachata" },
+            { day: "Tuesday", time: "9:00pm", class: "Sensual Fundamentals" },
+            { day: "Tuesday", time: "10:00pm", class: "Practica" }
+          ],
+          url: "#",
+          id: "sensual",
+          isNew: true
+        }
+      ];
+
+      function minutesUntilClass(day, time) {
+        const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const dayIndex = days.indexOf(day);
+        
+        if (dayIndex === -1) return Infinity;
+        
+        const now = new Date();
+        const currentDay = now.getDay();
+        const currentHours = now.getHours();
+        const currentMinutes = now.getMinutes();
+        
+        const [timeStr, modifier] = time.replace(/ /g, '').toLowerCase().split(/(am|pm)/);
+        let [hours, minutes] = timeStr.split(':').map(Number);
+        
+        if (modifier === 'pm' && hours !== 12) hours += 12;
+        if (modifier === 'am' && hours === 12) hours = 0;
+        
+        let daysUntil = dayIndex - currentDay;
+        if (daysUntil < 0 || (daysUntil === 0 && 
+            (hours < currentHours || 
+             (hours === currentHours && minutes < currentMinutes)))) {
+          daysUntil += 7;
+        }
+        
+        return daysUntil * 24 * 60 + (hours * 60 + minutes - (currentHours * 60 + currentMinutes));
+      }
+
+      function createStudioCard(studio) {
+        let cardHTML = `
+          <div class="link-card clickable ${studio.id}" 
+               data-studio="${studio.studio}" 
+               data-url="${studio.url}"
+               id="${studio.id}-card">
+        `;
+        
+        if (studio.isNew) {
+          cardHTML += `<div class="new-class-badge">New classes</div>`;
+        }
+        
+        cardHTML += `
+            <div class="link-icon ${studio.icon}">
+              <i class="${studio.iconSymbol}"></i>
+            </div>
+            <div class="link-text">
+              <div class="link-title">${studio.studio}</div>
+              <div class="link-subtitle">${studio.location}</div>
+              <div class="schedule-list">
+        `;
+        
+        studio.schedule.forEach(session => {
+          cardHTML += `
+            <div class="schedule-item">
+              <span class="schedule-day">${session.day}:</span>
+              <span class="schedule-info">${session.time}: ${session.class}</span>
+            </div>
+          `;
+        });
+        
+        cardHTML += `
+              </div>
+            </div>
+          </div>
+        `;
+        
+        return cardHTML;
+      }
+
+      function reorderStudioCards() {
+        const grid = document.getElementById('schedule-grid');
+        grid.innerHTML = '';
+        
+        const studios = [...classSchedule];
+        
+        studios.sort((a, b) => {
+          const aMinTime = Math.min(...a.schedule.map(session => 
+            minutesUntilClass(session.day, session.time)
+          ));
+          const bMinTime = Math.min(...b.schedule.map(session => 
+            minutesUntilClass(session.day, session.time)
+          ));
+          
+          return aMinTime - bMinTime;
+        });
+        
+        studios.forEach(studio => {
+          grid.innerHTML += createStudioCard(studio);
+        });
+        
+        addClickHandlers();
+      }
+
+      function updateClassHighlights() {
+        const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const now = new Date();
+        const todayIndex = now.getDay();
+        const todayName = days[todayIndex];
+        const tomorrowName = days[(todayIndex + 1) % 7];
+        
+        let allSessions = [];
+        classSchedule.forEach(studio => {
+          studio.schedule.forEach(session => {
+            const minutesUntil = minutesUntilClass(session.day, session.time);
+            if (minutesUntil > 0) {
+              allSessions.push({
+                ...session,
+                studio: studio.studio,
+                minutesUntil
+              });
+            }
+          });
+        });
+        
+        const sessionsByDay = {};
+        allSessions.forEach(session => {
+          if (!sessionsByDay[session.day]) {
+            sessionsByDay[session.day] = [];
+          }
+          sessionsByDay[session.day].push(session);
+        });
+        
+        const todaySessions = sessionsByDay[todayName] || [];
+        const tomorrowSessions = sessionsByDay[tomorrowName] || [];
+        
+        const notificationText = document.getElementById('notification-text');
+        
+        if (todaySessions.length > 0) {
+          let message = "Join us tonight";
+          if (todaySessions.length === 1) {
+            const session = todaySessions[0];
+            message += ` at ${session.time} for ${session.class}!`;
+          } else {
+            message += " at:";
+            todaySessions.forEach((session, index) => {
+              if (index === todaySessions.length - 1) {
+                message += ` and ${session.time} for ${session.class}`;
+              } else {
+                message += ` ${session.time} for ${session.class},`;
+              }
+            });
+            message += "!";
+          }
+          notificationText.textContent = message;
+        } else if (tomorrowSessions.length > 0) {
+          let message = "Join us tomorrow";
+          if (tomorrowSessions.length === 1) {
+            const session = tomorrowSessions[0];
+            message += ` at ${session.time} for ${session.class}!`;
+          } else {
+            message += " at:";
+            tomorrowSessions.forEach((session, index) => {
+              if (index === tomorrowSessions.length - 1) {
+                message += ` and ${session.time} for ${session.class}`;
+              } else {
+                message += ` ${session.time} for ${session.class},`;
+              }
+            });
+            message += "!";
+          }
+          notificationText.textContent = message;
+        } else if (allSessions.length > 0) {
+          const nextSession = allSessions[0];
+          notificationText.textContent = `Next class on ${nextSession.day} at ${nextSession.time} for ${nextSession.class}!`;
+        } else {
+          notificationText.textContent = "Check back soon for upcoming classes!";
+        }
+        
+        reorderStudioCards();
+      }
+
+      function addClickHandlers() {
         const clickableElements = document.querySelectorAll('.clickable');
         
         clickableElements.forEach(el => {
-            el.addEventListener('click', function(e) {
-                const url = this.getAttribute('data-url');
-                
-                if (this.classList.contains('cash')) {
-                    setTimeout(() => {
-                        // Enhanced cash notification
-                        const cashMsg = document.createElement('div');
-                        cashMsg.textContent = '💵 Cash accepted at all locations!';
-                        cashMsg.style.position = 'fixed';
-                        cashMsg.style.bottom = '20px';
-                        cashMsg.style.left = '50%';
-                        cashMsg.style.transform = 'translateX(-50%)';
-                        cashMsg.style.backgroundColor = 'rgba(39, 174, 96, 0.9)';
-                        cashMsg.style.color = 'white';
-                        cashMsg.style.padding = '12px 24px';
-                        cashMsg.style.borderRadius = '25px';
-                        cashMsg.style.zIndex = '10000';
-                        cashMsg.style.boxShadow = '0 4px 20px rgba(0,0,0,0.3)';
-                        cashMsg.style.animation = 'fadeInUp 0.4s ease-out';
-                        document.body.appendChild(cashMsg);
-                        
-                        setTimeout(() => {
-                            cashMsg.style.animation = 'fadeOut 0.4s ease-out';
-                            setTimeout(() => cashMsg.remove(), 400);
-                        }, 2000);
-                    }, 150);
-                } 
-                else if (url) {
-                    setTimeout(() => {
-                        window.open(url, '_blank');
-                    }, 300);
-                }
-            });
+          el.addEventListener('click', function(e) {
+            const url = this.getAttribute('data-url');
+            
+            if (this.classList.contains('cash')) {
+              const cashNotification = document.createElement('div');
+              cashNotification.className = 'notification notification-success';
+              cashNotification.innerHTML = '<i class="fas fa-check-circle"></i> Exact change appreciated!';
+              document.body.appendChild(cashNotification);
+              setTimeout(() => { cashNotification.remove(); }, 3000);
+            } 
+            else if (url) {
+              setTimeout(() => { window.open(url, '_blank'); }, 300);
+            }
+          });
         });
+      }
+
+      function setupTripleTap() {
+        const logoContainer = document.getElementById('logo-container');
+        const musicNote = document.getElementById('music-note');
+        const welcomeScreen = document.getElementById('welcome-screen');
+        const progressFill = document.getElementById('progress-fill');
+        
+        const tapCounter = document.createElement('div');
+        tapCounter.className = 'tap-counter';
+        logoContainer.appendChild(tapCounter);
+        
+        let tapCount = 0;
+        let tapTimeout;
+        
+        logoContainer.addEventListener('click', function() {
+          musicNote.classList.add('logo-pulse');
+          setTimeout(() => { musicNote.classList.remove('logo-pulse'); }, 1000);
+          
+          if (tapTimeout) clearTimeout(tapTimeout);
+          
+          tapCount++;
+          tapCounter.textContent = tapCount;
+          tapCounter.classList.add('visible');
+          
+          tapTimeout = setTimeout(() => {
+            tapCount = 0;
+            tapCounter.classList.remove('visible');
+          }, 1500);
+          
+          if (tapCount === 3) {
+            tapCount = 0;
+            tapCounter.classList.remove('visible');
+            welcomeScreen.classList.add('active');
+            progressFill.style.width = '100%';
+            setTimeout(() => {
+              window.location.href = 'https://dancefirststep.github.io/Member-portal-access/';
+            }, 3000);
+          }
+        });
+      }
+
+      function initPage() {
+        reorderStudioCards();
+        updateClassHighlights();
         
         const registrationForm = document.getElementById('dance-registration');
         const thankYouMessage = document.getElementById('thank-you-message');
@@ -1061,63 +1394,67 @@
         const registerAgainBtn = document.getElementById('register-again-btn');
         
         function resetForm() {
-            registrationForm.reset();
-            thankYouMessage.style.display = 'none';
-            registrationForm.style.display = 'block';
+          registrationForm.reset();
+          thankYouMessage.style.display = 'none';
+          registrationForm.style.display = 'block';
         }
         
-        registerAgainBtn.addEventListener('click', function() {
-            resetForm();
-        });
+        registerAgainBtn.addEventListener('click', resetForm);
         
         registrationForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const location = document.getElementById('location').value;
-            
-            if (!name.trim()) {
-                alert('Please enter your name.');
-                return;
-            }
-            
-            if (!email.trim()) {
-                alert('Please enter your email address.');
-                return;
-            }
-            
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert('Please enter a valid email address.');
-                return;
-            }
-            
-            if (!location) {
-                alert('Please select a class location.');
-                return;
-            }
-            
-            submitBtn.textContent = 'Processing...';
-            submitBtn.disabled = true;
-            
-            setTimeout(function() {
-                registrationForm.style.display = 'none';
-                thankYouMessage.style.display = 'block';
-                thankYouMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                submitBtn.textContent = 'Complete Registration';
-                submitBtn.disabled = false;
-            }, 1000);
+          e.preventDefault();
+          
+          const name = document.getElementById('name').value;
+          const email = document.getElementById('email').value;
+          const location = document.getElementById('location').value;
+          
+          if (!name.trim()) {
+            showNotification("Please enter your name", "info");
+            return;
+          }
+          
+          if (!email.trim()) {
+            showNotification("Please enter your email address", "info");
+            return;
+          }
+          
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(email)) {
+            showNotification("Please enter a valid email address", "info");
+            return;
+          }
+          
+          if (!location) {
+            showNotification("Please select a class location", "info");
+            return;
+          }
+          
+          submitBtn.textContent = 'Processing...';
+          submitBtn.disabled = true;
+          
+          setTimeout(function() {
+            registrationForm.style.display = 'none';
+            thankYouMessage.style.display = 'block';
+            thankYouMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            submitBtn.textContent = 'Complete Registration';
+            submitBtn.disabled = false;
+            showNotification("Registration successful! Check your email for details", "success");
+          }, 1000);
         });
         
-        // Initial animations
-        setTimeout(() => {
-            document.querySelector('h1').style.animation = 'fadeInUp 1s ease-out forwards';
-        }, 300);
-        
-        setTimeout(() => {
-            document.querySelector('.tagline').style.animation = 'fadeIn 1.5s ease-out forwards';
-        }, 600);
+        setupTripleTap();
+      }
+
+      function showNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.className = `notification notification-${type}`;
+        notification.innerHTML = `<i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i> ${message}`;
+        document.body.appendChild(notification);
+        setTimeout(() => { notification.remove(); }, 3000);
+      }
+
+      initPage();
+      setInterval(updateClassHighlights, 300000);
     });
   </script>
 </body>
