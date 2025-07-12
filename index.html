@@ -295,6 +295,7 @@
         
         .link-text {
             flex: 1;
+            position: relative;
         }
         
         .link-title {
@@ -303,20 +304,13 @@
             margin-bottom: 8px;
             color: #2c3e50;
             letter-spacing: 0.3px;
+            padding-right: 30px; /* Space for badge */
         }
         
         .link-subtitle {
             font-size: 1.05rem;
             color: #555;
             line-height: 1.5;
-        }
-        
-        .schedule-detail {
-            display: block;
-            margin-top: 6px;
-            color: #d35400;
-            font-weight: 600;
-            font-size: 0.95rem;
         }
         
         .schedule-list {
@@ -521,25 +515,6 @@
             line-height: 1.7;
         }
         
-        .non-link-card {
-            cursor: default;
-        }
-        
-        .non-link-card:hover {
-            transform: none;
-            background: #fff;
-            border-color: #eee;
-        }
-        
-        .non-link-card:hover .link-icon {
-            transform: none;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .non-link-card:hover .link-icon i {
-            transform: none;
-        }
-        
         footer {
             margin-top: 36px;
             padding: 26px;
@@ -567,21 +542,6 @@
             background: linear-gradient(to right, transparent, #d35400, #e67e22, transparent);
             position: relative;
             transition: all 0.4s ease;
-        }
-        
-        .signature-line::before {
-            content: '';
-            position: absolute;
-            top: -3px;
-            left: 0;
-            width: 100%;
-            height: 8px;
-            cursor: pointer;
-        }
-        
-        .signature-line:hover {
-            height: 3px;
-            background: linear-gradient(to right, transparent, #e67e22, #d35400, transparent);
         }
         
         .class-notification {
@@ -709,7 +669,6 @@
             line-height: 1.6;
         }
         
-        /* FIXED VENMO ICON STYLES */
         .venmo-icon-fixed {
             position: relative;
             width: 100%;
@@ -725,7 +684,6 @@
             height: 70%;
         }
         
-        /* FIXED VENMO ICON COLORS */
         .venmo-icon-fixed .venmo-blue {
             fill: #008CFF;
         }
@@ -771,25 +729,45 @@
             to { opacity: 0; bottom: -100px; }
         }
         
+        /* FIXED BADGE POSITIONING */
         .new-class-badge {
             position: absolute;
-            top: 15px;
-            right: 15px;
+            top: 10px;
+            right: 10px;
             background: linear-gradient(135deg, #9b59b6, #8e44ad);
             color: white;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 600;
             padding: 5px 12px;
             border-radius: 20px;
             box-shadow: 0 4px 15px rgba(155, 89, 182, 0.3);
             z-index: 2;
             animation: pulse 2s infinite;
+            white-space: nowrap;
         }
         
         @keyframes pulse {
             0% { transform: scale(1); box-shadow: 0 4px 15px rgba(155, 89, 182, 0.3); }
             50% { transform: scale(1.05); box-shadow: 0 6px 20px rgba(155, 89, 182, 0.4); }
             100% { transform: scale(1); box-shadow: 0 4px 15px rgba(155, 89, 182, 0.3); }
+        }
+        
+        /* Improved studio card layout */
+        .studio-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        
+        .studio-title {
+            flex: 1;
+            padding-right: 20px;
+        }
+        
+        .location-text {
+            font-size: 0.95rem;
+            color: #666;
+            margin-top: 4px;
         }
         
         @media (max-width: 768px) {
@@ -835,11 +813,6 @@
                 font-size: 1.6rem;
             }
             
-            .section-title {
-                font-size: 1.6rem;
-                margin: 28px 0 22px;
-            }
-            
             .registration-form {
                 padding: 22px;
                 margin: 28px 0;
@@ -853,8 +826,11 @@
                 min-width: 85px;
             }
             
-            .signature-container {
-                width: 260px;
+            .new-class-badge {
+                top: 8px;
+                right: 8px;
+                font-size: 0.7rem;
+                padding: 4px 10px;
             }
         }
         
@@ -913,6 +889,7 @@
             
             .link-title {
                 font-size: 1.15rem;
+                padding-right: 25px;
             }
             
             .link-subtitle {
@@ -948,8 +925,11 @@
                 font-size: 1.0rem;
             }
             
-            .signature-container {
-                width: 220px;
+            .new-class-badge {
+                top: 6px;
+                right: 6px;
+                font-size: 0.65rem;
+                padding: 3px 8px;
             }
         }
     </style>
@@ -1140,7 +1120,7 @@
         },
         {
           studio: "Sensual City",
-          location: "W Girard Ave, Philadelphia",
+          location: "New York", // Changed to world city
           icon: "sensual-icon",
           iconSymbol: "fas fa-building",
           schedule: [
@@ -1165,6 +1145,7 @@
         const currentHours = now.getHours();
         const currentMinutes = now.getMinutes();
         
+        // Convert time to 24-hour format
         const [timeStr, modifier] = time.replace(/ /g, '').toLowerCase().split(/(am|pm)/);
         let [hours, minutes] = timeStr.split(':').map(Number);
         
@@ -1187,6 +1168,15 @@
                data-studio="${studio.studio}" 
                data-url="${studio.url}"
                id="${studio.id}-card">
+            <div class="link-icon ${studio.icon}">
+              <i class="${studio.iconSymbol}"></i>
+            </div>
+            <div class="link-text">
+              <div class="studio-header">
+                <div class="studio-title">
+                  <div class="link-title">${studio.studio}</div>
+                  <div class="location-text">${studio.location}</div>
+                </div>
         `;
         
         if (studio.isNew) {
@@ -1194,12 +1184,7 @@
         }
         
         cardHTML += `
-            <div class="link-icon ${studio.icon}">
-              <i class="${studio.iconSymbol}"></i>
-            </div>
-            <div class="link-text">
-              <div class="link-title">${studio.studio}</div>
-              <div class="link-subtitle">${studio.location}</div>
+              </div>
               <div class="schedule-list">
         `;
         
@@ -1207,7 +1192,7 @@
           cardHTML += `
             <div class="schedule-item">
               <span class="schedule-day">${session.day}:</span>
-              <span class="schedule-info">${session.time}: ${session.class}</span>
+              <span class="schedule-info">${session.time} - ${session.class}</span>
             </div>
           `;
         });
@@ -1248,15 +1233,27 @@
       function updateClassHighlights() {
         const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         const now = new Date();
-        const todayIndex = now.getDay();
+        const currentHour = now.getHours();
+        const currentDayIndex = now.getDay();
+        
+        // Adjust day index based on late night hours
+        let todayIndex = currentDayIndex;
+        let tomorrowIndex = (todayIndex + 1) % 7;
+        
+        // If it's between 12am-2am, adjust day references
+        if (currentHour < 2) {
+          todayIndex = (currentDayIndex - 1 + 7) % 7;
+          tomorrowIndex = (todayIndex + 1) % 7;
+        }
+        
         const todayName = days[todayIndex];
-        const tomorrowName = days[(todayIndex + 1) % 7];
+        const tomorrowName = days[tomorrowIndex];
         
         let allSessions = [];
         classSchedule.forEach(studio => {
           studio.schedule.forEach(session => {
             const minutesUntil = minutesUntilClass(session.day, session.time);
-            if (minutesUntil > 0) {
+            if (minutesUntil > 0) { // Only future sessions
               allSessions.push({
                 ...session,
                 studio: studio.studio,
@@ -1280,7 +1277,8 @@
         const notificationText = document.getElementById('notification-text');
         
         if (todaySessions.length > 0) {
-          let message = "Join us tonight";
+          // After 2am, show today's classes as "today"
+          let message = currentHour < 2 ? "Join us later today" : "Join us today";
           if (todaySessions.length === 1) {
             const session = todaySessions[0];
             message += ` at ${session.time} for ${session.class}!`;
@@ -1297,6 +1295,7 @@
           }
           notificationText.textContent = message;
         } else if (tomorrowSessions.length > 0) {
+          // Before 2am, show tomorrow's classes as "tomorrow"
           let message = "Join us tomorrow";
           if (tomorrowSessions.length === 1) {
             const session = tomorrowSessions[0];
@@ -1314,6 +1313,7 @@
           }
           notificationText.textContent = message;
         } else if (allSessions.length > 0) {
+          // Show next available class
           const nextSession = allSessions[0];
           notificationText.textContent = `Next class on ${nextSession.day} at ${nextSession.time} for ${nextSession.class}!`;
         } else {
@@ -1454,7 +1454,7 @@
       }
 
       initPage();
-      setInterval(updateClassHighlights, 300000);
+      setInterval(updateClassHighlights, 300000); // Update every 5 minutes
     });
   </script>
 </body>
