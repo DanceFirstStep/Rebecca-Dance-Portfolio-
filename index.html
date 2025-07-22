@@ -933,12 +933,12 @@
       <div id="class-cta" class="class-cta-container">
         <div class="cta-header">
           <i class="fas fa-calendar-day pulse"></i>
-          <div id="cta-title">Join Our Class on Thursday at Stardust Ballroom</div>
+          <div id="cta-title" class="translatable" data-i18n="ctaTitle">Next Class at Stardust Ballroom</div>
           <i class="fas fa-star pulse"></i>
         </div>
         
         <div class="cta-schedule" id="cta-schedule">
-          6:30pm Intro to Salsa | 7:00pm Salsa Open Level | 8:00pm Bachata Open Level
+          Loading next class schedule...
         </div>
         
         <div class="cta-action translatable" data-i18n="ctaAction">
@@ -961,7 +961,7 @@
             <div class="link-title">Stardust Ballroom</div>
             <div class="link-subtitle">Bellmawr, New Jersey</div>
             <div class="schedule-list">
-              <div class="schedule-day-group">
+              <div class="schedule-day-group" data-day="Monday">
                 <div class="schedule-day-header">Monday</div>
                 <div class="schedule-class">
                   <span class="class-time">6:30pm</span>
@@ -976,7 +976,7 @@
                   <span class="class-name"><span class="bachata-text">Bachata</span> Next Level</span>
                 </div>
               </div>
-              <div class="schedule-day-group next-class" id="thursday-class">
+              <div class="schedule-day-group" data-day="Thursday">
                 <div class="schedule-day-header">Thursday</div>
                 <div class="schedule-class">
                   <span class="class-time">6:30pm</span>
@@ -1006,7 +1006,7 @@
             <div class="link-title">Let's Bailar Dance Studio</div>
             <div class="link-subtitle">Philly - Chinese Assoc.</div>
             <div class="schedule-list">
-              <div class="schedule-day-group">
+              <div class="schedule-day-group" data-day="Friday">
                 <div class="schedule-day-header">Friday</div>
                 <div class="schedule-class">
                   <span class="class-time">7:00pm</span>
@@ -1032,7 +1032,7 @@
             <div class="link-title">Estilo Dance Studio</div>
             <div class="link-subtitle">Fishtown, Philadelphia</div>
             <div class="schedule-list">
-              <div class="schedule-day-group">
+              <div class="schedule-day-group" data-day="Saturday">
                 <div class="schedule-day-header">Saturday</div>
                 <div class="schedule-class">
                   <span class="class-time">4:00pm</span>
@@ -1172,6 +1172,7 @@
           thankYouText: "We're excited to dance with you! Your spot is being saved.",
           registerAgain: "Register Another Person",
           ctaAction: "Register Now",
+          ctaTitle: "Next Class at Stardust Ballroom",
           cashNotification: "All locations accept cash. $20 day pass only at the icon cash",
           todayText: "Today",
           tomorrowText: "Tomorrow",
@@ -1208,6 +1209,7 @@
           thankYouText: "¡Estamos emocionados de bailar contigo! Tu lugar está siendo guardado.",
           registerAgain: "Registrar Otra Persona",
           ctaAction: "Regístrate Ahora",
+          ctaTitle: "Próxima Clase en Stardust Ballroom",
           cashNotification: "Todas las ubicaciones aceptan efectivo. Pase diario de $20 solo en efectivo",
           todayText: "Hoy",
           tomorrowText: "Mañana",
@@ -1261,6 +1263,7 @@
         switcher.classList.toggle('es', lang === 'es');
         
         updateCurrentDate();
+        updateCTASection();
       }
 
       document.getElementById('lang-en').addEventListener('click', () => setLanguage('en'));
@@ -1292,6 +1295,74 @@
         }
         
         document.getElementById('date-text').textContent = dateString;
+      }
+
+      // Function to get the next class day and schedule
+      function getNextClassInfo() {
+        const now = new Date();
+        const currentDay = now.getDay(); // 0 = Sunday, 1 = Monday, etc.
+        const currentHours = now.getHours();
+        const currentMinutes = now.getMinutes();
+        
+        // Define class days with their schedules
+        const classDays = {
+          // Monday classes at Stardust
+          1: {
+            day: "Monday",
+            schedule: [
+              "6:30pm Bachata Intro",
+              "7:00pm Bachata Fundamentals",
+              "8:00pm Bachata Next Level"
+            ],
+            isToday: currentDay === 1
+          },
+          // Thursday classes at Stardust
+          4: {
+            day: "Thursday",
+            schedule: [
+              "6:30pm Intro to Salsa",
+              "7:00pm Salsa Open Level",
+              "8:00pm Bachata Open Level"
+            ],
+            isToday: currentDay === 4
+          }
+        };
+        
+        // If today is a class day and before 9pm, show today's class
+        if (classDays[currentDay] && (currentHours < 21 || (currentHours === 21 && currentMinutes === 0))) {
+          return classDays[currentDay];
+        }
+        
+        // Find the next class day
+        for (let i = 1; i <= 7; i++) {
+          const nextDay = (currentDay + i) % 7;
+          if (classDays[nextDay]) {
+            return classDays[nextDay];
+          }
+        }
+        
+        // Default to Thursday if no class found (shouldn't happen)
+        return classDays[4];
+      }
+
+      // Update the CTA section with the next class info
+      function updateCTASection() {
+        const nextClass = getNextClassInfo();
+        const dayName = dayTranslations[currentLang][nextClass.day];
+        
+        // Update the CTA title
+        document.getElementById('cta-title').textContent = translations[currentLang].ctaTitle;
+        
+        // Update the schedule
+        document.getElementById('cta-schedule').textContent = nextClass.schedule.join(' | ');
+        
+        // Update the highlight in the schedule grid
+        document.querySelectorAll('.schedule-day-group').forEach(group => {
+          group.classList.remove('next-class');
+          if (group.dataset.day === nextClass.day) {
+            group.classList.add('next-class');
+          }
+        });
       }
 
       function addClickHandlers() {
@@ -1341,11 +1412,7 @@
         updateCurrentDate();
         setInterval(updateCurrentDate, 3600000);
         
-        // Highlight Thursday as the next class day
-        document.querySelectorAll('.schedule-day-group').forEach(group => {
-          group.classList.remove('next-class');
-        });
-        document.getElementById('thursday-class').classList.add('next-class');
+        updateCTASection();
         
         addClickHandlers();
         
