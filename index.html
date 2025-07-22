@@ -303,6 +303,25 @@
             margin-right: -8px;
         }
         
+        .next-class .schedule-day-header {
+            background: linear-gradient(to right, rgba(230, 126, 34, 0.08), transparent);
+            border-radius: 4px;
+            padding: 3px 8px;
+            margin-right: -8px;
+            position: relative;
+        }
+        
+        .next-class .schedule-day-header::after {
+            content: '↑';
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #e67e22;
+            font-weight: bold;
+            animation: bounce 2s infinite;
+        }
+        
         .registration-form {
             background: #fdfdfd;
             border-radius: 18px;
@@ -914,12 +933,12 @@
       <div id="class-cta" class="class-cta-container">
         <div class="cta-header">
           <i class="fas fa-calendar-day pulse"></i>
-          <div id="cta-title">Today's Classes at Stardust Ballroom</div>
+          <div id="cta-title">Join Our Class on Thursday at Stardust Ballroom</div>
           <i class="fas fa-star pulse"></i>
         </div>
         
         <div class="cta-schedule" id="cta-schedule">
-          6:30pm Bachata Intro | 7:00pm Bachata Fundamentals | 8:00pm Bachata Next Level
+          6:30pm Intro to Salsa | 7:00pm Salsa Open Level | 8:00pm Bachata Open Level
         </div>
         
         <div class="cta-action translatable" data-i18n="ctaAction">
@@ -942,7 +961,7 @@
             <div class="link-title">Stardust Ballroom</div>
             <div class="link-subtitle">Bellmawr, New Jersey</div>
             <div class="schedule-list">
-              <div class="schedule-day-group today">
+              <div class="schedule-day-group">
                 <div class="schedule-day-header">Monday</div>
                 <div class="schedule-class">
                   <span class="class-time">6:30pm</span>
@@ -957,7 +976,7 @@
                   <span class="class-name"><span class="bachata-text">Bachata</span> Next Level</span>
                 </div>
               </div>
-              <div class="schedule-day-group">
+              <div class="schedule-day-group next-class" id="thursday-class">
                 <div class="schedule-day-header">Thursday</div>
                 <div class="schedule-class">
                   <span class="class-time">6:30pm</span>
@@ -1321,6 +1340,12 @@
       function initPage() {
         updateCurrentDate();
         setInterval(updateCurrentDate, 3600000);
+        
+        // Highlight Thursday as the next class day
+        document.querySelectorAll('.schedule-day-group').forEach(group => {
+          group.classList.remove('next-class');
+        });
+        document.getElementById('thursday-class').classList.add('next-class');
         
         addClickHandlers();
         
