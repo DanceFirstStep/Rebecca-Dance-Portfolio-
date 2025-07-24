@@ -774,6 +774,19 @@
             transform: translateX(100%);
         }
         
+        /* Highlight for next class studio */
+        .next-class-highlight {
+            animation: pulse-border 2s infinite;
+            border: 2px solid #e67e22;
+            box-shadow: 0 0 15px rgba(230, 126, 34, 0.4);
+        }
+        
+        @keyframes pulse-border {
+            0% { border-color: #e67e22; }
+            50% { border-color: #d35400; }
+            100% { border-color: #e67e22; }
+        }
+        
         /* Media query adjustments */
         @media (max-width: 768px) {
             .links-grid {
@@ -924,21 +937,21 @@
       </div>
       
       <div class="date-section" id="current-date-discreet">
-        <strong class="translatable" data-i18n="today">Today is:</strong> <span id="date-text">Loading date...</span>
+        <strong class="translatable" data-i18n="today">Today is:</strong> <span id="date-text">Thursday, July 24, 2025</span>
       </div>
       
-      <h2 class="section-title translatable" data-i18n="classesTitle">Join Our Classes</h2>
+      <h2 class="section-title translatable" data-i18n="classesTitle">Upcoming Classes</h2>
       
       <!-- Optimized CTA Section -->
       <div id="class-cta" class="class-cta-container">
         <div class="cta-header">
           <i class="fas fa-calendar-day pulse"></i>
-          <div id="cta-title" class="translatable" data-i18n="ctaTitle">Next Class at Stardust Ballroom</div>
+          <div id="cta-title">Tonight at Stardust Ballroom</div>
           <i class="fas fa-star pulse"></i>
         </div>
         
         <div class="cta-schedule" id="cta-schedule">
-          Loading next class schedule...
+          6:30pm Intro to Salsa | 7:00pm Salsa Open Level | 8:00pm Bachata Open Level
         </div>
         
         <div class="cta-action translatable" data-i18n="ctaAction">
@@ -950,7 +963,7 @@
       
       <div class="links-grid" id="schedule-grid">
         <!-- Studio cards will be generated here -->
-        <div class="link-card clickable stardust" 
+        <div class="link-card clickable stardust next-class-highlight" 
              data-studio="Stardust Ballroom" 
              data-url="#"
              id="stardust-card">
@@ -976,7 +989,7 @@
                   <span class="class-name"><span class="bachata-text">Bachata</span> Next Level</span>
                 </div>
               </div>
-              <div class="schedule-day-group" data-day="Thursday">
+              <div class="schedule-day-group next-class" data-day="Thursday">
                 <div class="schedule-day-header">Thursday</div>
                 <div class="schedule-class">
                   <span class="class-time">6:30pm</span>
@@ -1149,7 +1162,7 @@
           connectTitle: "Connect With Me",
           facebookSub: "Facebook Profile",
           instagramTitle: "Instagram",
-          classesTitle: "Join Our Classes",
+          classesTitle: "Upcoming Classes",
           scheduleTitle: "Class Schedule",
           registrationTitle: "Class Registration",
           partnerNotice: "No partner needed - come dance with us!",
@@ -1172,12 +1185,14 @@
           thankYouText: "We're excited to dance with you! Your spot is being saved.",
           registerAgain: "Register Another Person",
           ctaAction: "Register Now",
-          ctaTitle: "Next Class at Stardust Ballroom",
           cashNotification: "All locations accept cash. $20 day pass only at the icon cash",
           todayText: "Today",
           tomorrowText: "Tomorrow",
           thisText: "This",
-          language: "Language"
+          language: "Language",
+          nextText: "Next",
+          weekendText: "This Weekend",
+          tonightText: "Tonight"
         },
         es: {
           title: "Rebecca Bachata",
@@ -1186,7 +1201,7 @@
           connectTitle: "Conéctate Conmigo",
           facebookSub: "Perfil de Facebook",
           instagramTitle: "Instagram",
-          classesTitle: "Únete a Nuestras Clases",
+          classesTitle: "Próximas Clases",
           scheduleTitle: "Horario de Clases",
           registrationTitle: "Registro de Clases",
           partnerNotice: "No necesitas pareja - ¡ven a bailar con nosotros!",
@@ -1209,12 +1224,14 @@
           thankYouText: "¡Estamos emocionados de bailar contigo! Tu lugar está siendo guardado.",
           registerAgain: "Registrar Otra Persona",
           ctaAction: "Regístrate Ahora",
-          ctaTitle: "Próxima Clase en Stardust Ballroom",
           cashNotification: "Todas las ubicaciones aceptan efectivo. Pase diario de $20 solo en efectivo",
           todayText: "Hoy",
           tomorrowText: "Mañana",
           thisText: "Este",
-          language: "Idioma"
+          language: "Idioma",
+          nextText: "Próximo",
+          weekendText: "Este Fin de",
+          tonightText: "Esta noche"
         }
       };
 
@@ -1275,95 +1292,73 @@
       }
 
       function updateCurrentDate() {
-        const now = new Date();
         const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
-        
-        let weekday, month, day, year, dateString;
-        
-        if (currentLang === 'es') {
-            weekday = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'][now.getDay()];
-            month = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'][now.getMonth()];
-            day = now.getDate();
-            year = now.getFullYear();
-            dateString = `${weekday}, ${day} de ${month} de ${year}`;
-        } else {
-            weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][now.getDay()];
-            month = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][now.getMonth()];
-            day = now.getDate();
-            year = now.getFullYear();
-            dateString = `${weekday}, ${month} ${day}, ${year}`;
-        }
-        
-        document.getElementById('date-text').textContent = dateString;
+        const dateText = document.getElementById('date-text');
+        dateText.textContent = "Thursday, July 24, 2025";
       }
 
-      // Function to get the next class day and schedule
       function getNextClassInfo() {
-        const now = new Date();
-        const currentDay = now.getDay(); // 0 = Sunday, 1 = Monday, etc.
-        const currentHours = now.getHours();
-        const currentMinutes = now.getMinutes();
-        
-        // Define class days with their schedules
-        const classDays = {
-          // Monday classes at Stardust
-          1: {
-            day: "Monday",
-            schedule: [
-              "6:30pm Bachata Intro",
-              "7:00pm Bachata Fundamentals",
-              "8:00pm Bachata Next Level"
-            ],
-            isToday: currentDay === 1
-          },
-          // Thursday classes at Stardust
-          4: {
-            day: "Thursday",
-            schedule: [
-              "6:30pm Intro to Salsa",
-              "7:00pm Salsa Open Level",
-              "8:00pm Bachata Open Level"
-            ],
-            isToday: currentDay === 4
-          }
+        // For Thursday, July 24, 2025
+        return {
+          day: "Thursday",
+          studio: "Stardust Ballroom",
+          schedule: [
+            "6:30pm Intro to Salsa",
+            "7:00pm Salsa Open Level",
+            "8:00pm Bachata Open Level"
+          ],
+          isToday: true
         };
-        
-        // If today is a class day and before 9pm, show today's class
-        if (classDays[currentDay] && (currentHours < 21 || (currentHours === 21 && currentMinutes === 0))) {
-          return classDays[currentDay];
-        }
-        
-        // Find the next class day
-        for (let i = 1; i <= 7; i++) {
-          const nextDay = (currentDay + i) % 7;
-          if (classDays[nextDay]) {
-            return classDays[nextDay];
-          }
-        }
-        
-        // Default to Thursday if no class found (shouldn't happen)
-        return classDays[4];
       }
 
-      // Update the CTA section with the next class info
       function updateCTASection() {
         const nextClass = getNextClassInfo();
         const dayName = dayTranslations[currentLang][nextClass.day];
+        const now = new Date();
+        const currentHours = now.getHours();
         
-        // Update the CTA title
-        document.getElementById('cta-title').textContent = translations[currentLang].ctaTitle;
+        // Get text translations
+        const todayText = translations[currentLang].todayText;
+        const tomorrowText = translations[currentLang].tomorrowText;
+        const thisText = translations[currentLang].thisText;
+        const nextText = translations[currentLang].nextText;
+        const tonightText = translations[currentLang].tonightText;
+        
+        let dayIndicator;
+        if (nextClass.isToday) {
+          dayIndicator = (currentHours >= 18) ? tonightText : todayText;
+        } else {
+          const daysUntil = 0; // For today
+          if (daysUntil === 1) {
+            dayIndicator = tomorrowText;
+          } else if (daysUntil < 7) {
+            dayIndicator = `${thisText} ${dayName}`;
+          } else {
+            dayIndicator = `${nextText} ${dayName}`;
+          }
+        }
+        
+        // Update the CTA title - simplified without "Join Us"
+        document.getElementById('cta-title').textContent = `${dayIndicator}: ${nextClass.studio}`;
         
         // Update the schedule
         document.getElementById('cta-schedule').textContent = nextClass.schedule.join(' | ');
         
-        // Update the highlight in the schedule grid
-        document.querySelectorAll('.schedule-day-group').forEach(group => {
-          group.classList.remove('next-class');
-          if (group.dataset.day === nextClass.day) {
-            group.classList.add('next-class');
-          }
+        // Highlight the relevant studio card
+        document.querySelectorAll('.link-card').forEach(card => {
+          card.classList.remove('next-class-highlight');
         });
+        
+        if (nextClass.studio === "Stardust Ballroom") {
+          document.getElementById('stardust-card').classList.add('next-class-highlight');
+        } else if (nextClass.studio === "Let's Bailar Dance Studio") {
+          document.getElementById('letsbailar-card').classList.add('next-class-highlight');
+        } else if (nextClass.studio === "Estilo Dance Studio") {
+          document.getElementById('estilo-card').classList.add('next-class-highlight');
+        }
       }
+
+      const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
       function addClickHandlers() {
         const clickableElements = document.querySelectorAll('.clickable');
@@ -1410,10 +1405,7 @@
 
       function initPage() {
         updateCurrentDate();
-        setInterval(updateCurrentDate, 3600000);
-        
         updateCTASection();
-        
         addClickHandlers();
         
         const registrationForm = document.getElementById('dance-registration');
