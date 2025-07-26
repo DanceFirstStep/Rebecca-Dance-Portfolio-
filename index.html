@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Rebecca Bachata | Professional Dance Instruction</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -19,7 +19,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 30px 20px;
+            padding: 20px 15px;
             overflow-x: hidden;
             position: relative;
             color: #333;
@@ -40,7 +40,7 @@
             position: relative;
             z-index: 10;
             margin: 0;
-            padding: 40px 30px;
+            padding: 35px 25px;
             box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
             border: 1px solid rgba(0, 0, 0, 0.03);
         }
@@ -269,9 +269,8 @@
         }
         
         @keyframes pulseSocial {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
         }
         
         .social-icon {
@@ -860,9 +859,11 @@
             flex: 1;
         }
         
+        /* Mobile-specific enhancements */
         @media (max-width: 768px) {
             .links-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
             
             h1 {
@@ -875,6 +876,7 @@
             
             .section-title {
                 font-size: 1.6rem;
+                margin: 35px 0 20px;
             }
             
             .cta-header {
@@ -889,16 +891,39 @@
             .cta-action {
                 font-size: 0.95rem;
             }
+            
+            .registration-form {
+                padding: 25px 20px;
+            }
+            
+            .form-title {
+                font-size: 1.6rem;
+            }
+            
+            .form-input, .form-select {
+                padding: 16px 20px;
+                font-size: 1.05rem;
+            }
+            
+            .submit-btn {
+                padding: 15px;
+                font-size: 1.1rem;
+            }
+            
+            .thank-you-message {
+                padding: 30px 20px;
+            }
         }
         
         @media (max-width: 480px) {
             body {
                 font-size: 1.05rem;
-                padding: 15px;
+                padding: 15px 10px;
             }
             
             .container {
-                padding: 30px 20px;
+                padding: 25px 15px;
+                border-radius: 16px;
             }
             
             .logo-container {
@@ -922,18 +947,31 @@
             
             h1 {
                 font-size: 1.9rem;
+                margin-bottom: 10px;
             }
             
             .tagline {
                 font-size: 1.05rem;
+                margin-top: 10px;
+            }
+            
+            .divider {
+                margin: 20px auto;
+                width: 80px;
             }
             
             .section-title {
                 font-size: 1.4rem;
+                margin: 30px 0 20px;
+            }
+            
+            .section-title::after {
+                width: 70px;
             }
             
             .link-card {
                 padding: 22px;
+                min-height: 110px;
             }
             
             .social-icon-container {
@@ -944,6 +982,20 @@
             
             .social-icon {
                 font-size: 1.5rem;
+            }
+            
+            .link-icon {
+                width: 50px;
+                height: 50px;
+                margin-right: 15px;
+            }
+            
+            .link-title {
+                font-size: 1.2rem;
+            }
+            
+            .link-subtitle {
+                font-size: 1.0rem;
             }
             
             .cta-header {
@@ -972,12 +1024,70 @@
             .class-time, .class-name {
                 font-size: 1.0rem;
             }
+            
+            .date-section {
+                margin: 0 0 15px auto;
+                padding: 8px 14px;
+                font-size: 1.0rem;
+            }
+            
+            .form-title {
+                font-size: 1.5rem;
+            }
+            
+            .partner-notice {
+                font-size: 1.05rem;
+            }
+            
+            .form-input, .form-select {
+                padding: 14px 18px;
+                font-size: 1.0rem;
+            }
+            
+            .submit-btn {
+                font-size: 1.05rem;
+                padding: 14px;
+            }
+            
+            .thank-you-message h3 {
+                font-size: 1.5rem;
+            }
+            
+            .thank-you-message p {
+                font-size: 1.05rem;
+            }
+            
+            .signature-container {
+                width: 250px;
+            }
+            
+            .signature-line {
+                width: 180px;
+            }
         }
         
-        a, button, .clickable, .location-icon {
+        /* Touch optimizations */
+        a, button, .clickable, .location-icon, .submit-btn, .form-input, .form-select {
             -webkit-tap-highlight-color: transparent;
             touch-action: manipulation;
             cursor: pointer;
+        }
+        
+        .form-input, .form-select {
+            min-height: 58px;
+        }
+        
+        .submit-btn {
+            min-height: 58px;
+        }
+        
+        /* Prevent zoom on input focus */
+        @media screen and (-webkit-min-device-pixel-ratio:0) {
+            select,
+            textarea,
+            input {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
@@ -1068,8 +1178,11 @@
               <a href="https://www.facebook.com/share/16jfEPvQbw/?mibextid=wwXIfr" class="location-icon facebook-icon" target="_blank" rel="noopener" title="Stardust Ballroom on Facebook" aria-label="Stardust Ballroom Facebook Page">
                 <i class="fab fa-facebook-f"></i>
               </a>
-              <!-- Fixed Google Maps link -->
-              <a href="https://www.google.com/maps/place/Stardust+Ballroom/@39.8696643,-75.0897707,17z/data=!3m1!4b1!4m6!3m5!1s0x89c6c6c6a9b3b3b7:0x3b3b3b3b3b3b3b3b!8m2!3d39.8696643!4d-75.0897707!16s%2Fg%2F1ptx8qj4r?entry=ttu" class="location-icon maps-icon" title="Directions to Stardust Ballroom" aria-label="Stardust Ballroom on Google Maps">
+              <!-- FIXED Google Maps link -->
+              <a href="https://www.google.com/maps/search/?api=1&query=Stardust+Ballroom+Bellmawr+NJ" 
+                 class="location-icon maps-icon" 
+                 title="Directions to Stardust Ballroom" 
+                 aria-label="Stardust Ballroom on Google Maps">
                 <i class="fas fa-map-marker-alt"></i>
               </a>
             </div>
@@ -1125,8 +1238,11 @@
               <a href="https://www.facebook.com/share/1F7HATupDw/?mibextid=wwXIfr" class="location-icon facebook-icon" target="_blank" rel="noopener" title="Let's Bailar Dance Studio on Facebook" aria-label="Let's Bailar Dance Studio Facebook Page">
                 <i class="fab fa-facebook-f"></i>
               </a>
-              <!-- Fixed Google Maps link -->
-              <a href="https://www.google.com/maps/place/Chinese+Association+of+Greater+Philadelphia/@39.9568721,-75.1566879,17z/data=!3m1!4b1!4m6!3m5!1s0x89c6c8b8a3b3b3b7:0x3b3b3b3b3b3b3b3b!8m2!3d39.9568721!4d-75.1566879!16s%2Fg%2F11b8f8f8f8?entry=ttu" class="location-icon maps-icon" title="Directions to Let's Bailar Dance Studio" aria-label="Let's Bailar Dance Studio on Google Maps">
+              <!-- FIXED Google Maps link -->
+              <a href="https://www.google.com/maps/search/?api=1&query=Chinese+Association+of+Greater+Philadelphia" 
+                 class="location-icon maps-icon" 
+                 title="Directions to Let's Bailar Dance Studio" 
+                 aria-label="Let's Bailar Dance Studio on Google Maps">
                 <i class="fas fa-map-marker-alt"></i>
               </a>
             </div>
@@ -1160,8 +1276,11 @@
               </div>
             </div>
             <div class="location-icons">
-              <!-- Fixed Google Maps link -->
-              <a href="https://www.google.com/maps/place/Estilo+Dance+Studio/@39.967409,-75.135408,17z/data=!3m1!4b1!4m6!3m5!1s0x89c6c8b8a3b3b3b7:0x3b3b3b3b3b3b3b3b!8m2!3d39.967409!4d-75.135408!16s%2Fg%2F11b8f8f8f8?entry=ttu" class="location-icon maps-icon" title="Directions to Estilo Dance Studio" aria-label="Estilo Dance Studio on Google Maps">
+              <!-- FIXED Google Maps link -->
+              <a href="https://www.google.com/maps/search/?api=1&query=Estilo+Dance+Studio+Fishtown+Philadelphia" 
+                 class="location-icon maps-icon" 
+                 title="Directions to Estilo Dance Studio" 
+                 aria-label="Estilo Dance Studio on Google Maps">
                 <i class="fas fa-map-marker-alt"></i>
               </a>
             </div>
