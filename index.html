@@ -728,17 +728,12 @@
             border-radius: 50px;
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(230, 126, 34, 0.15);
+            cursor: pointer;
         }
         
         .cta-action:hover {
             background: linear-gradient(135deg, #c14f00, #d3731f);
             transform: scale(1.02);
-        }
-        
-        .cta-action i {
-            margin-left: 8px;
-            font-size: 0.9rem;
-            animation: bounce 2s infinite;
         }
         
         .date-section {
@@ -942,6 +937,30 @@
             flex: 1;
         }
         
+        /* Screw down animation */
+        @keyframes screw-down {
+            0% { transform: rotate(0deg); }
+            50% { transform: rotate(180deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .screw-down-animation {
+            animation: screw-down 1.5s infinite;
+            display: inline-block;
+            margin-left: 8px;
+        }
+        
+        /* Enhanced registration highlight */
+        .registration-highlight {
+            animation: registrationPulse 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes registrationPulse {
+            0% { box-shadow: 0 0 0 0 rgba(230, 126, 34, 0.3); }
+            70% { box-shadow: 0 0 0 10px rgba(230, 126, 34, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(230, 126, 34, 0); }
+        }
+        
         @media (max-width: 768px) {
             .links-grid {
                 grid-template-columns: 1fr;
@@ -1135,8 +1154,8 @@
           6:30pm Intro to Salsa | 7:00pm Salsa Open Level | 8:00pm Bachata Open Level
         </div>
         
-        <div class="cta-action">
-          Register Now <i class="fas fa-arrow-down"></i>
+        <div class="cta-action" id="register-cta">
+          Register Now <span class="screw-down-animation">🔩</span>
         </div>
       </div>
       
@@ -1157,11 +1176,10 @@
               </div>
             </div>
             <div class="location-icons">
-              <a href="https://www.facebook.com/share/16jfEPvQbw/?mibextid=wwXIfr" class="location-icon facebook-icon" target="_blank">
+              <a href="https://www.facebook.com/share/16jfEPvQbw/?mibextid=wwXIfr" class="location-icon facebook-icon" target="_blank" rel="noopener" title="Stardust Ballroom on Facebook" aria-label="Stardust Ballroom Facebook Page">
                 <i class="fab fa-facebook-f"></i>
               </a>
-              <!-- Improved Google Maps link -->
-              <a href="https://maps.app.goo.gl/CZJiKgujUQ3bTdvK9?g_st=ic" class="location-icon maps-icon" target="_blank">
+              <a href="https://maps.app.goo.gl/CZJiKgujUQ3bTdvK9?g_st=ic" class="location-icon maps-icon" target="_blank" rel="noopener" title="Directions to Stardust Ballroom" aria-label="Stardust Ballroom on Google Maps">
                 <i class="fas fa-map-marker-alt"></i>
               </a>
             </div>
@@ -1214,11 +1232,10 @@
               </div>
             </div>
             <div class="location-icons">
-              <a href="https://www.facebook.com/share/1F7HATupDw/?mibextid=wwXIfr" class="location-icon facebook-icon" target="_blank">
+              <a href="https://www.facebook.com/share/1F7HATupDw/?mibextid=wwXIfr" class="location-icon facebook-icon" target="_blank" rel="noopener" title="Let's Bailar Dance Studio on Facebook" aria-label="Let's Bailar Dance Studio Facebook Page">
                 <i class="fab fa-facebook-f"></i>
               </a>
-              <!-- Improved Google Maps link -->
-              <a href="https://maps.app.goo.gl/fTCQrg3a66MFXeHy8?g_st=ic" class="location-icon maps-icon" target="_blank">
+              <a href="https://maps.app.goo.gl/fTCQrg3a66MFXeHy8?g_st=ic" class="location-icon maps-icon" target="_blank" rel="noopener" title="Directions to Let's Bailar Dance Studio" aria-label="Let's Bailar Dance Studio on Google Maps">
                 <i class="fas fa-map-marker-alt"></i>
               </a>
             </div>
@@ -1252,8 +1269,7 @@
               </div>
             </div>
             <div class="location-icons">
-              <!-- Improved Google Maps link -->
-              <a href="https://maps.app.goo.gl/chQAuZWuYNcoXdSTA?g_st=ic" class="location-icon maps-icon" target="_blank">
+              <a href="https://maps.app.goo.gl/chQAuZWuYNcoXdSTA?g_st=ic" class="location-icon maps-icon" target="_blank" rel="noopener" title="Directions to Estilo Dance Studio" aria-label="Estilo Dance Studio on Google Maps">
                 <i class="fas fa-map-marker-alt"></i>
               </a>
             </div>
@@ -1274,7 +1290,7 @@
         </div>
       </div>
       
-      <div class="registration-form">
+      <div class="registration-form" id="registration-form">
         <div class="form-title">Class Registration</div>
         <div class="partner-notice">No partner needed - come dance with us!</div>
         <form id="dance-registration">
@@ -1296,7 +1312,9 @@
           
           <div id="location-schedule-display"></div>
           
-          <button type="submit" class="submit-btn">Complete Registration</button>
+          <button type="submit" class="submit-btn">
+            Complete Registration <i class="fas fa-check-circle"></i>
+          </button>
         </form>
         
         <div id="thank-you-message" class="thank-you-message">
@@ -1620,12 +1638,33 @@
         setTimeout(() => { notification.remove(); }, 3000);
       }
       
+      // Enhanced registration flow
+      function initRegistrationFlow() {
+        const registerCta = document.getElementById('register-cta');
+        const registrationForm = document.getElementById('registration-form');
+        
+        registerCta.addEventListener('click', function() {
+          // Scroll to the registration form
+          registrationForm.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+          });
+          
+          // Add visual highlight
+          registrationForm.classList.add('registration-highlight');
+          setTimeout(() => {
+            registrationForm.classList.remove('registration-highlight');
+          }, 2000);
+        });
+      }
+      
       // Initialize the page
       function initPage() {
         updateCurrentDate();
         updateCTASection();
         updateScheduleDisplay();
         initForm();
+        initRegistrationFlow();
         
         // Update every minute
         setInterval(() => {
