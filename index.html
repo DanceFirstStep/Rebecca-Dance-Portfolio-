@@ -53,26 +53,38 @@
         
         .logo-container {
             position: relative;
-            width: 140px;
-            height: 140px;
+            width: 160px;
+            height: 160px;
             margin: 0 auto 25px;
             transition: transform 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         
         .logo-container:hover {
             transform: scale(1.04);
         }
         
+        .pulse-ring {
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            z-index: 0;
+            animation: pulse-ring 3s ease-out infinite;
+        }
+        
         .logo {
-            width: 100%;
-            height: 100%;
+            width: 140px;
+            height: 140px;
             background: linear-gradient(135deg, #d35400, #e67e22);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
-            overflow: hidden;
+            z-index: 2;
             box-shadow: 0 10px 30px rgba(230, 126, 34, 0.2);
             transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
@@ -86,6 +98,50 @@
         
         .logo:hover i {
             transform: scale(1.05);
+        }
+        
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(230, 126, 34, 0.4);
+                opacity: 0.8;
+            }
+            70% {
+                box-shadow: 0 0 0 20px rgba(230, 126, 34, 0);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(230, 126, 34, 0);
+                opacity: 0;
+            }
+        }
+        
+        .pulse-ring-2 {
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            z-index: 0;
+            animation: pulse-ring-2 3s ease-out infinite;
+            animation-delay: 1.5s;
+        }
+        
+        @keyframes pulse-ring-2 {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(230, 126, 34, 0.3);
+                opacity: 0.8;
+            }
+            70% {
+                box-shadow: 0 0 0 20px rgba(230, 126, 34, 0);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(230, 126, 34, 0);
+                opacity: 0;
+            }
         }
         
         h1 {
@@ -166,6 +222,7 @@
             cursor: pointer;
             transition: all 0.4s ease;
             box-shadow: 0 6px 22px rgba(0, 0, 0, 0.04);
+            text-decoration: none !important;
         }
         
         .link-card:hover {
@@ -192,12 +249,66 @@
             transition: all 0.3s ease;
         }
         
-        .facebook .link-icon {
+        .social-icon-container {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            border-radius: 14px;
+            margin-right: 20px;
+            flex-shrink: 0;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            animation: pulseSocial 3s infinite;
+        }
+        
+        .social-icon-container:hover {
+            animation: none;
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        @keyframes pulseSocial {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .social-icon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            z-index: 2;
+        }
+        
+        .social-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.9;
+            transition: all 0.5s ease;
+        }
+        
+        .social-icon-container:hover .social-gradient {
+            opacity: 1;
+        }
+        
+        .facebook-icon-container .social-gradient {
             background: linear-gradient(135deg, #1877f2, #3b5998);
         }
         
-        .instagram .link-icon {
-            background: linear-gradient(135deg, #e1306c, #c13584);
+        .instagram-icon-container .social-gradient {
+            background: linear-gradient(135deg, #e1306c, #c13584, #f56040, #f77737, #fcaf45, #ffdc80);
         }
         
         .stardust-icon {
@@ -213,7 +324,7 @@
         }
         
         .contact-icon {
-            background: linear-gradient(135deg, #2ac7c2, #3498db) !important;
+            background: linear-gradient(135deg, #d35400, #e67e22) !important;
         }
         
         .venmo .link-icon {
@@ -290,7 +401,7 @@
         }
         
         .bachata-text {
-            color: #9370DB;
+            color: #d35400;
             font-weight: 700;
             padding: 0 4px;
             border-radius: 3px;
@@ -559,7 +670,6 @@
             to { opacity: 0; bottom: -100px; }
         }
         
-        /* Optimized CTA Section Only */
         .class-cta-container {
             background: linear-gradient(135deg, #f9f7f3, #fdfcf9);
             border-radius: 16px;
@@ -680,12 +790,6 @@
             white-space: nowrap;
         }
         
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 4px 15px rgba(155, 89, 182, 0.25); }
-            50% { transform: scale(1.05); box-shadow: 0 6px 20px rgba(155, 89, 182, 0.35); }
-            100% { transform: scale(1); box-shadow: 0 4px 15px rgba(155, 89, 182, 0.25); }
-        }
-        
         .class-cta-container:before {
             content: '';
             position: absolute;
@@ -700,7 +804,6 @@
             filter: blur(8px);
         }
         
-        /* Enhanced Language Switcher at Bottom */
         .lang-switcher-container {
             display: flex;
             justify-content: center;
@@ -774,7 +877,6 @@
             transform: translateX(100%);
         }
         
-        /* Highlight for next class studio */
         .next-class-highlight {
             animation: pulse-border 2s infinite;
             border: 2px solid #e67e22;
@@ -787,7 +889,59 @@
             100% { border-color: #e67e22; }
         }
         
-        /* Media query adjustments */
+        .cta-highlight {
+            animation: ctaPulse 2s infinite;
+            border: 2px solid #e67e22;
+            box-shadow: 0 0 20px rgba(230, 126, 34, 0.3);
+        }
+        
+        @keyframes ctaPulse {
+            0% { transform: scale(1); box-shadow: 0 0 20px rgba(230, 126, 34, 0.3); }
+            50% { transform: scale(1.02); box-shadow: 0 0 30px rgba(230, 126, 34, 0.5); }
+            100% { transform: scale(1); box-shadow: 0 0 20px rgba(230, 126, 34, 0.3); }
+        }
+        
+        .location-icons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .location-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: white;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        
+        .location-icon:hover {
+            transform: scale(1.1);
+            opacity: 0.9;
+        }
+        
+        .facebook-icon {
+            background: #3b5998;
+        }
+        
+        .maps-icon {
+            background: #34a853;
+        }
+        
+        .studio-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .studio-name-address {
+            flex: 1;
+        }
+        
         @media (max-width: 768px) {
             .links-grid {
                 grid-template-columns: 1fr;
@@ -835,12 +989,22 @@
             }
             
             .logo-container {
+                width: 140px;
+                height: 140px;
+            }
+            
+            .logo {
                 width: 110px;
                 height: 110px;
             }
             
             .logo i {
                 font-size: 50px;
+            }
+            
+            .pulse-ring, .pulse-ring-2 {
+                width: 110px;
+                height: 110px;
             }
             
             h1 {
@@ -859,9 +1023,13 @@
                 padding: 22px;
             }
             
-            .link-icon {
+            .social-icon-container {
                 width: 50px;
                 height: 50px;
+                margin-right: 15px;
+            }
+            
+            .social-icon {
                 font-size: 1.5rem;
             }
             
@@ -897,12 +1065,20 @@
                 font-size: 0.9rem;
             }
         }
+        
+        a, button, .clickable, .location-icon {
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
   <div class="container">
     <div class="header-container">
       <div class="logo-container" id="logo-container">
+        <div class="pulse-ring"></div>
+        <div class="pulse-ring-2"></div>
         <div class="logo">
           <i class="fas fa-music"></i>
         </div>
@@ -915,34 +1091,39 @@
     <div class="content">
       <h2 class="section-title translatable" data-i18n="connectTitle">Connect With Me</h2>
       <div class="links-grid">
-        <div class="link-card clickable facebook" data-url="https://www.facebook.com/share/1AXtp11f9N/?mibextid=wwXIfr">
-          <div class="link-icon">
-            <i class="fab fa-facebook-f"></i>
+        <a href="https://www.facebook.com/share/1CdaS5Uj5P/?mibextid=wwXIfr" target="_blank" class="link-card facebook">
+          <div class="social-icon-container facebook-icon-container">
+            <div class="social-gradient"></div>
+            <div class="social-icon">
+              <i class="fab fa-facebook-f"></i>
+            </div>
           </div>
           <div class="link-text">
             <div class="link-title">Rebecca Bachata</div>
-            <div class="link-subtitle translatable" data-i18n="facebookSub">Facebook Profile</div>
+            <div class="link-subtitle translatable" data-i18n="facebookSub">Follow me on Facebook</div>
           </div>
-        </div>
+        </a>
         
-        <div class="link-card clickable instagram" data-url="https://www.instagram.com/rebecca_bachata?igsh=MWY1cHI4c2Z0a21zcw==">
-          <div class="link-icon">
-            <i class="fab fa-instagram"></i>
+        <a href="https://www.instagram.com/rebecca_bachata?igsh=MWY1cHI4c2Z0a21zcw==" target="_blank" class="link-card instagram">
+          <div class="social-icon-container instagram-icon-container">
+            <div class="social-gradient"></div>
+            <div class="social-icon">
+              <i class="fab fa-instagram"></i>
+            </div>
           </div>
           <div class="link-text">
             <div class="link-title translatable" data-i18n="instagramTitle">Instagram</div>
             <div class="link-subtitle">@rebecca_bachata</div>
           </div>
-        </div>
+        </a>
       </div>
       
       <div class="date-section" id="current-date-discreet">
-        <strong class="translatable" data-i18n="today">Today is:</strong> <span id="date-text">Thursday, July 24, 2025</span>
+        <strong class="translatable" data-i18n="today">Today is:</strong> <span id="date-text"></span>
       </div>
       
       <h2 class="section-title translatable" data-i18n="classesTitle">Upcoming Classes</h2>
       
-      <!-- Optimized CTA Section -->
       <div id="class-cta" class="class-cta-container">
         <div class="cta-header">
           <i class="fas fa-calendar-day pulse"></i>
@@ -962,17 +1143,27 @@
       <h3 class="section-title translatable" data-i18n="scheduleTitle">Class Schedule</h3>
       
       <div class="links-grid" id="schedule-grid">
-        <!-- Studio cards will be generated here -->
-        <div class="link-card clickable stardust next-class-highlight" 
+        <div class="link-card stardust" 
              data-studio="Stardust Ballroom" 
-             data-url="#"
              id="stardust-card">
           <div class="link-icon stardust-icon">
             <i class="fas fa-star"></i>
           </div>
           <div class="link-text">
-            <div class="link-title">Stardust Ballroom</div>
-            <div class="link-subtitle">Bellmawr, New Jersey</div>
+            <div class="studio-info">
+              <div class="studio-name-address">
+                <div class="link-title">Stardust Ballroom</div>
+                <div class="link-subtitle">Bellmawr, New Jersey</div>
+              </div>
+            </div>
+            <div class="location-icons">
+              <a href="https://www.facebook.com/share/16jfEPvQbw/?mibextid=wwXIfr" class="location-icon facebook-icon" target="_blank" data-platform="facebook">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="https://maps.app.goo.gl/CZJiKgujUQ3bTdvK9?g_st=ipc" class="location-icon maps-icon" data-platform="maps">
+                <i class="fas fa-map-marker-alt"></i>
+              </a>
+            </div>
             <div class="schedule-list">
               <div class="schedule-day-group" data-day="Monday">
                 <div class="schedule-day-header">Monday</div>
@@ -1008,16 +1199,27 @@
           </div>
         </div>
         
-        <div class="link-card clickable letsbailar" 
+        <div class="link-card letsbailar" 
              data-studio="Let's Bailar Dance Studio" 
-             data-url="#"
              id="letsbailar-card">
           <div class="link-icon letsbailar-icon">
             <i class="fas fa-city"></i>
           </div>
           <div class="link-text">
-            <div class="link-title">Let's Bailar Dance Studio</div>
-            <div class="link-subtitle">Philly - Chinese Assoc.</div>
+            <div class="studio-info">
+              <div class="studio-name-address">
+                <div class="link-title">Let's Bailar Dance Studio</div>
+                <div class="link-subtitle">Philly - Chinese Assoc.</div>
+              </div>
+            </div>
+            <div class="location-icons">
+              <a href="https://www.facebook.com/share/1F7HATupDw/?mibextid=wwXIfr" class="location-icon facebook-icon" target="_blank" data-platform="facebook">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="https://maps.app.goo.gl/fTCQrg3a66MFXeHy8?g_st=ipc" class="location-icon maps-icon" data-platform="maps">
+                <i class="fas fa-map-marker-alt"></i>
+              </a>
+            </div>
             <div class="schedule-list">
               <div class="schedule-day-group" data-day="Friday">
                 <div class="schedule-day-header">Friday</div>
@@ -1034,16 +1236,27 @@
           </div>
         </div>
         
-        <div class="link-card clickable estilo" 
+        <div class="link-card estilo" 
              data-studio="Estilo Dance Studio" 
-             data-url="#"
              id="estilo-card">
           <div class="link-icon estilo-icon">
             <i class="fas fa-building"></i>
           </div>
           <div class="link-text">
-            <div class="link-title">Estilo Dance Studio</div>
-            <div class="link-subtitle">Fishtown, Philadelphia</div>
+            <div class="studio-info">
+              <div class="studio-name-address">
+                <div class="link-title">Estilo Dance Studio</div>
+                <div class="link-subtitle">Fishtown, Philadelphia</div>
+              </div>
+            </div>
+            <div class="location-icons">
+              <a href="#" class="location-icon facebook-icon" data-nonfunctional="true">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="https://maps.app.goo.gl/chQAuZWuYNcoXdSTA?g_st=ipc" class="location-icon maps-icon" data-platform="maps">
+                <i class="fas fa-map-marker-alt"></i>
+              </a>
+            </div>
             <div class="schedule-list">
               <div class="schedule-day-group" data-day="Saturday">
                 <div class="schedule-day-header">Saturday</div>
@@ -1078,7 +1291,6 @@
               <option value="" class="translatable" data-i18n="selectLocation">Select class location</option>
               <option value="stardust" class="translatable" data-i18n="stardustOption">Stardust Ballroom</option>
               <option value="letsbailar" class="translatable" data-i18n="letsbailarOption">Let's Bailar</option>
-              <option value="estilo" class="translatable" data-i18n="estiloOption">Estilo Dance Studio</option>
             </select>
           </div>
           
@@ -1098,7 +1310,7 @@
       
       <h2 class="section-title translatable" data-i18n="paymentTitle">Payment Options</h2>
       <div class="links-grid">
-        <div class="link-card clickable venmo" data-url="https://venmo.com/code?user_id=2575920015605760344&created=1750346816">
+        <a href="https://venmo.com/code?user_id=2575920015605760344&created=1750346816" class="link-card venmo" target="_blank">
           <div class="link-icon">
             <i class="fab fa-vimeo-v"></i>
           </div>
@@ -1106,7 +1318,7 @@
             <div class="link-title translatable" data-i18n="venmoTitle">Venmo</div>
             <div class="link-subtitle translatable" data-i18n="venmoSub">Secure payment option</div>
           </div>
-        </div>
+        </a>
         
         <div class="link-card clickable cash">
           <div class="link-icon">
@@ -1121,7 +1333,7 @@
       
       <h2 class="section-title translatable" data-i18n="contactTitle">Contact Me</h2>
       <div class="links-grid">
-        <div class="link-card clickable contact" data-url="mailto:rebecca@bachata.com">
+        <a href="mailto:rebecca@bachata.com" class="link-card contact" target="_blank">
           <div class="link-icon contact-icon">
             <i class="fas fa-envelope"></i>
           </div>
@@ -1129,7 +1341,7 @@
             <div class="link-title translatable" data-i18n="inquiriesTitle">Professional Inquiries</div>
             <div class="link-subtitle translatable" data-i18n="inquiriesSub">Bookings and partnerships</div>
           </div>
-        </div>
+        </a>
       </div>
       
       <footer>
@@ -1140,7 +1352,6 @@
           <div class="signature-line" id="signature-line"></div>
         </div>
         
-        <!-- Enhanced Language Switcher at Bottom -->
         <div class="lang-switcher-container">
           <div class="lang-label translatable" data-i18n="language">Language</div>
           <div class="lang-switcher en">
@@ -1160,7 +1371,7 @@
           tagline: "Professional Bachata Instruction | Express Yourself Through Movement",
           today: "Today is:",
           connectTitle: "Connect With Me",
-          facebookSub: "Facebook Profile",
+          facebookSub: "Follow me on Facebook",
           instagramTitle: "Instagram",
           classesTitle: "Upcoming Classes",
           scheduleTitle: "Class Schedule",
@@ -1169,7 +1380,6 @@
           selectLocation: "Select class location",
           stardustOption: "Stardust Ballroom",
           letsbailarOption: "Let's Bailar",
-          estiloOption: "Estilo Dance Studio",
           submitBtn: "Complete Registration",
           paymentTitle: "Payment Options",
           venmoTitle: "Venmo",
@@ -1199,7 +1409,7 @@
           tagline: "Instrucción profesional de Bachata | Exprésate a través del movimiento",
           today: "Hoy es:",
           connectTitle: "Conéctate Conmigo",
-          facebookSub: "Perfil de Facebook",
+          facebookSub: "Sígueme en Facebook",
           instagramTitle: "Instagram",
           classesTitle: "Próximas Clases",
           scheduleTitle: "Horario de Clases",
@@ -1208,7 +1418,6 @@
           selectLocation: "Selecciona ubicación de clase",
           stardustOption: "Stardust Ballroom",
           letsbailarOption: "Let's Bailar",
-          estiloOption: "Estilo Dance Studio",
           submitBtn: "Completar Registro",
           paymentTitle: "Opciones de Pago",
           venmoTitle: "Venmo",
@@ -1256,6 +1465,55 @@
         }
       };
 
+      const classSchedule = [
+        { 
+          day: "Monday", 
+          dayIndex: 1,
+          studio: "Stardust Ballroom",
+          classes: [
+            "6:30pm Bachata Intro",
+            "7:00pm Bachata Fundamentals",
+            "8:00pm Bachata Next Level"
+          ],
+          locationId: "stardust-card",
+          endTime: 2100 // 9:00 PM cutoff
+        },
+        { 
+          day: "Thursday", 
+          dayIndex: 4,
+          studio: "Stardust Ballroom",
+          classes: [
+            "6:30pm Intro to Salsa",
+            "7:00pm Salsa Open Level",
+            "8:00pm Bachata Open Level"
+          ],
+          locationId: "stardust-card",
+          endTime: 2100 // 9:00 PM cutoff
+        },
+        { 
+          day: "Friday", 
+          dayIndex: 5,
+          studio: "Let's Bailar Dance Studio",
+          classes: [
+            "7:00pm Salsa",
+            "8:00pm Bachata"
+          ],
+          locationId: "letsbailar-card",
+          endTime: 2100 // 9:00 PM cutoff
+        },
+        { 
+          day: "Saturday", 
+          dayIndex: 6,
+          studio: "Estilo Dance Studio",
+          classes: [
+            "4:00pm Salsa",
+            "5:00pm Bachata"
+          ],
+          locationId: "estilo-card",
+          endTime: 1800 // 6:00 PM cutoff
+        }
+      ];
+
       let currentLang = 'en';
 
       function setLanguage(lang) {
@@ -1274,13 +1532,13 @@
         document.getElementById('lang-en').classList.toggle('active', lang === 'en');
         document.getElementById('lang-es').classList.toggle('active', lang === 'es');
         
-        // Update switcher visual state
         const switcher = document.querySelector('.lang-switcher');
         switcher.classList.toggle('en', lang === 'en');
         switcher.classList.toggle('es', lang === 'es');
         
         updateCurrentDate();
         updateCTASection();
+        updateScheduleDisplay();
       }
 
       document.getElementById('lang-en').addEventListener('click', () => setLanguage('en'));
@@ -1292,101 +1550,194 @@
       }
 
       function updateCurrentDate() {
-        const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
+        const now = new Date();
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
         const dateText = document.getElementById('date-text');
-        dateText.textContent = "Thursday, July 24, 2025";
+        dateText.textContent = now.toLocaleDateString(currentLang === 'es' ? 'es-ES' : 'en-US', options);
       }
 
       function getNextClassInfo() {
-        // For Thursday, July 24, 2025
+        const now = new Date();
+        const currentDayIndex = now.getDay(); 
+        const currentHours = now.getHours();
+        const currentMinutes = now.getMinutes();
+        const currentTime = currentHours * 100 + currentMinutes;
+        
+        // Find today's class if exists
+        const todayClass = classSchedule.find(s => s.dayIndex === currentDayIndex);
+        
+        // Check if today has class and current time is before studio's cutoff
+        if (todayClass && currentTime < todayClass.endTime) {
+          return {
+            day: todayClass.day,
+            studio: todayClass.studio,
+            schedule: todayClass.classes,
+            timePrefix: translations[currentLang].tonightText,
+            locationId: todayClass.locationId
+          };
+        }
+        
+        // Find next class in the same week
+        const futureClasses = classSchedule.filter(s => s.dayIndex > currentDayIndex);
+        
+        if (futureClasses.length > 0) {
+          const nextClass = futureClasses[0];
+          const dayDifference = nextClass.dayIndex - currentDayIndex;
+          let timePrefix = "";
+          
+          if (dayDifference === 1) {
+            timePrefix = translations[currentLang].tomorrowText;
+          } else if (dayDifference === 2) {
+            timePrefix = translations[currentLang].thisText + " " + dayTranslations[currentLang][nextClass.day];
+          } else {
+            timePrefix = translations[currentLang].nextText + " " + dayTranslations[currentLang][nextClass.day];
+          }
+          
+          return {
+            day: nextClass.day,
+            studio: nextClass.studio,
+            schedule: nextClass.classes,
+            timePrefix: timePrefix,
+            locationId: nextClass.locationId
+          };
+        }
+        
+        // If no future classes in same week, take first class of next week
+        const nextClass = classSchedule[0];
         return {
-          day: "Thursday",
-          studio: "Stardust Ballroom",
-          schedule: [
-            "6:30pm Intro to Salsa",
-            "7:00pm Salsa Open Level",
-            "8:00pm Bachata Open Level"
-          ],
-          isToday: true
+          day: nextClass.day,
+          studio: nextClass.studio,
+          schedule: nextClass.classes,
+          timePrefix: translations[currentLang].nextText + " " + dayTranslations[currentLang][nextClass.day],
+          locationId: nextClass.locationId
         };
       }
 
       function updateCTASection() {
         const nextClass = getNextClassInfo();
-        const dayName = dayTranslations[currentLang][nextClass.day];
-        const now = new Date();
-        const currentHours = now.getHours();
         
-        // Get text translations
-        const todayText = translations[currentLang].todayText;
-        const tomorrowText = translations[currentLang].tomorrowText;
-        const thisText = translations[currentLang].thisText;
-        const nextText = translations[currentLang].nextText;
-        const tonightText = translations[currentLang].tonightText;
+        const ctaTitle = document.getElementById('cta-title');
+        ctaTitle.innerHTML = `<span class="pulse">${nextClass.timePrefix}</span>: ${nextClass.studio}`;
         
-        let dayIndicator;
-        if (nextClass.isToday) {
-          dayIndicator = (currentHours >= 18) ? tonightText : todayText;
-        } else {
-          const daysUntil = 0; // For today
-          if (daysUntil === 1) {
-            dayIndicator = tomorrowText;
-          } else if (daysUntil < 7) {
-            dayIndicator = `${thisText} ${dayName}`;
-          } else {
-            dayIndicator = `${nextText} ${dayName}`;
-          }
-        }
-        
-        // Update the CTA title - simplified without "Join Us"
-        document.getElementById('cta-title').textContent = `${dayIndicator}: ${nextClass.studio}`;
-        
-        // Update the schedule
         document.getElementById('cta-schedule').textContent = nextClass.schedule.join(' | ');
         
-        // Highlight the relevant studio card
         document.querySelectorAll('.link-card').forEach(card => {
-          card.classList.remove('next-class-highlight');
+          card.classList.remove('next-class-highlight', 'cta-highlight');
         });
         
-        if (nextClass.studio === "Stardust Ballroom") {
-          document.getElementById('stardust-card').classList.add('next-class-highlight');
-        } else if (nextClass.studio === "Let's Bailar Dance Studio") {
-          document.getElementById('letsbailar-card').classList.add('next-class-highlight');
-        } else if (nextClass.studio === "Estilo Dance Studio") {
-          document.getElementById('estilo-card').classList.add('next-class-highlight');
+        const locationCard = document.getElementById(nextClass.locationId);
+        if (locationCard) {
+          locationCard.classList.add('next-class-highlight', 'cta-highlight');
+        }
+      }
+      
+      function updateScheduleDisplay() {
+        const now = new Date();
+        const currentDayIndex = now.getDay();
+        const currentHours = now.getHours();
+        const currentMinutes = now.getMinutes();
+        const currentTime = currentHours * 100 + currentMinutes;
+        
+        // Create a map of studios with their next class
+        const studioMap = {};
+        classSchedule.forEach(schedule => {
+          const locationId = schedule.locationId;
+          
+          // Calculate days until class
+          let daysUntil = schedule.dayIndex - currentDayIndex;
+          if (daysUntil < 0) daysUntil += 7;
+          
+          // Check if today's class has passed
+          if (daysUntil === 0 && currentTime >= schedule.endTime) {
+            daysUntil = 7; // Schedule for next week
+          }
+          
+          // If we haven't seen this studio or this class is sooner
+          if (!studioMap[locationId] || daysUntil < studioMap[locationId].daysUntil) {
+            studioMap[locationId] = {
+              daysUntil: daysUntil,
+              schedule: schedule
+            };
+          }
+        });
+        
+        // Convert to array and sort by days until next class
+        const sortedStudios = Object.values(studioMap).sort((a, b) => {
+          return a.daysUntil - b.daysUntil;
+        });
+        
+        // Reorder the cards in the schedule grid
+        const scheduleGrid = document.getElementById('schedule-grid');
+        const cards = Array.from(scheduleGrid.children);
+        
+        // Create a new array with the cards in the correct order
+        const orderedCards = sortedStudios.map(studio => {
+          return cards.find(card => card.id === studio.schedule.locationId);
+        });
+        
+        // Remove all existing cards
+        while (scheduleGrid.firstChild) {
+          scheduleGrid.removeChild(scheduleGrid.firstChild);
+        }
+        
+        // Add cards in new order
+        orderedCards.forEach(card => {
+          if (card) {
+            scheduleGrid.appendChild(card);
+          }
+        });
+      }
+
+      function handleElementClick(el) {
+        if (el.hasAttribute('data-nonfunctional')) {
+          return;
+        }
+        
+        const url = el.getAttribute('data-url') || el.getAttribute('href');
+        const platform = el.classList.contains('maps-icon') ? 'maps' : null;
+        
+        if (el.classList.contains('cash')) {
+          const cashNotification = document.createElement('div');
+          cashNotification.className = 'notification notification-success';
+          cashNotification.innerHTML = `
+            <i class="fas fa-money-bill-wave"></i>
+            ${translations[currentLang]['cashNotification']}
+          `;
+          document.body.appendChild(cashNotification);
+          
+          setTimeout(() => { 
+            cashNotification.remove(); 
+          }, 3000);
+        } 
+        else if (url && url !== '#') {
+          if (platform === 'maps') {
+            window.location.href = `comgooglemapsurl://${encodeURIComponent(url)}`;
+            
+            setTimeout(() => {
+              if (!document.hidden) {
+                window.open(url, '_blank');
+              }
+            }, 500);
+          } else {
+            window.open(url, '_blank');
+          }
         }
       }
 
-      const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
       function addClickHandlers() {
-        const clickableElements = document.querySelectorAll('.clickable');
+        const cashCard = document.querySelector('.link-card.cash');
+        cashCard.addEventListener('click', function(e) {
+          e.preventDefault();
+          handleElementClick(this);
+        });
         
-        clickableElements.forEach(el => {
-          el.addEventListener('click', function(e) {
-            const url = this.getAttribute('data-url');
-            
-            if (this.classList.contains('cash')) {
-              const cashNotification = document.createElement('div');
-              cashNotification.className = 'notification notification-success';
-              cashNotification.innerHTML = `
-                <i class="fas fa-money-bill-wave"></i>
-                ${translations[currentLang]['cashNotification']}
-              `;
-              document.body.appendChild(cashNotification);
-              
-              setTimeout(() => { 
-                cashNotification.remove(); 
-              }, 3000);
-            } 
-            else if (url) {
-              setTimeout(() => { window.open(url, '_blank'); }, 300);
-            }
+        document.querySelectorAll('.location-icon').forEach(icon => {
+          icon.addEventListener('click', function(e) {
+            e.preventDefault();
+            handleElementClick(this);
           });
         });
         
-        // Update CTA click handler
         const ctaContainer = document.getElementById('class-cta');
         ctaContainer.addEventListener('click', function() {
           document.getElementById('location').value = 'stardust';
@@ -1402,11 +1753,25 @@
           }
         });
       }
+      
+      function showNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.className = `notification notification-${type}`;
+        notification.innerHTML = `<i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i> ${message}`;
+        document.body.appendChild(notification);
+        setTimeout(() => { notification.remove(); }, 3000);
+      }
 
       function initPage() {
         updateCurrentDate();
         updateCTASection();
+        updateScheduleDisplay();
         addClickHandlers();
+        
+        setInterval(() => {
+          updateCTASection();
+          updateScheduleDisplay();
+        }, 60000);
         
         const registrationForm = document.getElementById('dance-registration');
         const thankYouMessage = document.getElementById('thank-you-message');
@@ -1476,14 +1841,6 @@
             );
           }, 1000);
         });
-      }
-
-      function showNotification(message, type) {
-        const notification = document.createElement('div');
-        notification.className = `notification notification-${type}`;
-        notification.innerHTML = `<i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i> ${message}`;
-        document.body.appendChild(notification);
-        setTimeout(() => { notification.remove(); }, 3000);
       }
 
       initPage();
