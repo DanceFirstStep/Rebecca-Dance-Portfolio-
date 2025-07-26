@@ -322,6 +322,10 @@
             background: linear-gradient(135deg, #2ac7c2, #1a8d88) !important;
         }
         
+        .serrata-icon {
+            background: linear-gradient(135deg, #3498db, #8e44ad) !important;
+        }
+        
         .contact-icon {
             background: linear-gradient(135deg, #d35400, #e67e22) !important;
         }
@@ -419,17 +423,6 @@
             padding: 3px 8px;
             margin-right: -8px;
             position: relative;
-        }
-        
-        .next-class .schedule-day-header::after {
-            content: '↑';
-            position: absolute;
-            right: 8px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #e67e22;
-            font-weight: bold;
-            animation: bounce 2s infinite;
         }
         
         .registration-form {
@@ -750,11 +743,6 @@
             color: #263445;
         }
         
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-3px); }
-        }
-        
         @keyframes pulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.03); }
@@ -765,10 +753,11 @@
             animation: pulse 1.5s infinite;
         }
         
+        /* Improved badge positioning outside the card */
         .new-class-badge {
             position: absolute;
-            top: 10px;
-            right: 10px;
+            top: -15px;
+            right: -5px;
             background: linear-gradient(135deg, #9b59b6, #8e44ad);
             color: white;
             font-size: 0.75rem;
@@ -776,9 +765,17 @@
             padding: 5px 12px;
             border-radius: 20px;
             box-shadow: 0 4px 15px rgba(155, 89, 182, 0.25);
-            z-index: 2;
+            z-index: 3;
             animation: pulse 2s infinite;
             white-space: nowrap;
+            transform: rotate(15deg);
+        }
+        
+        /* Add space for the badge */
+        .link-card.serrata {
+            position: relative;
+            overflow: visible;
+            margin-top: 25px;
         }
         
         .class-cta-container:before {
@@ -912,6 +909,17 @@
             
             .thank-you-message {
                 padding: 30px 20px;
+            }
+            
+            /* Mobile adjustments for badge */
+            .link-card.serrata {
+                margin-top: 20px;
+            }
+            .new-class-badge {
+                top: -12px;
+                right: -5px;
+                font-size: 0.7rem;
+                padding: 4px 10px;
             }
         }
         
@@ -1064,6 +1072,17 @@
             .signature-line {
                 width: 180px;
             }
+            
+            /* Small screen badge adjustments */
+            .link-card.serrata {
+                margin-top: 18px;
+            }
+            .new-class-badge {
+                top: -10px;
+                right: -5px;
+                font-size: 0.65rem;
+                padding: 3px 8px;
+            }
         }
         
         /* Touch optimizations */
@@ -1178,7 +1197,6 @@
               <a href="https://www.facebook.com/share/16jfEPvQbw/?mibextid=wwXIfr" class="location-icon facebook-icon" target="_blank" rel="noopener" title="Stardust Ballroom on Facebook" aria-label="Stardust Ballroom Facebook Page">
                 <i class="fab fa-facebook-f"></i>
               </a>
-              <!-- FIXED Google Maps link -->
               <a href="https://www.google.com/maps/search/?api=1&query=Stardust+Ballroom+Bellmawr+NJ" 
                  class="location-icon maps-icon" 
                  title="Directions to Stardust Ballroom" 
@@ -1202,7 +1220,7 @@
                   <span class="class-name"><span class="bachata-text">Bachata</span> Next Level</span>
                 </div>
               </div>
-              <div class="schedule-day-group next-class" data-day="Thursday">
+              <div class="schedule-day-group" data-day="Thursday">
                 <div class="schedule-day-header">Thursday</div>
                 <div class="schedule-class">
                   <span class="class-time">6:30pm</span>
@@ -1238,7 +1256,6 @@
               <a href="https://www.facebook.com/share/1F7HATupDw/?mibextid=wwXIfr" class="location-icon facebook-icon" target="_blank" rel="noopener" title="Let's Bailar Dance Studio on Facebook" aria-label="Let's Bailar Dance Studio Facebook Page">
                 <i class="fab fa-facebook-f"></i>
               </a>
-              <!-- FIXED Google Maps link -->
               <a href="https://www.google.com/maps/search/?api=1&query=Chinese+Association+of+Greater+Philadelphia" 
                  class="location-icon maps-icon" 
                  title="Directions to Let's Bailar Dance Studio" 
@@ -1276,7 +1293,6 @@
               </div>
             </div>
             <div class="location-icons">
-              <!-- FIXED Google Maps link -->
               <a href="https://www.google.com/maps/search/?api=1&query=Estilo+Dance+Studio+Fishtown+Philadelphia" 
                  class="location-icon maps-icon" 
                  title="Directions to Estilo Dance Studio" 
@@ -1299,6 +1315,58 @@
             </div>
           </div>
         </div>
+        
+        <!-- Serrata Studio Card with repositioned badge -->
+        <div class="link-card serrata" 
+             data-studio="Serrata Studio" 
+             id="serrata-card">
+          <div class="new-class-badge">August Classes</div>
+          <div class="link-icon serrata-icon">
+            <i class="fas fa-building"></i>
+          </div>
+          <div class="link-text">
+            <div class="studio-info">
+              <div class="studio-name-address">
+                <div class="link-title">Serrata Studio</div>
+                <div class="link-subtitle">7157 Frankford Ave, Philly</div>
+              </div>
+            </div>
+            <div class="location-icons">
+              <a href="https://maps.app.goo.gl/5QJHojrHSmQzNF5w6?g_st=ipc" 
+                 class="location-icon maps-icon" 
+                 target="_blank" 
+                 title="Directions to Serrata Studio" 
+                 aria-label="Serrata Studio on Google Maps">
+                <i class="fas fa-map-marker-alt"></i>
+              </a>
+            </div>
+            <div class="schedule-list">
+              <div class="schedule-day-group" data-day="Wednesday">
+                <div class="schedule-day-header">Wednesday</div>
+                <div class="schedule-class">
+                  <span class="class-time">7:15pm</span>
+                  <span class="class-name"><span class="salsa-text">Salsa</span></span>
+                </div>
+                <div class="schedule-class">
+                  <span class="class-time">8:15pm</span>
+                  <span class="class-name"><span class="bachata-text">Bachata</span></span>
+                </div>
+              </div>
+              <div class="schedule-day-group" data-day="Saturday">
+                <div class="schedule-day-header">Saturday</div>
+                <div class="schedule-class">
+                  <span class="class-time">10:30am</span>
+                  <span class="class-name"><span class="bachata-text">Bachata</span></span>
+                </div>
+                <div class="schedule-class">
+                  <span class="class-time">11:30am</span>
+                  <span class="class-name"><span class="salsa-text">Salsa</span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End of Serrata Studio Card -->
       </div>
       
       <div class="registration-form" id="registration-form">
@@ -1318,6 +1386,8 @@
               <option value="">Select class location</option>
               <option value="stardust">Stardust Ballroom</option>
               <option value="letsbailar">Let's Bailar</option>
+              <option value="estilo">Estilo Dance Studio</option>
+              <option value="serrata">Serrata Studio</option>
             </select>
           </div>
           
@@ -1406,7 +1476,7 @@
             "8:00pm Bachata Next Level"
           ],
           locationId: "stardust-card",
-          endTime: 2100 // 9:00 PM cutoff
+          endTime: 2100
         },
         { 
           day: "Thursday", 
@@ -1418,7 +1488,7 @@
             "8:00pm Bachata Open Level"
           ],
           locationId: "stardust-card",
-          endTime: 2100 // 9:00 PM cutoff
+          endTime: 2100
         },
         { 
           day: "Friday", 
@@ -1429,7 +1499,7 @@
             "8:00pm Bachata"
           ],
           locationId: "letsbailar-card",
-          endTime: 2100 // 9:00 PM cutoff
+          endTime: 2100
         },
         { 
           day: "Saturday", 
@@ -1440,7 +1510,29 @@
             "5:00pm Bachata"
           ],
           locationId: "estilo-card",
-          endTime: 1800 // 6:00 PM cutoff
+          endTime: 1800
+        },
+        { 
+          day: "Wednesday", 
+          dayIndex: 3,
+          studio: "Serrata Studio",
+          classes: [
+            "7:15pm Salsa",
+            "8:15pm Bachata"
+          ],
+          locationId: "serrata-card",
+          endTime: 2200
+        },
+        { 
+          day: "Saturday", 
+          dayIndex: 6,
+          studio: "Serrata Studio",
+          classes: [
+            "10:30am Bachata",
+            "11:30am Salsa"
+          ],
+          locationId: "serrata-card",
+          endTime: 1300
         }
       ];
 
