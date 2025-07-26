@@ -683,13 +683,6 @@
             border: 1px solid #e8e4dc;
             position: relative;
             overflow: hidden;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .class-cta-container:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
         }
         
         .cta-header {
@@ -729,6 +722,10 @@
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(230, 126, 34, 0.15);
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
         
         .cta-action:hover {
@@ -799,101 +796,27 @@
             filter: blur(8px);
         }
         
-        .lang-switcher-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 35px;
-            padding-top: 25px;
-            border-top: 1px solid rgba(0,0,0,0.05);
+        /* Gentle arrow animation */
+        @keyframes gentle-bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-2px); }
         }
         
-        .lang-switcher {
-            display: flex;
-            gap: 0;
-            background: #f9f9f9;
-            border-radius: 40px;
-            padding: 5px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            position: relative;
-            z-index: 20;
-            border: 1px solid rgba(0,0,0,0.05);
+        .down-arrow {
+            animation: gentle-bounce 2s infinite;
+            display: inline-block;
+            font-size: 0.9em;
         }
         
-        .lang-btn {
-            background: transparent;
-            border: none;
-            color: #555;
-            border-radius: 40px;
-            padding: 10px 30px;
-            font-size: 1.05rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            position: relative;
-            z-index: 2;
+        /* Enhanced registration highlight */
+        .registration-highlight {
+            animation: registrationPulse 1.5s ease-in-out infinite;
         }
         
-        .lang-btn.active {
-            background: linear-gradient(135deg, #d35400, #e67e22);
-            color: white;
-            box-shadow: 0 4px 12px rgba(230, 126, 34, 0.2);
-        }
-        
-        .lang-btn:not(.active):hover {
-            color: #e67e22;
-        }
-        
-        .lang-label {
-            position: absolute;
-            top: -28px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: #e67e22;
-            white-space: nowrap;
-        }
-        
-        .lang-switcher:after {
-            content: '';
-            position: absolute;
-            top: 5px;
-            left: 5px;
-            height: calc(100% - 10px);
-            width: calc(50% - 5px);
-            background: white;
-            border-radius: 40px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            z-index: 1;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        
-        .lang-switcher.es:after {
-            transform: translateX(100%);
-        }
-        
-        .next-class-highlight {
-            animation: pulse-border 2s infinite;
-            border: 2px solid #e67e22;
-            box-shadow: 0 0 15px rgba(230, 126, 34, 0.4);
-        }
-        
-        @keyframes pulse-border {
-            0% { border-color: #e67e22; }
-            50% { border-color: #d35400; }
-            100% { border-color: #e67e22; }
-        }
-        
-        .cta-highlight {
-            animation: ctaPulse 2s infinite;
-            border: 2px solid #e67e22;
-            box-shadow: 0 0 20px rgba(230, 126, 34, 0.3);
-        }
-        
-        @keyframes ctaPulse {
-            0% { transform: scale(1); box-shadow: 0 0 20px rgba(230, 126, 34, 0.3); }
-            50% { transform: scale(1.02); box-shadow: 0 0 30px rgba(230, 126, 34, 0.5); }
-            100% { transform: scale(1); box-shadow: 0 0 20px rgba(230, 126, 34, 0.3); }
+        @keyframes registrationPulse {
+            0% { box-shadow: 0 0 0 0 rgba(230, 126, 34, 0.3); }
+            70% { box-shadow: 0 0 0 10px rgba(230, 126, 34, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(230, 126, 34, 0); }
         }
         
         .location-icons {
@@ -937,30 +860,6 @@
             flex: 1;
         }
         
-        /* Screw down animation */
-        @keyframes screw-down {
-            0% { transform: rotate(0deg); }
-            50% { transform: rotate(180deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .screw-down-animation {
-            animation: screw-down 1.5s infinite;
-            display: inline-block;
-            margin-left: 8px;
-        }
-        
-        /* Enhanced registration highlight */
-        .registration-highlight {
-            animation: registrationPulse 1.5s ease-in-out infinite;
-        }
-        
-        @keyframes registrationPulse {
-            0% { box-shadow: 0 0 0 0 rgba(230, 126, 34, 0.3); }
-            70% { box-shadow: 0 0 0 10px rgba(230, 126, 34, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(230, 126, 34, 0); }
-        }
-        
         @media (max-width: 768px) {
             .links-grid {
                 grid-template-columns: 1fr;
@@ -988,11 +887,6 @@
             }
             
             .cta-action {
-                font-size: 0.95rem;
-            }
-            
-            .lang-btn {
-                padding: 10px 25px;
                 font-size: 0.95rem;
             }
         }
@@ -1078,11 +972,6 @@
             .class-time, .class-name {
                 font-size: 1.0rem;
             }
-            
-            .lang-btn {
-                padding: 8px 20px;
-                font-size: 0.9rem;
-            }
         }
         
         a, button, .clickable, .location-icon {
@@ -1155,7 +1044,7 @@
         </div>
         
         <div class="cta-action" id="register-cta">
-          Register Now <span class="screw-down-animation">🔩</span>
+          Register Now <span class="down-arrow"><i class="fas fa-arrow-down"></i></span>
         </div>
       </div>
       
@@ -1179,7 +1068,8 @@
               <a href="https://www.facebook.com/share/16jfEPvQbw/?mibextid=wwXIfr" class="location-icon facebook-icon" target="_blank" rel="noopener" title="Stardust Ballroom on Facebook" aria-label="Stardust Ballroom Facebook Page">
                 <i class="fab fa-facebook-f"></i>
               </a>
-              <a href="https://maps.app.goo.gl/CZJiKgujUQ3bTdvK9?g_st=ic" class="location-icon maps-icon" target="_blank" rel="noopener" title="Directions to Stardust Ballroom" aria-label="Stardust Ballroom on Google Maps">
+              <!-- Updated Google Maps link -->
+              <a href="https://maps.app.goo.gl/rfVq8Sd2dSUARpkG6?g_st=ipc" class="location-icon maps-icon" target="_blank" rel="noopener" title="Directions to Stardust Ballroom" aria-label="Stardust Ballroom on Google Maps">
                 <i class="fas fa-map-marker-alt"></i>
               </a>
             </div>
@@ -1235,7 +1125,8 @@
               <a href="https://www.facebook.com/share/1F7HATupDw/?mibextid=wwXIfr" class="location-icon facebook-icon" target="_blank" rel="noopener" title="Let's Bailar Dance Studio on Facebook" aria-label="Let's Bailar Dance Studio Facebook Page">
                 <i class="fab fa-facebook-f"></i>
               </a>
-              <a href="https://maps.app.goo.gl/fTCQrg3a66MFXeHy8?g_st=ic" class="location-icon maps-icon" target="_blank" rel="noopener" title="Directions to Let's Bailar Dance Studio" aria-label="Let's Bailar Dance Studio on Google Maps">
+              <!-- Updated Google Maps link -->
+              <a href="https://maps.app.goo.gl/J7sjqpBc77ak5mwi9?g_st=ipc" class="location-icon maps-icon" target="_blank" rel="noopener" title="Directions to Let's Bailar Dance Studio" aria-label="Let's Bailar Dance Studio on Google Maps">
                 <i class="fas fa-map-marker-alt"></i>
               </a>
             </div>
@@ -1269,7 +1160,8 @@
               </div>
             </div>
             <div class="location-icons">
-              <a href="https://maps.app.goo.gl/chQAuZWuYNcoXdSTA?g_st=ic" class="location-icon maps-icon" target="_blank" rel="noopener" title="Directions to Estilo Dance Studio" aria-label="Estilo Dance Studio on Google Maps">
+              <!-- Updated Google Maps link -->
+              <a href="https://maps.app.goo.gl/hQWcPp4paUURDFvg7?g_st=ipc" class="location-icon maps-icon" target="_blank" rel="noopener" title="Directions to Estilo Dance Studio" aria-label="Estilo Dance Studio on Google Maps">
                 <i class="fas fa-map-marker-alt"></i>
               </a>
             </div>
@@ -1647,14 +1539,8 @@
           // Scroll to the registration form
           registrationForm.scrollIntoView({
             behavior: 'smooth',
-            block: 'center'
+            block: 'start'
           });
-          
-          // Add visual highlight
-          registrationForm.classList.add('registration-highlight');
-          setTimeout(() => {
-            registrationForm.classList.remove('registration-highlight');
-          }, 2000);
         });
       }
       
