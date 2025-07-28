@@ -2,16 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rebecca Bachata | Professional Dance Instruction</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@350;400;500;600;700&family=Playfair+Display:wght@450;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: subpixel-antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         
         body {
@@ -19,170 +22,181 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px 15px;
+            padding: 25px 18px;
             overflow-x: hidden;
             position: relative;
-            color: #333;
-            background: linear-gradient(135deg, #f8f9fb, #f0f3f7);
-            line-height: 1.65;
+            color: #222;
+            background: linear-gradient(135deg, #f9fbfd, #f1f5fa);
+            line-height: 1.68;
             font-size: 1.08rem;
-            letter-spacing: 0.3px;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            letter-spacing: 0.35px;
         }
         
         .container {
             width: 100%;
-            max-width: 900px;
+            max-width: 920px;
             background: #ffffff;
-            border-radius: 18px;
+            border-radius: 20px;
             overflow: hidden;
             position: relative;
             z-index: 10;
             margin: 0;
-            padding: 35px 25px;
-            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(0, 0, 0, 0.03);
+            padding: 40px 30px;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+            border: 0.8px solid rgba(0, 0, 0, 0.04);
         }
         
         .header-container {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             position: relative;
         }
         
         .logo-container {
             position: relative;
-            width: 160px;
-            height: 160px;
-            margin: 0 auto 25px;
-            transition: transform 0.3s ease;
+            width: 190px;
+            height: 190px;
+            margin: 0 auto 30px;
             display: flex;
             justify-content: center;
             align-items: center;
-        }
-        
-        .logo-container:hover {
-            transform: scale(1.04);
-        }
-        
-        .pulse-ring {
-            position: absolute;
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            z-index: 0;
-            animation: pulse-ring 3s ease-out infinite;
         }
         
         .logo {
-            width: 140px;
-            height: 140px;
-            background: linear-gradient(135deg, #d35400, #e67e22);
+            width: 170px;
+            height: 170px;
+            background: linear-gradient(135deg, #d35400, #e67e22, #f39c12);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             z-index: 2;
-            box-shadow: 0 10px 30px rgba(230, 126, 34, 0.2);
+            box-shadow: 0 10px 30px rgba(230, 126, 34, 0.25);
             transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
         }
         
         .logo i {
-            font-size: 60px;
+            font-size: 75px;
             color: #fff;
             z-index: 2;
             transition: transform 0.5s ease;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
         }
         
         .logo:hover i {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
         
-        @keyframes pulse-ring {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(230, 126, 34, 0.4);
-                opacity: 0.8;
-            }
-            70% {
-                box-shadow: 0 0 0 20px rgba(230, 126, 34, 0);
-                opacity: 0;
-            }
-            100% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(230, 126, 34, 0);
-                opacity: 0;
-            }
-        }
-        
-        .pulse-ring-2 {
+        .logo::before {
+            content: '';
             position: absolute;
-            width: 140px;
-            height: 140px;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(230, 126, 34, 0.1), rgba(230, 126, 34, 0.2));
             border-radius: 50%;
-            z-index: 0;
-            animation: pulse-ring-2 3s ease-out infinite;
+            animation: rotate 22s linear infinite;
+            z-index: 1;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .radiating-ring {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 0.8px solid rgba(230, 126, 34, 0.3);
+            z-index: 1;
+        }
+        
+        .ring-1 {
+            animation: radiate 4.5s infinite ease-in-out;
+            animation-delay: 0.5s;
+        }
+        
+        .ring-2 {
+            animation: radiate 4.5s infinite ease-in-out;
+            animation-delay: 1.0s;
+        }
+        
+        .ring-3 {
+            animation: radiate 4.5s infinite ease-in-out;
             animation-delay: 1.5s;
         }
         
-        @keyframes pulse-ring-2 {
+        @keyframes radiate {
             0% {
                 transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(230, 126, 34, 0.3);
-                opacity: 0.8;
-            }
-            70% {
-                box-shadow: 0 0 0 20px rgba(230, 126, 34, 0);
-                opacity: 0;
+                opacity: 0.85;
             }
             100% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(230, 126, 34, 0);
+                transform: scale(1.6);
                 opacity: 0;
             }
+        }
+        
+        @keyframes gentle-beat {
+            0%, 100% { 
+                transform: scale(1); 
+                box-shadow: 0 10px 30px rgba(230, 126, 34, 0.25);
+            }
+            50% { 
+                transform: scale(1.015); 
+                box-shadow: 0 15px 35px rgba(230, 126, 34, 0.35);
+            }
+        }
+        
+        .logo {
+            animation: gentle-beat 4s infinite ease-in-out;
         }
         
         h1 {
-            font-size: 2.6rem;
+            font-size: 2.7rem;
             font-weight: 800;
-            margin-bottom: 15px;
-            letter-spacing: 0.5px;
-            color: #263445;
+            margin-bottom: 18px;
+            letter-spacing: 0.6px;
+            color: #222;
             position: relative;
             display: inline-block;
             font-family: 'Playfair Display', serif;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.05);
         }
         
         .tagline {
-            font-size: 1.3rem;
-            font-weight: 400;
-            color: #555;
-            margin: 15px auto 0;
-            max-width: 600px;
-            line-height: 1.7;
-            font-weight: 500;
+            font-size: 1.35rem;
+            font-weight: 520;
+            color: #444;
+            margin: 20px auto 0;
+            max-width: 650px;
+            line-height: 1.75;
         }
         
         .divider {
-            height: 4px;
-            width: 100px;
+            height: 3.5px;
+            width: 110px;
             background: linear-gradient(to right, #d35400, #e67e22);
             border-radius: 3px;
-            margin: 25px auto;
+            margin: 30px auto;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
         
         .section-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin: 40px 0 25px;
+            font-size: 1.9rem;
+            font-weight: 750;
+            margin: 48px 0 30px;
             text-align: center;
             position: relative;
             display: block;
             width: 100%;
-            color: #263445;
-            padding-bottom: 12px;
+            color: #222;
+            padding-bottom: 14px;
             font-family: 'Playfair Display', serif;
         }
         
@@ -192,85 +206,87 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
+            width: 90px;
+            height: 3.5px;
             background: linear-gradient(to right, #d35400, #e67e22);
             border-radius: 2px;
         }
         
         .content {
-            padding: 0 15px 10px;
+            padding: 0 18px 12px;
         }
         
         .links-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin: 30px 0;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 35px 0;
         }
         
         .link-card {
             background: #fff;
-            border-radius: 18px;
-            padding: 28px;
-            border: 1px solid #f0f2f5;
+            border-radius: 20px;
+            padding: 30px;
+            border: 0.8px solid #f0f2f5;
             display: flex;
             align-items: flex-start;
             position: relative;
             overflow: hidden;
-            min-height: 120px;
+            min-height: 130px;
             cursor: pointer;
-            transition: all 0.4s ease;
-            box-shadow: 0 6px 22px rgba(0, 0, 0, 0.04);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
             text-decoration: none !important;
         }
         
         .link-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-            border-color: rgba(230, 126, 34, 0.25);
+            transform: translateY(-5px);
+            box-shadow: 0 16px 38px rgba(0, 0, 0, 0.1);
+            border-color: rgba(230, 126, 34, 0.3);
         }
         
         .link-icon {
-            width: 60px;
-            height: 60px;
+            width: 65px;
+            height: 65px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 20px;
-            font-size: 1.8rem;
-            border-radius: 14px;
+            margin-right: 22px;
+            font-size: 1.9rem;
+            border-radius: 16px;
             flex-shrink: 0;
             color: white;
             background: #e67e22;
-            box-shadow: 0 5px 12px rgba(0,0,0,0.08);
+            box-shadow: 0 5px 14px rgba(0,0,0,0.09);
             position: relative;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: 0.8px solid rgba(0,0,0,0.03);
         }
         
         .social-icon-container {
             position: relative;
-            width: 60px;
-            height: 60px;
-            border-radius: 14px;
-            margin-right: 20px;
+            width: 65px;
+            height: 65px;
+            border-radius: 16px;
+            margin-right: 22px;
             flex-shrink: 0;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: all 0.4s ease;
-            animation: pulseSocial 3s infinite;
+            box-shadow: 0 5px 16px rgba(0,0,0,0.1);
+            transition: all 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            animation: pulseSocial 3.2s infinite;
+            border: 0.8px solid rgba(0,0,0,0.03);
         }
         
         .social-icon-container:hover {
             animation: none;
-            transform: scale(1.1);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transform: scale(1.08);
+            box-shadow: 0 8px 26px rgba(0,0,0,0.16);
         }
         
         @keyframes pulseSocial {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.03); }
+            50% { transform: scale(1.025); }
         }
         
         .social-icon {
@@ -282,7 +298,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
+            font-size: 1.9rem;
             color: white;
             z-index: 2;
         }
@@ -294,7 +310,7 @@
             width: 100%;
             height: 100%;
             z-index: 1;
-            opacity: 0.9;
+            opacity: 0.92;
             transition: all 0.5s ease;
         }
         
@@ -311,7 +327,7 @@
         }
         
         .stardust-icon {
-            background: linear-gradient(135deg, #d35400, #e67e22) !important;
+            background: linear-gradient(135deg, #d35400, #e67e22, #f39c12) !important;
         }
         
         .letsbailar-icon {
@@ -327,7 +343,7 @@
         }
         
         .contact-icon {
-            background: linear-gradient(135deg, #d35400, #e67e22) !important;
+            background: linear-gradient(135deg, #d35400, #e67e22, #f39c12) !important;
         }
         
         .venmo .link-icon {
@@ -343,57 +359,58 @@
         }
         
         .link-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: #263445;
-            letter-spacing: 0.3px;
+            font-size: 1.35rem;
+            font-weight: 650;
+            margin-bottom: 10px;
+            color: #222;
+            letter-spacing: 0.35px;
+            text-shadow: 0 0.5px 1px rgba(0,0,0,0.05);
         }
         
         .link-subtitle {
-            font-size: 1.05rem;
-            color: #555;
-            line-height: 1.5;
-            margin-bottom: 10px;
-            font-weight: 500;
+            font-size: 1.08rem;
+            color: #444;
+            line-height: 1.55;
+            margin-bottom: 12px;
+            font-weight: 480;
         }
         
         .schedule-list {
-            margin-top: 15px;
+            margin-top: 18px;
         }
         
         .schedule-day-group {
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             padding: 0;
         }
         
         .schedule-day-header {
-            font-weight: 700;
+            font-weight: 650;
             color: #e67e22;
-            margin-bottom: 10px;
-            padding-bottom: 3px;
-            border-bottom: 1px dashed #e0e0e0;
-            font-size: 1.1rem;
+            margin-bottom: 12px;
+            padding-bottom: 4px;
+            border-bottom: 0.8px dashed #e0e0e0;
+            font-size: 1.15rem;
         }
         
         .schedule-class {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 10px;
-            line-height: 1.6;
+            margin-bottom: 12px;
+            line-height: 1.65;
         }
         
         .class-time {
-            font-weight: 600;
-            min-width: 65px;
-            color: #263445;
-            font-size: 1.05rem;
+            font-weight: 620;
+            min-width: 70px;
+            color: #222;
+            font-size: 1.08rem;
         }
         
         .class-name {
             flex: 1;
-            padding-left: 10px;
-            font-size: 1.05rem;
+            padding-left: 12px;
+            font-size: 1.08rem;
         }
         
         .salsa-text {
@@ -411,40 +428,40 @@
         }
         
         .today .schedule-day-header {
-            background: linear-gradient(to right, rgba(230, 126, 34, 0.08), transparent);
-            border-radius: 4px;
-            padding: 3px 8px;
-            margin-right: -8px;
+            background: linear-gradient(to right, rgba(230, 126, 34, 0.1), transparent);
+            border-radius: 5px;
+            padding: 4px 10px;
+            margin-right: -10px;
         }
         
         .next-class .schedule-day-header {
-            background: linear-gradient(to right, rgba(230, 126, 34, 0.08), transparent);
-            border-radius: 4px;
-            padding: 3px 8px;
-            margin-right: -8px;
+            background: linear-gradient(to right, rgba(230, 126, 34, 0.1), transparent);
+            border-radius: 5px;
+            padding: 4px 10px;
+            margin-right: -10px;
             position: relative;
         }
         
         .registration-form {
             background: #fdfdfd;
-            border-radius: 18px;
-            padding: 35px 30px;
-            margin: 30px 0;
-            border: 1px solid #eee;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.03);
+            border-radius: 20px;
+            padding: 38px 35px;
+            margin: 35px 0;
+            border: 0.8px solid #eee;
+            box-shadow: 0 16px 45px rgba(0, 0, 0, 0.04);
             position: relative;
             overflow: hidden;
         }
         
         .form-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: #263445;
+            font-size: 1.9rem;
+            font-weight: 750;
+            margin-bottom: 25px;
+            color: #222;
             text-align: center;
             position: relative;
-            padding-bottom: 15px;
-            letter-spacing: 0.5px;
+            padding-bottom: 18px;
+            letter-spacing: 0.6px;
             font-family: 'Playfair Display', serif;
         }
         
@@ -454,99 +471,102 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
+            width: 110px;
+            height: 3.5px;
             background: linear-gradient(to right, #d35400, #e67e22);
             border-radius: 2px;
         }
         
         .partner-notice {
             text-align: center;
-            margin-bottom: 30px;
-            color: #555;
-            font-size: 1.15rem;
-            font-weight: 500;
+            margin-bottom: 35px;
+            color: #444;
+            font-size: 1.18rem;
+            font-weight: 520;
             display: block;
-            line-height: 1.7;
+            line-height: 1.75;
         }
         
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 28px;
             text-align: left;
             position: relative;
         }
         
         .form-input {
             width: 100%;
-            padding: 18px 22px;
-            border-radius: 12px;
-            border: 1px solid #e0e0e0;
+            padding: 20px 25px;
+            border-radius: 14px;
+            border: 0.8px solid #e0e0e0;
             background: #f9f9f9;
-            color: #333;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
+            color: #222;
+            font-size: 1.12rem;
+            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             -webkit-appearance: none;
             appearance: none;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.03);
         }
         
         .form-input:focus {
             outline: none;
             border-color: #e67e22;
             background: #fff;
-            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.12);
+            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.15), inset 0 1px 3px rgba(0,0,0,0.03);
         }
         
         .form-input::placeholder {
-            color: #888;
-            font-size: 1.05rem;
+            color: #777;
+            font-size: 1.08rem;
         }
         
         .form-select {
             width: 100%;
-            padding: 18px 22px;
-            border-radius: 12px;
-            border: 1px solid #e0e0e0;
+            padding: 20px 25px;
+            border-radius: 14px;
+            border: 0.8px solid #e0e0e0;
             background: #f9f9f9;
-            color: #333;
-            font-size: 1.1rem;
+            color: #222;
+            font-size: 1.12rem;
             appearance: none;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23d35400'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
-            background-position: right 18px center;
-            background-size: 20px;
-            transition: all 0.3s ease;
+            background-position: right 20px center;
+            background-size: 22px;
+            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             -webkit-appearance: none;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.03);
         }
         
         .form-select:focus {
             outline: none;
             border-color: #e67e22;
             background: #fff;
-            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.12);
+            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.15), inset 0 1px 3px rgba(0,0,0,0.03);
         }
         
         .submit-btn {
-            background: linear-gradient(135deg, #d35400, #e67e22);
+            background: linear-gradient(135deg, #d35400, #e67e22, #f39c12);
             color: #fff;
             border: none;
-            border-radius: 12px;
-            padding: 17px;
-            font-size: 1.2rem;
+            border-radius: 14px;
+            padding: 19px;
+            font-size: 1.25rem;
             font-weight: 700;
             cursor: pointer;
             width: 100%;
-            margin-top: 20px;
-            transition: all 0.3s ease;
+            margin-top: 25px;
+            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             position: relative;
             overflow: hidden;
             display: block;
-            letter-spacing: 0.5px;
-            box-shadow: 0 8px 25px rgba(230, 126, 34, 0.15);
+            letter-spacing: 0.6px;
+            box-shadow: 0 9px 28px rgba(230, 126, 34, 0.2);
+            border: 0.8px solid rgba(0,0,0,0.03);
         }
         
         .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(230, 126, 34, 0.25);
+            transform: translateY(-4px);
+            box-shadow: 0 14px 35px rgba(230, 126, 34, 0.3);
         }
         
         .submit-btn:active {
@@ -556,20 +576,20 @@
         .thank-you-message {
             display: none;
             text-align: center;
-            padding: 40px 30px;
-            border-radius: 18px;
+            padding: 45px 35px;
+            border-radius: 20px;
             background: #fff;
-            margin-top: 20px;
-            border: 1px solid #eee;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.02);
+            margin-top: 25px;
+            border: 0.8px solid #eee;
+            box-shadow: 0 16px 45px rgba(0,0,0,0.03);
         }
         
         .thank-you-message h3 {
-            font-size: 1.8rem;
-            color: #263445;
-            margin-bottom: 25px;
+            font-size: 1.9rem;
+            color: #222;
+            margin-bottom: 28px;
             position: relative;
-            padding-bottom: 15px;
+            padding-bottom: 18px;
             font-family: 'Playfair Display', serif;
         }
         
@@ -579,45 +599,45 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
+            width: 110px;
+            height: 3.5px;
             background: linear-gradient(to right, #d35400, #e67e22);
             border-radius: 2px;
         }
         
         .thank-you-message p {
-            font-size: 1.15rem;
-            margin-bottom: 30px;
-            color: #555;
-            line-height: 1.7;
+            font-size: 1.18rem;
+            margin-bottom: 35px;
+            color: #444;
+            line-height: 1.75;
         }
         
         footer {
-            margin-top: 40px;
-            padding: 30px 20px 20px;
+            margin-top: 45px;
+            padding: 35px 25px 25px;
             text-align: center;
-            color: #555;
-            font-size: 1.05rem;
-            border-top: 1px solid #eee;
-            line-height: 1.7;
+            color: #444;
+            font-size: 1.08rem;
+            border-top: 0.8px solid #eee;
+            line-height: 1.75;
             position: relative;
         }
         
         .signature-container {
-            margin: 30px auto 15px;
+            margin: 35px auto 18px;
             display: flex;
             justify-content: center;
             position: relative;
-            width: 300px;
-            height: 20px;
+            width: 320px;
+            height: 22px;
         }
         
         .signature-line {
-            width: 200px;
-            height: 2px;
+            width: 220px;
+            height: 2.5px;
             background: linear-gradient(to right, transparent, #d35400, #e67e22, transparent);
             position: relative;
-            transition: all 0.4s ease;
+            transition: all 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         
         .signature-line:hover {
@@ -627,19 +647,19 @@
         
         .notification {
             position: fixed;
-            bottom: 30px;
+            bottom: 35px;
             left: 50%;
             transform: translateX(-50%);
-            padding: 15px 30px;
+            padding: 18px 35px;
             border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 500;
+            font-size: 1.15rem;
+            font-weight: 520;
             z-index: 1000;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.14);
             animation: slideIn 0.5s ease-out, fadeOut 0.5s ease-in 2.5s forwards;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
         }
         
         .notification-success {
@@ -653,129 +673,128 @@
         }
         
         @keyframes slideIn {
-            from { bottom: -100px; opacity: 0; }
-            to { bottom: 30px; opacity: 1; }
+            from { bottom: -110px; opacity: 0; }
+            to { bottom: 35px; opacity: 1; }
         }
         
         @keyframes fadeOut {
             from { opacity: 1; }
-            to { opacity: 0; bottom: -100px; }
+            to { opacity: 0; bottom: -110px; }
         }
         
         .class-cta-container {
             background: linear-gradient(135deg, #f9f7f3, #fdfcf9);
-            border-radius: 16px;
-            padding: 25px 30px;
-            margin: 20px 0 25px;
+            border-radius: 18px;
+            padding: 28px 35px;
+            margin: 25px 0 30px;
             display: flex;
             flex-direction: column;
             color: #2c3e50;
             text-align: center;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
-            border: 1px solid #e8e4dc;
+            box-shadow: 0 9px 28px rgba(0, 0, 0, 0.06);
+            border: 0.8px solid #e8e4dc;
             position: relative;
             overflow: hidden;
         }
         
         .cta-header {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            letter-spacing: 0.3px;
+            font-size: 1.35rem;
+            font-weight: 680;
+            margin-bottom: 18px;
+            letter-spacing: 0.35px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 12px;
             color: #d35400;
         }
         
         .cta-header i {
-            font-size: 1.4rem;
+            font-size: 1.45rem;
             color: #d35400;
         }
         
         .cta-schedule {
-            background: rgba(230, 126, 34, 0.05);
-            border-radius: 10px;
-            padding: 12px 15px;
-            margin-bottom: 15px;
-            font-size: 0.95rem;
-            line-height: 1.5;
+            background: rgba(230, 126, 34, 0.07);
+            border-radius: 12px;
+            padding: 14px 18px;
+            margin-bottom: 18px;
+            font-size: 1.0rem;
+            line-height: 1.6;
             color: #2c3e50;
         }
         
         .cta-action {
-            font-size: 1.1rem;
-            font-weight: 600;
-            padding: 14px;
-            background: linear-gradient(135deg, #d35400, #e67e22);
+            font-size: 1.15rem;
+            font-weight: 620;
+            padding: 16px;
+            background: linear-gradient(135deg, #d35400, #e67e22, #f39c12);
             color: white;
             border-radius: 50px;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(230, 126, 34, 0.15);
+            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 6px 18px rgba(230, 126, 34, 0.18);
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 12px;
+            min-height: 60px;
         }
         
         .cta-action:hover {
             background: linear-gradient(135deg, #c14f00, #d3731f);
-            transform: scale(1.02);
+            transform: scale(1.025);
         }
         
         .date-section {
             text-align: right;
-            margin: 0 0 20px auto;
-            padding: 10px 16px;
-            background: rgba(230, 126, 34, 0.06);
-            border-radius: 12px;
+            margin: 0 0 25px auto;
+            padding: 12px 18px;
+            background: rgba(230, 126, 34, 0.08);
+            border-radius: 14px;
             display: inline-block;
             clear: both;
-            color: #555;
-            font-weight: 500;
-            font-size: 1.05rem;
+            color: #444;
+            font-weight: 520;
+            font-size: 1.08rem;
         }
         
         .date-section strong {
-            font-weight: 700;
-            color: #263445;
+            font-weight: 680;
+            color: #222;
         }
         
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.03); }
+            50% { transform: scale(1.025); }
             100% { transform: scale(1); }
         }
         
         .pulse {
-            animation: pulse 1.5s infinite;
+            animation: pulse 1.8s infinite;
         }
         
-        /* Improved badge positioning outside the card */
         .new-class-badge {
             position: absolute;
-            top: -15px;
-            right: -5px;
+            top: -16px;
+            right: -6px;
             background: linear-gradient(135deg, #9b59b6, #8e44ad);
             color: white;
-            font-size: 0.75rem;
-            font-weight: 600;
-            padding: 5px 12px;
-            border-radius: 20px;
-            box-shadow: 0 4px 15px rgba(155, 89, 182, 0.25);
+            font-size: 0.8rem;
+            font-weight: 620;
+            padding: 6px 14px;
+            border-radius: 22px;
+            box-shadow: 0 5px 18px rgba(155, 89, 182, 0.28);
             z-index: 3;
-            animation: pulse 2s infinite;
+            animation: pulse 2.2s infinite;
             white-space: nowrap;
             transform: rotate(15deg);
         }
         
-        /* Add space for the badge */
         .link-card.serrata {
             position: relative;
             overflow: visible;
-            margin-top: 25px;
+            margin-top: 30px;
         }
         
         .class-cta-container:before {
@@ -786,55 +805,54 @@
             right: -2px;
             bottom: -2px;
             background: linear-gradient(135deg, #d35400, #e67e22);
-            border-radius: 18px;
+            border-radius: 20px;
             z-index: -1;
             opacity: 0.1;
-            filter: blur(8px);
+            filter: blur(9px);
         }
         
-        /* Gentle arrow animation */
         @keyframes gentle-bounce {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-2px); }
+            50% { transform: translateY(-3px); }
         }
         
         .down-arrow {
-            animation: gentle-bounce 2s infinite;
+            animation: gentle-bounce 2.2s infinite;
             display: inline-block;
-            font-size: 0.9em;
+            font-size: 0.95em;
         }
         
-        /* Enhanced registration highlight */
         .registration-highlight {
-            animation: registrationPulse 1.5s ease-in-out infinite;
+            animation: registrationPulse 1.8s ease-in-out infinite;
         }
         
         @keyframes registrationPulse {
-            0% { box-shadow: 0 0 0 0 rgba(230, 126, 34, 0.3); }
-            70% { box-shadow: 0 0 0 10px rgba(230, 126, 34, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(230, 126, 34, 0.35); }
+            70% { box-shadow: 0 0 0 12px rgba(230, 126, 34, 0); }
             100% { box-shadow: 0 0 0 0 rgba(230, 126, 34, 0); }
         }
         
         .location-icons {
             display: flex;
-            gap: 10px;
-            margin-top: 15px;
+            gap: 12px;
+            margin-top: 18px;
         }
         
         .location-icon {
-            width: 32px;
-            height: 32px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 16px;
+            font-size: 17px;
             color: white;
-            transition: transform 0.3s ease, opacity 0.3s ease;
+            transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.35s ease;
+            min-width: 36px;
         }
         
         .location-icon:hover {
-            transform: scale(1.1);
+            transform: scale(1.12);
             opacity: 0.9;
         }
         
@@ -856,45 +874,221 @@
             flex: 1;
         }
         
+        .language-toggle {
+            margin: 25px auto 0;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+        
+        .lang-btn {
+            background: transparent;
+            border: 0.8px solid #ddd;
+            border-radius: 22px;
+            padding: 7px 18px;
+            font-size: 0.95rem;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            min-width: 100px;
+            min-height: 40px;
+        }
+        
+        .lang-btn.active {
+            background: linear-gradient(135deg, #d35400, #e67e22, #f39c12);
+            color: white;
+            border-color: #e67e22;
+        }
+        
+        .lang-btn:hover:not(.active) {
+            background: rgba(230, 126, 34, 0.12);
+            color: #d35400;
+        }
+        
         /* Mobile-specific enhancements */
-        @media (max-width: 768px) {
+        @media (max-width: 800px) {
             .links-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 25px;
             }
             
             h1 {
-                font-size: 2.2rem;
+                font-size: 2.4rem;
             }
             
             .tagline {
-                font-size: 1.15rem;
+                font-size: 1.2rem;
             }
             
             .section-title {
-                font-size: 1.6rem;
-                margin: 35px 0 20px;
+                font-size: 1.7rem;
+                margin: 40px 0 25px;
             }
             
             .cta-header {
+                font-size: 1.2rem;
+            }
+            
+            .cta-schedule {
+                font-size: 0.95rem;
+                padding: 12px;
+            }
+            
+            .cta-action {
+                font-size: 1.05rem;
+                padding: 14px;
+            }
+            
+            .registration-form {
+                padding: 30px 25px;
+            }
+            
+            .form-title {
+                font-size: 1.7rem;
+            }
+            
+            .form-input, .form-select {
+                padding: 18px 22px;
+                font-size: 1.08rem;
+            }
+            
+            .submit-btn {
+                padding: 17px;
+                font-size: 1.15rem;
+            }
+            
+            .thank-you-message {
+                padding: 35px 25px;
+            }
+            
+            .link-card.serrata {
+                margin-top: 25px;
+            }
+            .new-class-badge {
+                top: -14px;
+                right: -6px;
+                font-size: 0.75rem;
+                padding: 5px 12px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                font-size: 1.05rem;
+                padding: 18px 12px;
+            }
+            
+            .container {
+                padding: 30px 18px;
+                border-radius: 18px;
+            }
+            
+            .logo-container {
+                width: 160px;
+                height: 160px;
+            }
+            
+            .logo {
+                width: 140px;
+                height: 140px;
+            }
+            
+            .logo i {
+                font-size: 65px;
+            }
+            
+            h1 {
+                font-size: 2.1rem;
+                margin-bottom: 14px;
+            }
+            
+            .tagline {
                 font-size: 1.1rem;
+                margin-top: 12px;
+            }
+            
+            .divider {
+                margin: 25px auto;
+                width: 90px;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+                margin: 35px 0 25px;
+            }
+            
+            .section-title::after {
+                width: 80px;
+            }
+            
+            .link-card {
+                padding: 25px;
+                min-height: 120px;
+            }
+            
+            .social-icon-container {
+                width: 55px;
+                height: 55px;
+                margin-right: 18px;
+            }
+            
+            .social-icon {
+                font-size: 1.7rem;
+            }
+            
+            .link-icon {
+                width: 55px;
+                height: 55px;
+                margin-right: 18px;
+            }
+            
+            .link-title {
+                font-size: 1.25rem;
+            }
+            
+            .link-subtitle {
+                font-size: 1.05rem;
+            }
+            
+            .cta-header {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .cta-header i {
+                font-size: 1.25rem;
             }
             
             .cta-schedule {
                 font-size: 0.9rem;
-                padding: 10px;
+                padding: 10px 12px;
             }
             
             .cta-action {
                 font-size: 0.95rem;
+                padding: 12px;
             }
             
-            .registration-form {
-                padding: 25px 20px;
+            .schedule-day-header {
+                font-size: 1.1rem;
+            }
+            
+            .class-time, .class-name {
+                font-size: 1.05rem;
+            }
+            
+            .date-section {
+                margin: 0 0 18px auto;
+                padding: 10px 16px;
+                font-size: 1.05rem;
             }
             
             .form-title {
                 font-size: 1.6rem;
+            }
+            
+            .partner-notice {
+                font-size: 1.1rem;
             }
             
             .form-input, .form-select {
@@ -903,185 +1097,34 @@
             }
             
             .submit-btn {
-                padding: 15px;
                 font-size: 1.1rem;
-            }
-            
-            .thank-you-message {
-                padding: 30px 20px;
-            }
-            
-            /* Mobile adjustments for badge */
-            .link-card.serrata {
-                margin-top: 20px;
-            }
-            .new-class-badge {
-                top: -12px;
-                right: -5px;
-                font-size: 0.7rem;
-                padding: 4px 10px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            body {
-                font-size: 1.05rem;
-                padding: 15px 10px;
-            }
-            
-            .container {
-                padding: 25px 15px;
-                border-radius: 16px;
-            }
-            
-            .logo-container {
-                width: 140px;
-                height: 140px;
-            }
-            
-            .logo {
-                width: 110px;
-                height: 110px;
-            }
-            
-            .logo i {
-                font-size: 50px;
-            }
-            
-            .pulse-ring, .pulse-ring-2 {
-                width: 110px;
-                height: 110px;
-            }
-            
-            h1 {
-                font-size: 1.9rem;
-                margin-bottom: 10px;
-            }
-            
-            .tagline {
-                font-size: 1.05rem;
-                margin-top: 10px;
-            }
-            
-            .divider {
-                margin: 20px auto;
-                width: 80px;
-            }
-            
-            .section-title {
-                font-size: 1.4rem;
-                margin: 30px 0 20px;
-            }
-            
-            .section-title::after {
-                width: 70px;
-            }
-            
-            .link-card {
-                padding: 22px;
-                min-height: 110px;
-            }
-            
-            .social-icon-container {
-                width: 50px;
-                height: 50px;
-                margin-right: 15px;
-            }
-            
-            .social-icon {
-                font-size: 1.5rem;
-            }
-            
-            .link-icon {
-                width: 50px;
-                height: 50px;
-                margin-right: 15px;
-            }
-            
-            .link-title {
-                font-size: 1.2rem;
-            }
-            
-            .link-subtitle {
-                font-size: 1.0rem;
-            }
-            
-            .cta-header {
-                flex-direction: column;
-                gap: 6px;
-            }
-            
-            .cta-header i {
-                font-size: 1.2rem;
-            }
-            
-            .cta-schedule {
-                font-size: 0.85rem;
-                padding: 8px 10px;
-            }
-            
-            .cta-action {
-                font-size: 0.9rem;
-                padding: 10px;
-            }
-            
-            .schedule-day-header {
-                font-size: 1.05rem;
-            }
-            
-            .class-time, .class-name {
-                font-size: 1.0rem;
-            }
-            
-            .date-section {
-                margin: 0 0 15px auto;
-                padding: 8px 14px;
-                font-size: 1.0rem;
-            }
-            
-            .form-title {
-                font-size: 1.5rem;
-            }
-            
-            .partner-notice {
-                font-size: 1.05rem;
-            }
-            
-            .form-input, .form-select {
-                padding: 14px 18px;
-                font-size: 1.0rem;
-            }
-            
-            .submit-btn {
-                font-size: 1.05rem;
-                padding: 14px;
+                padding: 16px;
             }
             
             .thank-you-message h3 {
-                font-size: 1.5rem;
+                font-size: 1.6rem;
             }
             
             .thank-you-message p {
-                font-size: 1.05rem;
+                font-size: 1.1rem;
             }
             
             .signature-container {
-                width: 250px;
+                width: 270px;
             }
             
             .signature-line {
-                width: 180px;
+                width: 200px;
             }
             
-            /* Small screen badge adjustments */
             .link-card.serrata {
-                margin-top: 18px;
+                margin-top: 22px;
             }
             .new-class-badge {
-                top: -10px;
-                right: -5px;
-                font-size: 0.65rem;
-                padding: 3px 8px;
+                top: -12px;
+                right: -6px;
+                font-size: 0.7rem;
+                padding: 4px 10px;
             }
         }
         
@@ -1093,11 +1136,11 @@
         }
         
         .form-input, .form-select {
-            min-height: 58px;
+            min-height: 62px;
         }
         
         .submit-btn {
-            min-height: 58px;
+            min-height: 62px;
         }
         
         /* Prevent zoom on input focus */
@@ -1113,20 +1156,21 @@
 <body>
   <div class="container">
     <div class="header-container">
-      <div class="logo-container" id="logo-container">
-        <div class="pulse-ring"></div>
-        <div class="pulse-ring-2"></div>
+      <div class="logo-container">
+        <div class="radiating-ring ring-1"></div>
+        <div class="radiating-ring ring-2"></div>
+        <div class="radiating-ring ring-3"></div>
         <div class="logo">
           <i class="fas fa-music"></i>
         </div>
       </div>
-      <h1>Rebecca Bachata</h1>
+      <h1 id="main-title">Rebecca Bachata</h1>
       <div class="divider"></div>
-      <p class="tagline">Professional Bachata Instruction | Express Yourself Through Movement</p>
+      <p class="tagline" id="tagline">Professional Bachata Instruction | Express Yourself Through Movement</p>
     </div>
     
     <div class="content">
-      <h2 class="section-title">Connect With Me</h2>
+      <h2 class="section-title" id="connect-title">Connect With Me</h2>
       <div class="links-grid">
         <a href="https://www.facebook.com/share/1CdaS5Uj5P/?mibextid=wwXIfr" target="_blank" class="link-card facebook">
           <div class="social-icon-container facebook-icon-container">
@@ -1137,7 +1181,7 @@
           </div>
           <div class="link-text">
             <div class="link-title">Rebecca Bachata</div>
-            <div class="link-subtitle">Follow me on Facebook</div>
+            <div class="link-subtitle" id="facebook-sub">Follow me on Facebook</div>
           </div>
         </a>
         
@@ -1156,10 +1200,10 @@
       </div>
       
       <div class="date-section" id="current-date-discreet">
-        <strong>Today is:</strong> <span id="date-text"></span>
+        <strong id="today-label">Today is:</strong> <span id="date-text"></span>
       </div>
       
-      <h2 class="section-title">Upcoming Classes</h2>
+      <h2 class="section-title" id="upcoming-title">Upcoming Classes</h2>
       
       <div id="class-cta" class="class-cta-container">
         <div class="cta-header">
@@ -1173,11 +1217,11 @@
         </div>
         
         <div class="cta-action" id="register-cta">
-          Register Now <span class="down-arrow"><i class="fas fa-arrow-down"></i></span>
+          <span id="register-cta-text">Register Now</span> <span class="down-arrow"><i class="fas fa-arrow-down"></i></span>
         </div>
       </div>
       
-      <h3 class="section-title">Class Schedule</h3>
+      <h3 class="section-title" id="schedule-title">Class Schedule</h3>
       
       <div class="links-grid" id="schedule-grid">
         <div class="link-card stardust" 
@@ -1316,11 +1360,10 @@
           </div>
         </div>
         
-        <!-- Updated Serrata Studio Card -->
         <div class="link-card serrata" 
              data-studio="Serrata Studio" 
              id="serrata-card">
-          <div class="new-class-badge">August Classes</div>
+          <div class="new-class-badge" id="new-class-text">August Classes</div>
           <div class="link-icon serrata-icon">
             <i class="fas fa-building"></i>
           </div>
@@ -1332,7 +1375,6 @@
               </div>
             </div>
             <div class="location-icons">
-              <!-- Updated Facebook link -->
               <a href="https://www.facebook.com/share/16giYF2o67/?mibextid=wwXIfr" 
                  class="location-icon facebook-icon" 
                  target="_blank" 
@@ -1341,7 +1383,6 @@
                  aria-label="Serrata Studio Facebook Page">
                 <i class="fab fa-facebook-f"></i>
               </a>
-              <!-- Updated Google Maps link -->
               <a href="https://maps.app.goo.gl/FY4U7T8F5fs2nB2Q8?g_st=ipc" 
                  class="location-icon maps-icon" 
                  target="_blank" 
@@ -1376,12 +1417,11 @@
             </div>
           </div>
         </div>
-        <!-- End of Updated Serrata Studio Card -->
       </div>
       
       <div class="registration-form" id="registration-form">
-        <div class="form-title">Class Registration</div>
-        <div class="partner-notice">No partner needed - come dance with us!</div>
+        <div class="form-title" id="registration-title">Class Registration</div>
+        <div class="partner-notice" id="partner-text">No partner needed - come dance with us!</div>
         <form id="dance-registration">
           <div class="form-group">
             <input type="text" id="name" class="form-input" placeholder="Full Name" required>
@@ -1396,11 +1436,6 @@
               <option value="">Select class location</option>
               <option value="stardust">Stardust Ballroom</option>
               <option value="letsbailar">Let's Bailar</option>
-              <!-- 
-                IMPORTANT: Do NOT add Estilo Dance Studio to the registration form. 
-                It should only be displayed in the schedule section. 
-                This location does not require registration.
-              -->
               <option value="serrata">Serrata Studio</option>
             </select>
           </div>
@@ -1408,20 +1443,20 @@
           <div id="location-schedule-display"></div>
           
           <button type="submit" class="submit-btn">
-            Complete Registration <i class="fas fa-check-circle"></i>
+            <span id="register-button">Complete Registration</span> <i class="fas fa-check-circle"></i>
           </button>
         </form>
         
         <div id="thank-you-message" class="thank-you-message">
-          <h3>Thank You for Registering!</h3>
-          <p>We're excited to dance with you! Your spot is being saved.</p>
-          <button class="submit-btn" id="register-again-btn" style="margin-top: 20px;">
-            Register Another Person
+          <h3 id="thank-you-title">Thank You for Registering!</h3>
+          <p id="thank-you-text">We're excited to dance with you! Your spot is being saved.</p>
+          <button class="submit-btn" id="register-again-btn" style="margin-top: 25px;">
+            <span id="register-again-text">Register Another Person</span>
           </button>
         </div>
       </div>
       
-      <h2 class="section-title">Payment Options</h2>
+      <h2 class="section-title" id="payment-title">Payment Options</h2>
       <div class="links-grid">
         <a href="https://venmo.com/code?user_id=2575920015605760344&created=1750346816" class="link-card venmo" target="_blank">
           <div class="link-icon">
@@ -1429,7 +1464,7 @@
           </div>
           <div class="link-text">
             <div class="link-title">Venmo</div>
-            <div class="link-subtitle">Secure payment option</div>
+            <div class="link-subtitle" id="venmo-sub">Secure payment option</div>
           </div>
         </a>
         
@@ -1438,28 +1473,32 @@
             <i class="fas fa-money-bill-wave"></i>
           </div>
           <div class="link-text">
-            <div class="link-title">Cash</div>
-            <div class="link-subtitle">Pay at the studio</div>
+            <div class="link-title" id="cash-title">Cash</div>
+            <div class="link-subtitle" id="cash-sub">Pay at the studio</div>
           </div>
         </div>
       </div>
       
-      <h2 class="section-title">Contact Me</h2>
+      <h2 class="section-title" id="contact-title">Contact Me</h2>
       <div class="links-grid">
         <a href="mailto:rebecca@bachata.com" class="link-card contact" target="_blank">
           <div class="link-icon contact-icon">
             <i class="fas fa-envelope"></i>
           </div>
           <div class="link-text">
-            <div class="link-title">Professional Inquiries</div>
-            <div class="link-subtitle">Bookings and partnerships</div>
+            <div class="link-title" id="contact-title-text">Professional Inquiries</div>
+            <div class="link-subtitle" id="contact-subtitle">Bookings and partnerships</div>
           </div>
         </a>
       </div>
       
       <footer>
-        <p>© 2025 Rebecca Bachata | Professional Instruction</p>
-        <p>Dance is the poetry of the foot</p>
+        <div class="language-toggle" id="language-toggle">
+          <button class="lang-btn active" data-lang="en">English</button>
+          <button class="lang-btn" data-lang="es">Español</button>
+        </div>
+        <p id="copyright">© 2025 Rebecca Bachata | Professional Instruction</p>
+        <p id="quote">Dance is the poetry of the foot</p>
         
         <div class="signature-container">
           <div class="signature-line" id="signature-line"></div>
@@ -1471,11 +1510,148 @@
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       // Set current date
-      function updateCurrentDate() {
+      function updateCurrentDate(lang) {
         const now = new Date();
-        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const options = { 
+          weekday: 'long', 
+          year: 'numeric', 
+          month: 'long', 
+          day: 'numeric',
+          locale: lang === 'es' ? 'es-ES' : 'en-US'
+        };
         const dateText = document.getElementById('date-text');
-        dateText.textContent = now.toLocaleDateString('en-US', options);
+        dateText.textContent = now.toLocaleDateString(lang === 'es' ? 'es-ES' : 'en-US', options);
+      }
+      
+      // Language switch functionality
+      const languageToggle = document.getElementById('language-toggle');
+      const languageButtons = languageToggle.querySelectorAll('.lang-btn');
+      let currentLanguage = 'en';
+      
+      // Translations object
+      const translations = {
+        en: {
+          mainTitle: "Rebecca Bachata",
+          tagline: "Professional Bachata Instruction | Express Yourself Through Movement",
+          connectTitle: "Connect With Me",
+          facebookSub: "Follow me on Facebook",
+          todayLabel: "Today is:",
+          upcomingTitle: "Upcoming Classes",
+          registerCta: "Register Now",
+          scheduleTitle: "Class Schedule",
+          newClassText: "August Classes",
+          registrationTitle: "Class Registration",
+          partnerText: "No partner needed - come dance with us!",
+          namePlaceholder: "Full Name",
+          emailPlaceholder: "Email Address",
+          locationPlaceholder: "Select class location",
+          registerButton: "Complete Registration",
+          thankYouTitle: "Thank You for Registering!",
+          thankYouText: "We're excited to dance with you! Your spot is being saved.",
+          registerAgainText: "Register Another Person",
+          paymentTitle: "Payment Options",
+          venmoSub: "Secure payment option",
+          cashTitle: "Cash",
+          cashSub: "Pay at the studio",
+          contactTitle: "Contact Me",
+          contactTitleText: "Professional Inquiries",
+          contactSubtitle: "Bookings and partnerships",
+          copyright: "© 2025 Rebecca Bachata | Professional Instruction",
+          quote: "Dance is the poetry of the foot"
+        },
+        es: {
+          mainTitle: "Rebecca Bachata",
+          tagline: "Instrucción Profesional de Bachata | Exprésate a Través del Movimiento",
+          connectTitle: "Conéctate Conmigo",
+          facebookSub: "Sígueme en Facebook",
+          todayLabel: "Hoy es:",
+          upcomingTitle: "Próximas Clases",
+          registerCta: "Regístrate Ahora",
+          scheduleTitle: "Horario de Clases",
+          newClassText: "Clases de Agosto",
+          registrationTitle: "Registro de Clase",
+          partnerText: "No necesitas pareja - ¡Ven a bailar con nosotros!",
+          namePlaceholder: "Nombre Completo",
+          emailPlaceholder: "Correo Electrónico",
+          locationPlaceholder: "Selecciona la ubicación de la clase",
+          registerButton: "Completar Registro",
+          thankYouTitle: "¡Gracias por Registrarte!",
+          thankYouText: "¡Estamos emocionados de bailar contigo! Tu lugar está siendo reservado.",
+          registerAgainText: "Registrar Otra Persona",
+          paymentTitle: "Opciones de Pago",
+          venmoSub: "Opción de pago segura",
+          cashTitle: "Efectivo",
+          cashSub: "Paga en el estudio",
+          contactTitle: "Contáctame",
+          contactTitleText: "Consultas Profesionales",
+          contactSubtitle: "Reservas y colaboraciones",
+          copyright: "© 2025 Rebecca Bachata | Instrucción Profesional",
+          quote: "El baile es la poesía del pie"
+        }
+      };
+      
+      // Set language function
+      function setLanguage(lang) {
+        // Update UI
+        languageButtons.forEach(btn => {
+          if (btn.dataset.lang === lang) {
+            btn.classList.add('active');
+          } else {
+            btn.classList.remove('active');
+          }
+        });
+        
+        // Update content based on language
+        const langData = translations[lang];
+        
+        document.getElementById('main-title').textContent = langData.mainTitle;
+        document.getElementById('tagline').textContent = langData.tagline;
+        document.getElementById('connect-title').textContent = langData.connectTitle;
+        document.getElementById('facebook-sub').textContent = langData.facebookSub;
+        document.getElementById('today-label').textContent = langData.todayLabel;
+        document.getElementById('upcoming-title').textContent = langData.upcomingTitle;
+        document.getElementById('register-cta-text').textContent = langData.registerCta;
+        document.getElementById('schedule-title').textContent = langData.scheduleTitle;
+        document.getElementById('new-class-text').textContent = langData.newClassText;
+        document.getElementById('registration-title').textContent = langData.registrationTitle;
+        document.getElementById('partner-text').textContent = langData.partnerText;
+        document.getElementById('name').placeholder = langData.namePlaceholder;
+        document.getElementById('email').placeholder = langData.emailPlaceholder;
+        document.getElementById('location').querySelector('option[value=""]').textContent = langData.locationPlaceholder;
+        document.getElementById('register-button').textContent = langData.registerButton;
+        document.getElementById('thank-you-title').textContent = langData.thankYouTitle;
+        document.getElementById('thank-you-text').textContent = langData.thankYouText;
+        document.getElementById('register-again-text').textContent = langData.registerAgainText;
+        document.getElementById('payment-title').textContent = langData.paymentTitle;
+        document.getElementById('venmo-sub').textContent = langData.venmoSub;
+        document.getElementById('cash-title').textContent = langData.cashTitle;
+        document.getElementById('cash-sub').textContent = langData.cashSub;
+        document.getElementById('contact-title').textContent = langData.contactTitle;
+        document.getElementById('contact-title-text').textContent = langData.contactTitleText;
+        document.getElementById('contact-subtitle').textContent = langData.contactSubtitle;
+        document.getElementById('copyright').textContent = langData.copyright;
+        document.getElementById('quote').textContent = langData.quote;
+        
+        // Update date format
+        updateCurrentDate(lang);
+        
+        currentLanguage = lang;
+        localStorage.setItem('language', lang);
+      }
+      
+      // Event listeners for language buttons
+      languageButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          setLanguage(button.dataset.lang);
+        });
+      });
+      
+      // Check for saved language preference
+      const savedLanguage = localStorage.getItem('language');
+      if (savedLanguage) {
+        setLanguage(savedLanguage);
+      } else {
+        updateCurrentDate('en');
       }
       
       // Class schedule data
@@ -1567,7 +1743,7 @@
             day: todayClass.day,
             studio: todayClass.studio,
             schedule: todayClass.classes,
-            timePrefix: "Tonight",
+            timePrefix: currentLanguage === 'es' ? "Esta noche" : "Tonight",
             locationId: todayClass.locationId
           };
         }
@@ -1581,11 +1757,11 @@
           let timePrefix = "";
           
           if (dayDifference === 1) {
-            timePrefix = "Tomorrow";
+            timePrefix = currentLanguage === 'es' ? "Mañana" : "Tomorrow";
           } else if (dayDifference === 2) {
-            timePrefix = "This " + nextClass.day;
+            timePrefix = currentLanguage === 'es' ? "Este " : "This " + nextClass.day;
           } else {
-            timePrefix = "Next " + nextClass.day;
+            timePrefix = currentLanguage === 'es' ? "Próximo " : "Next " + nextClass.day;
           }
           
           return {
@@ -1603,7 +1779,7 @@
           day: nextClass.day,
           studio: nextClass.studio,
           schedule: nextClass.classes,
-          timePrefix: "Next " + nextClass.day,
+          timePrefix: currentLanguage === 'es' ? "Próximo " : "Next " + nextClass.day,
           locationId: nextClass.locationId
         };
       }
@@ -1709,37 +1885,39 @@
           const location = document.getElementById('location').value;
           
           if (!name.trim()) {
-            showNotification("Please enter your name", "info");
+            showNotification(currentLanguage === 'es' ? "Por favor ingresa tu nombre" : "Please enter your name", "info");
             return;
           }
           
           if (!email.trim()) {
-            showNotification("Please enter your email address", "info");
+            showNotification(currentLanguage === 'es' ? "Por favor ingresa tu correo electrónico" : "Please enter your email address", "info");
             return;
           }
           
           const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
           if (!emailRegex.test(email)) {
-            showNotification("Please enter a valid email address", "info");
+            showNotification(currentLanguage === 'es' ? "Por favor ingresa un correo electrónico válido" : "Please enter a valid email address", "info");
             return;
           }
           
           if (!location) {
-            showNotification("Please select a class location", "info");
+            showNotification(currentLanguage === 'es' ? "Por favor selecciona una ubicación" : "Please select a class location", "info");
             return;
           }
           
-          submitBtn.textContent = 'Processing...';
+          submitBtn.textContent = currentLanguage === 'es' ? 'Procesando...' : 'Processing...';
           submitBtn.disabled = true;
           
           setTimeout(function() {
             registrationForm.style.display = 'none';
             thankYouMessage.style.display = 'block';
             thankYouMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            submitBtn.textContent = 'Complete Registration';
+            submitBtn.textContent = translations[currentLanguage].registerButton;
             submitBtn.disabled = false;
             showNotification(
-              "Registration successful! Your spot is being saved", 
+              currentLanguage === 'es' ? 
+                "¡Registro exitoso! Tu lugar está siendo reservado" : 
+                "Registration successful! Your spot is being saved", 
               "success"
             );
           }, 1000);
@@ -1771,7 +1949,6 @@
       
       // Initialize the page
       function initPage() {
-        updateCurrentDate();
         updateCTASection();
         updateScheduleDisplay();
         initForm();
