@@ -41,14 +41,14 @@
             position: relative;
             z-index: 10;
             margin: 0;
-            padding: 40px 30px;
+            padding: 45px 35px;
             box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
             border: 0.8px solid rgba(0, 0, 0, 0.04);
         }
         
         .header-container {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 45px;
             position: relative;
         }
         
@@ -240,9 +240,43 @@
         }
         
         .link-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 16px 38px rgba(0, 0, 0, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
             border-color: rgba(230, 126, 34, 0.3);
+        }
+        
+        /* Enhanced highlight effect for today's class */
+        .link-card.next-class-highlight {
+            position: relative;
+            z-index: 2;
+            transform: translateY(-3px);
+            border: 2px solid #e67e22;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), #fffbf6);
+            box-shadow: 0 10px 35px rgba(230, 126, 34, 0.3);
+            animation: elegant-pulse 1.8s infinite ease-in-out;
+        }
+        
+        .link-card.next-class-highlight::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border-radius: 22px;
+            background: linear-gradient(135deg, rgba(230, 126, 34, 0.1), transparent);
+            z-index: -1;
+        }
+        
+        @keyframes elegant-pulse {
+            0%, 100% { 
+                box-shadow: 0 10px 30px rgba(230, 126, 34, 0.3);
+                transform: translateY(-3px);
+            }
+            50% { 
+                box-shadow: 0 12px 40px rgba(230, 126, 34, 0.4);
+                transform: translateY(-5px);
+            }
         }
         
         .link-icon {
@@ -364,7 +398,6 @@
             margin-bottom: 10px;
             color: #222;
             letter-spacing: 0.35px;
-            text-shadow: 0 0.5px 1px rgba(0,0,0,0.05);
         }
         
         .link-subtitle {
@@ -418,6 +451,7 @@
             font-weight: 700;
             padding: 0 4px;
             border-radius: 3px;
+            background: rgba(255, 140, 0, 0.08);
         }
         
         .bachata-text {
@@ -425,6 +459,7 @@
             font-weight: 700;
             padding: 0 4px;
             border-radius: 3px;
+            background: rgba(230, 126, 34, 0.08);
         }
         
         .today .schedule-day-header {
@@ -446,7 +481,7 @@
             background: #fdfdfd;
             border-radius: 20px;
             padding: 38px 35px;
-            margin: 35px 0;
+            margin: 35px 0 30px;
             border: 0.8px solid #eee;
             box-shadow: 0 16px 45px rgba(0, 0, 0, 0.04);
             position: relative;
@@ -504,14 +539,13 @@
             transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             -webkit-appearance: none;
             appearance: none;
-            box-shadow: inset 0 1px 3px rgba(0,0,0,0.03);
         }
         
         .form-input:focus {
             outline: none;
             border-color: #e67e22;
             background: #fff;
-            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.15), inset 0 1px 3px rgba(0,0,0,0.03);
+            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.15);
         }
         
         .form-input::placeholder {
@@ -534,14 +568,13 @@
             background-size: 22px;
             transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             -webkit-appearance: none;
-            box-shadow: inset 0 1px 3px rgba(0,0,0,0.03);
         }
         
         .form-select:focus {
             outline: none;
             border-color: #e67e22;
             background: #fff;
-            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.15), inset 0 1px 3px rgba(0,0,0,0.03);
+            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.15);
         }
         
         .submit-btn {
@@ -565,7 +598,7 @@
         }
         
         .submit-btn:hover {
-            transform: translateY(-4px);
+            transform: translateY(-3px);
             box-shadow: 0 14px 35px rgba(230, 126, 34, 0.3);
         }
         
@@ -822,16 +855,6 @@
             font-size: 0.95em;
         }
         
-        .registration-highlight {
-            animation: registrationPulse 1.8s ease-in-out infinite;
-        }
-        
-        @keyframes registrationPulse {
-            0% { box-shadow: 0 0 0 0 rgba(230, 126, 34, 0.35); }
-            70% { box-shadow: 0 0 0 12px rgba(230, 126, 34, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(230, 126, 34, 0); }
-        }
-        
         .location-icons {
             display: flex;
             gap: 12px;
@@ -903,6 +926,89 @@
         .lang-btn:hover:not(.active) {
             background: rgba(230, 126, 34, 0.12);
             color: #d35400;
+        }
+        
+        /* New styles for participant registration */
+        .participant-form-group {
+            margin-bottom: 15px;
+            position: relative;
+        }
+        
+        .participant-controls {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin: 10px 0 20px;
+        }
+        
+        .participant-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid #e67e22;
+            color: #e67e22;
+            background: white;
+            box-shadow: 0 4px 12px rgba(230, 126, 34, 0.15);
+        }
+        
+        .participant-btn:hover {
+            background: #e67e22;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(230, 126, 34, 0.25);
+        }
+        
+        .participant-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            background: #f1f5f9;
+            color: #94a3b8;
+            border-color: #cbd5e1;
+        }
+        
+        .participant-fields {
+            background: rgba(240, 247, 255, 0.4);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid rgba(230, 126, 34, 0.1);
+            margin-bottom: 15px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .participant-fields::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, #e67e22, #d35400);
+        }
+        
+        .participant-label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #222;
+            font-size: 1.05rem;
+        }
+        
+        .name-field {
+            animation: fadeIn 0.4s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         /* Mobile-specific enhancements */
@@ -1360,7 +1466,7 @@
           </div>
         </div>
         
-        <div class="link-card serrata" 
+        <div class="link-card serrata next-class-highlight" 
              data-studio="Serrata Studio" 
              id="serrata-card">
           <div class="new-class-badge" id="new-class-text">August Classes</div>
@@ -1419,14 +1525,31 @@
         </div>
       </div>
       
+      <!-- Registration Form with Participant Fields -->
       <div class="registration-form" id="registration-form">
         <div class="form-title" id="registration-title">Class Registration</div>
         <div class="partner-notice" id="partner-text">No partner needed - come dance with us!</div>
         <form id="dance-registration">
-          <div class="form-group">
-            <input type="text" id="name" class="form-input" placeholder="Full Name" required>
+          <!-- Participant Fields -->
+          <div id="participant-container">
+            <div class="participant-fields name-field">
+              <div class="participant-form-group">
+                <input type="text" class="form-input" placeholder="Full Name" required>
+              </div>
+            </div>
           </div>
           
+          <!-- Add/Remove Controls -->
+          <div class="participant-controls">
+            <button type="button" id="add-participant" class="participant-btn" title="Add another participant">
+              <i class="fas fa-plus"></i>
+            </button>
+            <button type="button" id="remove-participant" class="participant-btn" title="Remove participant" disabled>
+              <i class="fas fa-minus"></i>
+            </button>
+          </div>
+          
+          <!-- Contact Information -->
           <div class="form-group">
             <input type="email" id="email" class="form-input" placeholder="Email Address" required>
           </div>
@@ -1439,8 +1562,6 @@
               <option value="serrata">Serrata Studio</option>
             </select>
           </div>
-          
-          <div id="location-schedule-display"></div>
           
           <button type="submit" class="submit-btn">
             <span id="register-button">Complete Registration</span> <i class="fas fa-check-circle"></i>
@@ -1615,7 +1736,12 @@
         document.getElementById('new-class-text').textContent = langData.newClassText;
         document.getElementById('registration-title').textContent = langData.registrationTitle;
         document.getElementById('partner-text').textContent = langData.partnerText;
-        document.getElementById('name').placeholder = langData.namePlaceholder;
+        
+        // Update participant input placeholder
+        document.querySelectorAll('.participant-fields .form-input').forEach(input => {
+          input.placeholder = langData.namePlaceholder;
+        });
+        
         document.getElementById('email').placeholder = langData.emailPlaceholder;
         document.getElementById('location').querySelector('option[value=""]').textContent = langData.locationPlaceholder;
         document.getElementById('register-button').textContent = langData.registerButton;
@@ -1653,6 +1779,58 @@
       } else {
         updateCurrentDate('en');
       }
+      
+      // Participant Registration Functionality
+      const participantContainer = document.getElementById('participant-container');
+      const addParticipantBtn = document.getElementById('add-participant');
+      const removeParticipantBtn = document.getElementById('remove-participant');
+      
+      let participantCount = 1;
+      const maxParticipants = 4;
+      
+      // Add participant
+      addParticipantBtn.addEventListener('click', function() {
+        if (participantCount < maxParticipants) {
+          participantCount++;
+          
+          // Create new participant field
+          const newParticipant = document.createElement('div');
+          newParticipant.className = 'participant-fields name-field';
+          newParticipant.innerHTML = `
+            <div class="participant-form-group">
+              <input type="text" class="form-input" placeholder="${translations[currentLanguage].namePlaceholder}" required>
+            </div>
+          `;
+          
+          // Add with fade-in effect
+          participantContainer.appendChild(newParticipant);
+          
+          // Enable remove button
+          removeParticipantBtn.disabled = false;
+          
+          // Disable add button if max reached
+          if (participantCount === maxParticipants) {
+            addParticipantBtn.disabled = true;
+          }
+        }
+      });
+      
+      // Remove participant
+      removeParticipantBtn.addEventListener('click', function() {
+        if (participantCount > 1) {
+          const lastField = participantContainer.lastChild;
+          participantContainer.removeChild(lastField);
+          participantCount--;
+          
+          // Disable remove button if only one remains
+          if (participantCount === 1) {
+            removeParticipantBtn.disabled = true;
+          }
+          
+          // Re-enable add button
+          addParticipantBtn.disabled = false;
+        }
+      });
       
       // Class schedule data
       const classSchedule = [
@@ -1794,12 +1972,12 @@
         document.getElementById('cta-schedule').textContent = nextClass.schedule.join(' | ');
         
         document.querySelectorAll('.link-card').forEach(card => {
-          card.classList.remove('next-class-highlight', 'cta-highlight');
+          card.classList.remove('next-class-highlight');
         });
         
         const locationCard = document.getElementById(nextClass.locationId);
         if (locationCard) {
-          locationCard.classList.add('next-class-highlight', 'cta-highlight');
+          locationCard.classList.add('next-class-highlight');
         }
       }
       
@@ -1872,7 +2050,18 @@
           registrationForm.reset();
           thankYouMessage.style.display = 'none';
           registrationForm.style.display = 'block';
-          document.getElementById('location-schedule-display').style.display = 'none';
+          
+          // Reset participants to one
+          participantContainer.innerHTML = `
+            <div class="participant-fields name-field">
+              <div class="participant-form-group">
+                <input type="text" class="form-input" placeholder="${translations[currentLanguage].namePlaceholder}" required>
+              </div>
+            </div>
+          `;
+          participantCount = 1;
+          removeParticipantBtn.disabled = true;
+          addParticipantBtn.disabled = false;
         }
         
         registerAgainBtn.addEventListener('click', resetForm);
@@ -1880,12 +2069,20 @@
         registrationForm.addEventListener('submit', function(e) {
           e.preventDefault();
           
-          const name = document.getElementById('name').value;
+          // Collect participant names
+          const participantNames = [];
+          const nameInputs = participantContainer.querySelectorAll('.form-input');
+          nameInputs.forEach(input => {
+            if (input.value.trim()) {
+              participantNames.push(input.value.trim());
+            }
+          });
+          
           const email = document.getElementById('email').value;
           const location = document.getElementById('location').value;
           
-          if (!name.trim()) {
-            showNotification(currentLanguage === 'es' ? "Por favor ingresa tu nombre" : "Please enter your name", "info");
+          if (participantNames.length === 0) {
+            showNotification(currentLanguage === 'es' ? "Por favor ingresa al menos un nombre" : "Please enter at least one name", "info");
             return;
           }
           
