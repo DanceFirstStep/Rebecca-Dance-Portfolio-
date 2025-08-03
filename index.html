@@ -811,13 +811,13 @@
             position: absolute;
             top: -16px;
             right: -6px;
-            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            background: linear-gradient(135deg, #e67e22, #d35400); /* Changed to orange */
             color: white;
             font-size: 0.8rem;
             font-weight: 620;
             padding: 6px 14px;
             border-radius: 22px;
-            box-shadow: 0 5px 18px rgba(155, 89, 182, 0.28);
+            box-shadow: 0 5px 18px rgba(230, 126, 34, 0.28); /* Updated shadow */
             z-index: 3;
             animation: pulse 2.2s infinite;
             white-space: nowrap;
@@ -1270,13 +1270,13 @@
           <i class="fas fa-music"></i>
         </div>
       </div>
-      <h1 id="main-title">Rebecca Bachata</h1>
+      <h1>Rebecca Bachata</h1>
       <div class="divider"></div>
-      <p class="tagline" id="tagline">Professional Bachata Instruction | Express Yourself Through Movement</p>
+      <p class="tagline">Professional Bachata Instruction | Express Yourself Through Movement</p>
     </div>
     
     <div class="content">
-      <h2 class="section-title" id="connect-title">Connect With Me</h2>
+      <h2 class="section-title">Connect With Me</h2>
       <div class="links-grid">
         <a href="https://www.facebook.com/share/1CdaS5Uj5P/?mibextid=wwXIfr" target="_blank" class="link-card facebook">
           <div class="social-icon-container facebook-icon-container">
@@ -1287,7 +1287,7 @@
           </div>
           <div class="link-text">
             <div class="link-title">Rebecca Bachata</div>
-            <div class="link-subtitle" id="facebook-sub">Follow me on Facebook</div>
+            <div class="link-subtitle">Follow me on Facebook</div>
           </div>
         </a>
         
@@ -1305,11 +1305,11 @@
         </a>
       </div>
       
-      <div class="date-section" id="current-date-discreet">
-        <strong id="today-label">Today is:</strong> <span id="date-text"></span>
+      <div class="date-section">
+        <strong>Today is:</strong> <span id="date-text"></span>
       </div>
       
-      <h2 class="section-title" id="upcoming-title">Upcoming Classes</h2>
+      <h2 class="section-title">Upcoming Classes</h2>
       
       <div id="class-cta" class="class-cta-container">
         <div class="cta-header">
@@ -1323,17 +1323,17 @@
         </div>
         
         <div class="cta-action" id="register-cta">
-          <span id="register-cta-text">Register Now</span> <span class="down-arrow"><i class="fas fa-arrow-down"></i></span>
+          <span>Register Now</span> <span class="down-arrow"><i class="fas fa-arrow-down"></i></span>
         </div>
       </div>
       
-      <h3 class="section-title" id="schedule-title">Class Schedule</h3>
+      <h3 class="section-title">Class Schedule</h3>
       
       <div class="links-grid" id="schedule-grid">
         <div class="link-card serrata next-class-highlight" 
              data-studio="Serrata Studio" 
              id="serrata-card">
-          <div class="new-class-badge" id="new-class-text">August Classes</div>
+          <div class="new-class-badge">New Location</div>
           <div class="link-icon serrata-icon">
             <i class="fas fa-building"></i>
           </div>
@@ -1341,7 +1341,7 @@
             <div class="studio-info">
               <div class="studio-name-address">
                 <div class="link-title">Serrata Studio</div>
-                <div class="link-subtitle">7157 Frankford Ave, Philly</div>
+                <div class="link-subtitle">7157 Frankford Ave, Philadelphia</div>
               </div>
             </div>
             <div class="location-icons">
@@ -1527,8 +1527,8 @@
       
       <!-- Registration Form with Participant Fields -->
       <div class="registration-form" id="registration-form">
-        <div class="form-title" id="registration-title">Class Registration</div>
-        <div class="partner-notice" id="partner-text">No partner needed - come dance with us!</div>
+        <div class="form-title">Class Registration</div>
+        <div class="partner-notice">No partner needed - come dance with us!</div>
         <form id="dance-registration">
           <!-- Participant Fields -->
           <div id="participant-container">
@@ -1560,24 +1560,25 @@
               <option value="stardust">Stardust Ballroom</option>
               <option value="letsbailar">Let's Bailar</option>
               <option value="serrata">Serrata Studio</option>
+              <option value="estilo">Estilo Dance Studio</option>
             </select>
           </div>
           
           <button type="submit" class="submit-btn">
-            <span id="register-button">Complete Registration</span> <i class="fas fa-check-circle"></i>
+            Complete Registration <i class="fas fa-check-circle"></i>
           </button>
         </form>
         
         <div id="thank-you-message" class="thank-you-message">
-          <h3 id="thank-you-title">Thank You for Registering!</h3>
-          <p id="thank-you-text">We're excited to dance with you! Your spot is being saved.</p>
+          <h3>Thank You for Registering!</h3>
+          <p>We're excited to dance with you! Your spot is being saved.</p>
           <button class="submit-btn" id="register-again-btn" style="margin-top: 25px;">
-            <span id="register-again-text">Register Another Person</span>
+            Register Another Person
           </button>
         </div>
       </div>
       
-      <h2 class="section-title" id="payment-title">Payment Options</h2>
+      <h2 class="section-title">Payment Options</h2>
       <div class="links-grid">
         <a href="https://venmo.com/code?user_id=2575920015605760344&created=1750346816" class="link-card venmo" target="_blank">
           <div class="link-icon">
@@ -1585,7 +1586,7 @@
           </div>
           <div class="link-text">
             <div class="link-title">Venmo</div>
-            <div class="link-subtitle" id="venmo-sub">Secure payment option</div>
+            <div class="link-subtitle">Secure payment option</div>
           </div>
         </a>
         
@@ -1594,21 +1595,21 @@
             <i class="fas fa-money-bill-wave"></i>
           </div>
           <div class="link-text">
-            <div class="link-title" id="cash-title">Cash</div>
-            <div class="link-subtitle" id="cash-sub">Pay at the studio</div>
+            <div class="link-title">Cash</div>
+            <div class="link-subtitle">Pay at the studio</div>
           </div>
         </div>
       </div>
       
-      <h2 class="section-title" id="contact-title">Contact Me</h2>
+      <h2 class="section-title">Contact Me</h2>
       <div class="links-grid">
         <a href="mailto:rebecca@bachata.com" class="link-card contact" target="_blank">
           <div class="link-icon contact-icon">
             <i class="fas fa-envelope"></i>
           </div>
           <div class="link-text">
-            <div class="link-title" id="contact-title-text">Professional Inquiries</div>
-            <div class="link-subtitle" id="contact-subtitle">Bookings and partnerships</div>
+            <div class="link-title">Professional Inquiries</div>
+            <div class="link-subtitle">Bookings and partnerships</div>
           </div>
         </a>
       </div>
@@ -1618,11 +1619,11 @@
           <button class="lang-btn active" data-lang="en">English</button>
           <button class="lang-btn" data-lang="es">Español</button>
         </div>
-        <p id="copyright">© 2025 Rebecca Bachata | Professional Instruction</p>
-        <p id="quote">Dance is the poetry of the foot</p>
+        <p>© 2025 Rebecca Bachata | Professional Instruction</p>
+        <p>Dance is the poetry of the foot</p>
         
         <div class="signature-container">
-          <div class="signature-line" id="signature-line"></div>
+          <div class="signature-line"></div>
         </div>
       </footer>
     </div>
@@ -1631,210 +1632,9 @@
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       // Set current date
-      function updateCurrentDate(lang) {
-        const now = new Date();
-        const options = { 
-          weekday: 'long', 
-          year: 'numeric', 
-          month: 'long', 
-          day: 'numeric',
-          locale: lang === 'es' ? 'es-ES' : 'en-US'
-        };
-        const dateText = document.getElementById('date-text');
-        dateText.textContent = now.toLocaleDateString(lang === 'es' ? 'es-ES' : 'en-US', options);
-      }
-      
-      // Language switch functionality
-      const languageToggle = document.getElementById('language-toggle');
-      const languageButtons = languageToggle.querySelectorAll('.lang-btn');
-      let currentLanguage = 'en';
-      
-      // Translations object
-      const translations = {
-        en: {
-          mainTitle: "Rebecca Bachata",
-          tagline: "Professional Bachata Instruction | Express Yourself Through Movement",
-          connectTitle: "Connect With Me",
-          facebookSub: "Follow me on Facebook",
-          todayLabel: "Today is:",
-          upcomingTitle: "Upcoming Classes",
-          registerCta: "Register Now",
-          scheduleTitle: "Class Schedule",
-          newClassText: "August Classes",
-          registrationTitle: "Class Registration",
-          partnerText: "No partner needed - come dance with us!",
-          namePlaceholder: "Full Name",
-          emailPlaceholder: "Email Address",
-          locationPlaceholder: "Select class location",
-          registerButton: "Complete Registration",
-          thankYouTitle: "Thank You for Registering!",
-          thankYouText: "We're excited to dance with you! Your spot is being saved.",
-          registerAgainText: "Register Another Person",
-          paymentTitle: "Payment Options",
-          venmoSub: "Secure payment option",
-          cashTitle: "Cash",
-          cashSub: "Pay at the studio",
-          contactTitle: "Contact Me",
-          contactTitleText: "Professional Inquiries",
-          contactSubtitle: "Bookings and partnerships",
-          copyright: "© 2025 Rebecca Bachata | Professional Instruction",
-          quote: "Dance is the poetry of the foot"
-        },
-        es: {
-          mainTitle: "Rebecca Bachata",
-          tagline: "Instrucción Profesional de Bachata | Exprésate a Través del Movimiento",
-          connectTitle: "Conéctate Conmigo",
-          facebookSub: "Sígueme en Facebook",
-          todayLabel: "Hoy es:",
-          upcomingTitle: "Próximas Clases",
-          registerCta: "Regístrate Ahora",
-          scheduleTitle: "Horario de Clases",
-          newClassText: "Clases de Agosto",
-          registrationTitle: "Registro de Clase",
-          partnerText: "No necesitas pareja - ¡Ven a bailar con nosotros!",
-          namePlaceholder: "Nombre Completo",
-          emailPlaceholder: "Correo Electrónico",
-          locationPlaceholder: "Selecciona la ubicación de la clase",
-          registerButton: "Completar Registro",
-          thankYouTitle: "¡Gracias por Registrarte!",
-          thankYouText: "¡Estamos emocionados de bailar contigo! Tu lugar está siendo reservado.",
-          registerAgainText: "Registrar Otra Persona",
-          paymentTitle: "Opciones de Pago",
-          venmoSub: "Opción de pago segura",
-          cashTitle: "Efectivo",
-          cashSub: "Paga en el estudio",
-          contactTitle: "Contáctame",
-          contactTitleText: "Consultas Profesionales",
-          contactSubtitle: "Reservas y colaboraciones",
-          copyright: "© 2025 Rebecca Bachata | Instrucción Profesional",
-          quote: "El baile es la poesía del pie"
-        }
-      };
-      
-      // Set language function
-      function setLanguage(lang) {
-        // Update UI
-        languageButtons.forEach(btn => {
-          if (btn.dataset.lang === lang) {
-            btn.classList.add('active');
-          } else {
-            btn.classList.remove('active');
-          }
-        });
-        
-        // Update content based on language
-        const langData = translations[lang];
-        
-        document.getElementById('main-title').textContent = langData.mainTitle;
-        document.getElementById('tagline').textContent = langData.tagline;
-        document.getElementById('connect-title').textContent = langData.connectTitle;
-        document.getElementById('facebook-sub').textContent = langData.facebookSub;
-        document.getElementById('today-label').textContent = langData.todayLabel;
-        document.getElementById('upcoming-title').textContent = langData.upcomingTitle;
-        document.getElementById('register-cta-text').textContent = langData.registerCta;
-        document.getElementById('schedule-title').textContent = langData.scheduleTitle;
-        document.getElementById('new-class-text').textContent = langData.newClassText;
-        document.getElementById('registration-title').textContent = langData.registrationTitle;
-        document.getElementById('partner-text').textContent = langData.partnerText;
-        
-        // Update participant input placeholder
-        document.querySelectorAll('.participant-fields .form-input').forEach(input => {
-          input.placeholder = langData.namePlaceholder;
-        });
-        
-        document.getElementById('email').placeholder = langData.emailPlaceholder;
-        document.getElementById('location').querySelector('option[value=""]').textContent = langData.locationPlaceholder;
-        document.getElementById('register-button').textContent = langData.registerButton;
-        document.getElementById('thank-you-title').textContent = langData.thankYouTitle;
-        document.getElementById('thank-you-text').textContent = langData.thankYouText;
-        document.getElementById('register-again-text').textContent = langData.registerAgainText;
-        document.getElementById('payment-title').textContent = langData.paymentTitle;
-        document.getElementById('venmo-sub').textContent = langData.venmoSub;
-        document.getElementById('cash-title').textContent = langData.cashTitle;
-        document.getElementById('cash-sub').textContent = langData.cashSub;
-        document.getElementById('contact-title').textContent = langData.contactTitle;
-        document.getElementById('contact-title-text').textContent = langData.contactTitleText;
-        document.getElementById('contact-subtitle').textContent = langData.contactSubtitle;
-        document.getElementById('copyright').textContent = langData.copyright;
-        document.getElementById('quote').textContent = langData.quote;
-        
-        // Update date format
-        updateCurrentDate(lang);
-        
-        currentLanguage = lang;
-        localStorage.setItem('language', lang);
-        
-        // Update dynamic content
-        updateCTASection();
-        updateScheduleDisplay();
-      }
-      
-      // Event listeners for language buttons
-      languageButtons.forEach(button => {
-        button.addEventListener('click', () => {
-          setLanguage(button.dataset.lang);
-        });
-      });
-      
-      // Check for saved language preference
-      const savedLanguage = localStorage.getItem('language');
-      if (savedLanguage) {
-        setLanguage(savedLanguage);
-      } else {
-        updateCurrentDate('en');
-      }
-      
-      // Participant Registration Functionality
-      const participantContainer = document.getElementById('participant-container');
-      const addParticipantBtn = document.getElementById('add-participant');
-      const removeParticipantBtn = document.getElementById('remove-participant');
-      
-      let participantCount = 1;
-      const maxParticipants = 4;
-      
-      // Add participant
-      addParticipantBtn.addEventListener('click', function() {
-        if (participantCount < maxParticipants) {
-          participantCount++;
-          
-          // Create new participant field
-          const newParticipant = document.createElement('div');
-          newParticipant.className = 'participant-fields name-field';
-          newParticipant.innerHTML = `
-            <div class="participant-form-group">
-              <input type="text" class="form-input" placeholder="${translations[currentLanguage].namePlaceholder}" required>
-            </div>
-          `;
-          
-          // Add with fade-in effect
-          participantContainer.appendChild(newParticipant);
-          
-          // Enable remove button
-          removeParticipantBtn.disabled = false;
-          
-          // Disable add button if max reached
-          if (participantCount === maxParticipants) {
-            addParticipantBtn.disabled = true;
-          }
-        }
-      });
-      
-      // Remove participant
-      removeParticipantBtn.addEventListener('click', function() {
-        if (participantCount > 1) {
-          const lastField = participantContainer.lastChild;
-          participantContainer.removeChild(lastField);
-          participantCount--;
-          
-          // Disable remove button if only one remains
-          if (participantCount === 1) {
-            removeParticipantBtn.disabled = true;
-          }
-          
-          // Re-enable add button
-          addParticipantBtn.disabled = false;
-        }
-      });
+      const now = new Date();
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      document.getElementById('date-text').textContent = now.toLocaleDateString('en-US', options);
       
       // Class schedule data with proper time values
       const classSchedule = [
@@ -1963,9 +1763,14 @@
         const nextClass = upcomingClasses[0];
         let timePrefix = "Tonight";
         
+        // Only use "Tonight" for evening classes after 4 PM
         if (nextClass.daysUntil === 0) {
-            if (nextClass.endTime < 1800) { // Before 6pm
+            if (nextClass.startTime < 1600) { // Before 4pm
                 timePrefix = "Today";
+            } else if (currentTime < 1600) { // Before 4pm now
+                timePrefix = "Today";
+            } else {
+                timePrefix = "Tonight";
             }
         } else if (nextClass.daysUntil === 1) {
             timePrefix = "Tomorrow";
@@ -1973,17 +1778,6 @@
             timePrefix = "This " + nextClass.day;
         } else {
             timePrefix = "Next " + nextClass.day;
-        }
-        
-        if (currentLanguage === 'es') {
-            if (timePrefix === "Today") timePrefix = "Hoy";
-            else if (timePrefix === "Tonight") timePrefix = "Esta noche";
-            else if (timePrefix === "Tomorrow") timePrefix = "Mañana";
-            else if (timePrefix.startsWith("This ")) {
-                timePrefix = "Este " + nextClass.day;
-            } else if (timePrefix.startsWith("Next ")) {
-                timePrefix = "Próximo " + nextClass.day;
-            }
         }
         
         return {
@@ -2086,7 +1880,7 @@
             participantContainer.innerHTML = `
                 <div class="participant-fields name-field">
                     <div class="participant-form-group">
-                        <input type="text" class="form-input" placeholder="${translations[currentLanguage].namePlaceholder}" required>
+                        <input type="text" class="form-input" placeholder="Full Name" required>
                     </div>
                 </div>
             `;
@@ -2113,41 +1907,36 @@
             const location = document.getElementById('location').value;
             
             if (participantNames.length === 0) {
-                showNotification(currentLanguage === 'es' ? "Por favor ingresa al menos un nombre" : "Please enter at least one name", "info");
+                showNotification("Please enter at least one name", "info");
                 return;
             }
             
             if (!email.trim()) {
-                showNotification(currentLanguage === 'es' ? "Por favor ingresa tu correo electrónico" : "Please enter your email address", "info");
+                showNotification("Please enter your email address", "info");
                 return;
             }
             
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
-                showNotification(currentLanguage === 'es' ? "Por favor ingresa un correo electrónico válido" : "Please enter a valid email address", "info");
+                showNotification("Please enter a valid email address", "info");
                 return;
             }
             
             if (!location) {
-                showNotification(currentLanguage === 'es' ? "Por favor selecciona una ubicación" : "Please select a class location", "info");
+                showNotification("Please select a class location", "info");
                 return;
             }
             
-            submitBtn.textContent = currentLanguage === 'es' ? 'Procesando...' : 'Processing...';
+            submitBtn.textContent = 'Processing...';
             submitBtn.disabled = true;
             
             setTimeout(function() {
                 registrationForm.style.display = 'none';
                 thankYouMessage.style.display = 'block';
                 thankYouMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                submitBtn.textContent = translations[currentLanguage].registerButton;
+                submitBtn.textContent = 'Complete Registration';
                 submitBtn.disabled = false;
-                showNotification(
-                    currentLanguage === 'es' ? 
-                    "¡Registro exitoso! Tu lugar está siendo reservado" : 
-                    "Registration successful! Your spot is being saved", 
-                    "success"
-                );
+                showNotification("Registration successful! Your spot is being saved", "success");
             }, 1000);
         });
       }
@@ -2160,6 +1949,58 @@
         document.body.appendChild(notification);
         setTimeout(() => { notification.remove(); }, 3000);
       }
+      
+      // Participant Registration Functionality
+      const participantContainer = document.getElementById('participant-container');
+      const addParticipantBtn = document.getElementById('add-participant');
+      const removeParticipantBtn = document.getElementById('remove-participant');
+      
+      let participantCount = 1;
+      const maxParticipants = 4;
+      
+      // Add participant
+      addParticipantBtn.addEventListener('click', function() {
+        if (participantCount < maxParticipants) {
+          participantCount++;
+          
+          // Create new participant field
+          const newParticipant = document.createElement('div');
+          newParticipant.className = 'participant-fields name-field';
+          newParticipant.innerHTML = `
+            <div class="participant-form-group">
+              <input type="text" class="form-input" placeholder="Full Name" required>
+            </div>
+          `;
+          
+          // Add with fade-in effect
+          participantContainer.appendChild(newParticipant);
+          
+          // Enable remove button
+          removeParticipantBtn.disabled = false;
+          
+          // Disable add button if max reached
+          if (participantCount === maxParticipants) {
+            addParticipantBtn.disabled = true;
+          }
+        }
+      });
+      
+      // Remove participant
+      removeParticipantBtn.addEventListener('click', function() {
+        if (participantCount > 1) {
+          const lastField = participantContainer.lastChild;
+          participantContainer.removeChild(lastField);
+          participantCount--;
+          
+          // Disable remove button if only one remains
+          if (participantCount === 1) {
+            removeParticipantBtn.disabled = true;
+          }
+          
+          // Re-enable add button
+          addParticipantBtn.disabled = false;
+        }
+      });
       
       // Enhanced registration flow
       function initRegistrationFlow() {
@@ -2175,12 +2016,98 @@
         });
       }
       
+      // Language toggle functionality
+      function initLanguageToggle() {
+        const langButtons = document.querySelectorAll('.lang-btn');
+        langButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const lang = this.getAttribute('data-lang');
+                setLanguage(lang);
+                
+                // Update active button
+                langButtons.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+      }
+      
+      // Translations object
+      const translations = {
+        en: {
+          tagline: "Professional Bachata Instruction | Express Yourself Through Movement",
+          connect: "Connect With Me",
+          upcoming: "Upcoming Classes",
+          schedule: "Class Schedule",
+          payment: "Payment Options",
+          contact: "Contact Me",
+          registration: "Class Registration",
+          partnerNotice: "No partner needed - come dance with us!",
+          completeReg: "Complete Registration",
+          venmo: "Venmo",
+          cash: "Cash",
+          professional: "Professional Inquiries",
+          bookings: "Bookings and partnerships",
+          today: "Today is:",
+          newLocation: "New Location",
+          registerNow: "Register Now",
+          copyright: "© 2025 Rebecca Bachata | Professional Instruction",
+          quote: "Dance is the poetry of the foot"
+        },
+        es: {
+          tagline: "Instrucción Profesional de Bachata | Exprésate a Través del Movimiento",
+          connect: "Conéctate Conmigo",
+          upcoming: "Próximas Clases",
+          schedule: "Horario de Clases",
+          payment: "Opciones de Pago",
+          contact: "Contáctame",
+          registration: "Registro de Clase",
+          partnerNotice: "No se necesita pareja - ¡ven a bailar con nosotros!",
+          completeReg: "Completar Registro",
+          venmo: "Venmo",
+          cash: "Efectivo",
+          professional: "Consultas Profesionales",
+          bookings: "Reservas y asociaciones",
+          today: "Hoy es:",
+          newLocation: "Nueva Ubicación",
+          registerNow: "Regístrate Ahora",
+          copyright: "© 2025 Rebecca Bachata | Instrucción Profesional",
+          quote: "El baile es la poesía del pie"
+        }
+      };
+      
+      // Set language function
+      function setLanguage(lang) {
+        // Update text elements
+        document.querySelector('.tagline').textContent = translations[lang].tagline;
+        document.querySelectorAll('.section-title').forEach((el, i) => {
+          const keys = ['connect', 'upcoming', 'schedule', 'payment', 'contact', 'registration'];
+          if (keys[i]) el.textContent = translations[lang][keys[i]];
+        });
+        document.querySelector('.partner-notice').textContent = translations[lang].partnerNotice;
+        document.querySelector('.submit-btn').innerHTML = `${translations[lang].completeReg} <i class="fas fa-check-circle"></i>`;
+        document.querySelector('.new-class-badge').textContent = translations[lang].newLocation;
+        document.querySelector('#register-cta span').textContent = translations[lang].registerNow;
+        document.querySelector('#date-text').previousElementSibling.textContent = translations[lang].today;
+        
+        // Update footer
+        const footerParagraphs = document.querySelectorAll('footer p');
+        footerParagraphs[0].textContent = translations[lang].copyright;
+        footerParagraphs[1].textContent = translations[lang].quote;
+        
+        // Update link titles
+        document.querySelector('.venmo .link-title').textContent = translations[lang].venmo;
+        document.querySelector('.cash .link-title').textContent = translations[lang].cash;
+        document.querySelector('.contact .link-title').textContent = translations[lang].professional;
+        document.querySelector('.contact .link-subtitle').textContent = translations[lang].bookings;
+      }
+      
       // Initialize the page
       function initPage() {
         updateCTASection();
         updateScheduleDisplay();
         initForm();
         initRegistrationFlow();
+        initLanguageToggle();
         
         // Update every minute
         setInterval(() => {
