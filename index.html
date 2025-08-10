@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* Refined color palette with warm tones */
+        /* Enhanced Color Palette */
         :root {
             --primary: #d35400;
             --primary-light: #e67e22;
@@ -169,17 +169,137 @@
             text-align: center;
             margin-bottom: 45px;
             position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        /* Header top row container */
+        .header-top {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 25px;
+        }
+        
+        /* Logo and buttons container */
+        .logo-and-buttons {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+        
+        /* POLISHED: Navigation buttons - refined styles */
+        .vertical-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 15px 10px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(44, 110, 157, 0.08);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        .nav-btn {
+            background: transparent;
+            border: none;
+            border-radius: 50%;
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--primary);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+        }
+        
+        .nav-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(230, 126, 34, 0.1), transparent);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background: rgba(230, 126, 34, 0.1);
+            color: var(--primary-light);
+            transform: translateY(-3px) scale(1.08);
+            box-shadow: 0 6px 18px rgba(230, 126, 34, 0.18);
+        }
+        
+        .nav-btn:hover::before {
+            opacity: 1;
+        }
+        
+        .nav-btn.active-section {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            box-shadow: 0 8px 25px rgba(230, 126, 34, 0.3);
+            transform: scale(1.1);
+        }
+        
+        .nav-btn .nav-label {
+            position: absolute;
+            right: 65px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--dark-bg);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 101;
+        }
+        
+        .nav-btn:hover .nav-label {
+            opacity: 1;
+        }
+        
+        .nav-btn .nav-label::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -8px;
+            transform: translateY(-50%);
+            border-left: 8px solid var(--dark-bg);
+            border-top: 6px solid transparent;
+            border-bottom: 6px solid transparent;
         }
         
         .logo-container {
             position: relative;
             width: 190px;
             height: 190px;
-            margin: 0 auto 30px;
             display: flex;
             justify-content: center;
             align-items: center;
             cursor: pointer;
+            transition: transform 0.5s ease;
+        }
+        
+        .logo-container:hover {
+            transform: scale(1.03);
         }
         
         .logo {
@@ -276,7 +396,7 @@
         
         .tagline {
             font-size: 1.35rem;
-            font-weight: 500; /* Adjusted weight for better readability */
+            font-weight: 500;
             color: var(--text-medium);
             margin: 20px auto 0;
             max-width: 650px;
@@ -305,6 +425,7 @@
             padding-bottom: 14px;
             font-family: 'Playfair Display', serif;
             letter-spacing: 0.3px;
+            scroll-margin-top: 80px;
         }
         
         .section-title::after {
@@ -344,11 +465,12 @@
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
             text-decoration: none !important;
+            scroll-margin-top: 120px;
         }
         
         .link-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
             border-color: rgba(230, 126, 34, 0.3);
         }
         
@@ -512,7 +634,7 @@
             color: var(--text-medium);
             line-height: 1.55;
             margin-bottom: 12px;
-            font-weight: 400; /* Adjusted weight for better readability */
+            font-weight: 400;
         }
         
         .schedule-list {
@@ -525,7 +647,7 @@
         }
         
         .schedule-day-header {
-            font-weight: 600; /* Adjusted weight for better readability */
+            font-weight: 600;
             color: var(--primary-light);
             margin-bottom: 12px;
             padding-bottom: 4px;
@@ -538,10 +660,17 @@
             justify-content: space-between;
             margin-bottom: 12px;
             line-height: 1.65;
+            padding: 5px 8px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .schedule-class:hover {
+            background-color: rgba(230, 126, 34, 0.05);
         }
         
         .class-time {
-            font-weight: 600; /* Adjusted weight for better readability */
+            font-weight: 600;
             min-width: 70px;
             color: var(--text-dark);
             font-size: 1.08rem;
@@ -652,7 +781,7 @@
             outline: none;
             border-color: var(--primary-light);
             background: var(--white);
-            box-shadow: 0 0 0 4px rgba(230, 126, 34, 0.15); /* Increased shadow for better focus */
+            box-shadow: 0 0 0 4px rgba(230, 126, 34, 0.15);
         }
         
         .form-input::placeholder {
@@ -681,7 +810,7 @@
             outline: none;
             border-color: var(--primary-light);
             background: var(--white);
-            box-shadow: 0 0 0 4px rgba(230, 126, 34, 0.15); /* Increased shadow for better focus */
+            box-shadow: 0 0 0 4px rgba(230, 126, 34, 0.15);
         }
         
         .submit-btn {
@@ -705,12 +834,27 @@
         }
         
         .submit-btn:hover {
-            transform: translateY(-3px) scale(1.02); /* Added scale effect */
+            transform: translateY(-3px) scale(1.02);
             box-shadow: 0 14px 35px rgba(230, 126, 34, 0.3);
         }
         
         .submit-btn:active {
             transform: translateY(1px);
+        }
+        
+        .submit-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.8s;
+        }
+        
+        .submit-btn:hover::after {
+            left: 100%;
         }
         
         .thank-you-message {
@@ -782,6 +926,7 @@
         
         .signature-line:hover {
             height: 3px;
+            width: 240px;
             background: linear-gradient(to right, transparent, var(--primary-light), var(--primary), transparent);
         }
         
@@ -835,6 +980,7 @@
             border: 0.8px solid #e8e4dc;
             position: relative;
             overflow: hidden;
+            scroll-margin-top: 80px;
         }
         
         .cta-header {
@@ -1002,37 +1148,83 @@
         
         .studio-name-address {
             flex: 1;
+            border-left: 3px solid rgba(230, 126, 34, 0.2);
+            padding-left: 15px;
+            margin-left: -15px;
         }
         
-        .language-toggle {
-            margin: 25px auto 0;
+        /* Language Switcher */
+        .lang-switcher-container {
             display: flex;
             justify-content: center;
-            gap: 12px;
+            margin-top: 35px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .lang-switcher {
+            display: flex;
+            gap: 0;
+            background: #f9f9f9;
+            border-radius: 40px;
+            padding: 5px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            position: relative;
+            z-index: 20;
+            border: 1px solid rgba(0,0,0,0.05);
         }
         
         .lang-btn {
             background: transparent;
-            border: 0.8px solid #ddd;
-            border-radius: 22px;
-            padding: 7px 18px;
-            font-size: 0.95rem;
-            color: #666;
+            border: none;
+            color: #555;
+            border-radius: 40px;
+            padding: 10px 30px;
+            font-size: 1.05rem;
             cursor: pointer;
-            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            min-width: 100px;
-            min-height: 40px;
+            transition: var(--transition);
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
         }
         
         .lang-btn.active {
             background: var(--primary-gradient);
             color: white;
-            border-color: var(--primary-light);
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
         }
         
-        .lang-btn:hover:not(.active) {
-            background: rgba(230, 126, 34, 0.12);
+        .lang-btn:not(.active):hover {
             color: var(--primary);
+        }
+        
+        .lang-label {
+            position: absolute;
+            top: -28px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary);
+            white-space: nowrap;
+        }
+        
+        .lang-switcher:after {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            height: calc(100% - 10px);
+            width: calc(50% - 5px);
+            background: white;
+            border-radius: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            z-index: 1;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .lang-switcher.es:after {
+            transform: translateX(100%);
         }
         
         /* New styles for participant registration */
@@ -1240,6 +1432,46 @@
             .welcome-logo i {
                 font-size: 4rem;
             }
+            
+            /* Navigation buttons for mobile */
+            .vertical-nav {
+                flex-direction: row;
+                gap: 10px;
+                padding: 10px 15px;
+            }
+            
+            .nav-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+            
+            .nav-btn .nav-label {
+                top: 100%;
+                left: 50%;
+                transform: translateX(-50%) translateY(10px);
+                right: auto;
+            }
+            
+            .nav-btn .nav-label::after {
+                top: -8px;
+                left: 50%;
+                transform: translateX(-50%);
+                border-left: 6px solid transparent;
+                border-right: 6px solid transparent;
+                border-top: 8px solid var(--dark-bg);
+                border-bottom: none;
+            }
+            
+            /* MODIFIED: Mobile header adjustments */
+            .header-top {
+                flex-direction: column;
+                gap: 25px;
+            }
+            
+            .logo-and-buttons {
+                flex-direction: column;
+            }
         }
         
         @media (max-width: 480px) {
@@ -1446,67 +1678,14 @@
         .lang-es .es-only { display: block; }
         .lang-es .en-only { display: none; }
         
-        /* New elegant refinements */
-        .logo-container {
-            transition: transform 0.5s ease;
-        }
-        
-        .logo-container:hover {
-            transform: scale(1.03);
-        }
-        
-        .link-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .link-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
-        }
-        
-        .submit-btn::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.8s;
-        }
-        
-        .submit-btn:hover::after {
-            left: 100%;
-        }
-        
-        .studio-name-address {
-            border-left: 3px solid rgba(230, 126, 34, 0.2);
-            padding-left: 15px;
-            margin-left: -15px;
-        }
-        
-        .schedule-class {
-            transition: background-color 0.3s ease;
-            padding: 5px 8px;
-            border-radius: 8px;
-        }
-        
-        .schedule-class:hover {
-            background-color: rgba(230, 126, 34, 0.05);
-        }
-        
-        .signature-line {
-            height: 1.5px;
-        }
-        
-        .signature-container:hover .signature-line {
-            height: 2px;
-            width: 240px;
+        /* Scroll padding */
+        html {
+            scroll-padding-top: 100px;
         }
     </style>
 </head>
 <body>
-  <!-- Welcome Overlay -->
+  <!-- Welcome Overlay for Portal Access -->
   <div id="welcome-overlay">
     <div class="welcome-content">
       <div class="welcome-logo">
@@ -1520,24 +1699,50 @@
 
   <div class="container">
     <div class="header-container">
-      <div class="logo-container" id="music-note">
-        <div class="radiating-ring ring-1"></div>
-        <div class="radiating-ring ring-2"></div>
-        <div class="radiating-ring ring-3"></div>
-        <div class="logo">
-          <i class="fas fa-music"></i>
+      <div class="header-top">
+        <div class="logo-and-buttons">
+          <div class="logo-container" id="music-note">
+            <div class="radiating-ring ring-1"></div>
+            <div class="radiating-ring ring-2"></div>
+            <div class="radiating-ring ring-3"></div>
+            <div class="logo">
+              <i class="fas fa-music"></i>
+            </div>
+          </div>
+          
+          <!-- POLISHED: Navigation buttons -->
+          <div class="vertical-nav" id="nav-buttons">
+            <button class="nav-btn" id="btn-social">
+              <i class="fas fa-hashtag"></i>
+              <span class="nav-label">Social Media</span>
+            </button>
+            <button class="nav-btn" id="btn-next-class">
+              <i class="fas fa-calendar"></i>
+              <span class="nav-label">Next Class</span>
+            </button>
+            <button class="nav-btn" id="btn-schedule">
+              <i class="fas fa-clock"></i>
+              <span class="nav-label">Schedule</span>
+            </button>
+            <button class="nav-btn" id="btn-location">
+              <i class="fas fa-map-marker-alt"></i>
+              <span class="nav-label">Location</span>
+            </button>
+          </div>
         </div>
       </div>
-      <h1>Rebecca Bachata</h1>
+      
+      <h1 id="main-title">Rebecca Bachata</h1>
       <div class="divider"></div>
-      <p class="tagline">Professional Bachata Instruction | Express Yourself Through Movement</p>
+      <p class="tagline" id="tagline">Professional Bachata Instruction | Express Yourself Through Movement</p>
     </div>
     
     <div class="content">
-      <h2 class="section-title">Connect With Me</h2>
-      
+      <h2 class="section-title" id="connect-title">Connect With Me</h2>
       <div class="links-grid">
-        <a href="https://www.facebook.com/share/1CdaS5Uj5P/?mibextid=wwXIfr" target="_blank" class="link-card facebook">
+        <a href="https://www.facebook.com/share/1CdaS5Uj5P/?mibextid=wwXIfr" 
+           target="_blank" 
+           class="link-card facebook">
           <div class="social-icon-container facebook-icon-container">
             <div class="social-gradient"></div>
             <div class="social-icon">
@@ -1546,11 +1751,13 @@
           </div>
           <div class="link-text">
             <div class="link-title">Facebook</div>
-            <div class="link-subtitle">Follow for updates and dance tips</div>
+            <div class="link-subtitle" id="facebook-sub">Follow for updates and dance tips</div>
           </div>
         </a>
         
-        <a href="https://www.instagram.com/rebecca_bachata?igsh=MWY1cHI4c2Z0a21zcw==" target="_blank" class="link-card instagram">
+        <a href="https://www.instagram.com/rebecca_bachata?igsh=MWY1cHI4c2Z0a21zcw==" 
+           target="_blank" 
+           class="link-card instagram">
           <div class="social-icon-container instagram-icon-container">
             <div class="social-gradient"></div>
             <div class="social-icon">
@@ -1564,35 +1771,35 @@
         </a>
       </div>
       
-      <div class="date-section">
-        <span id="date-text"></span>
+      <div class="date-section" id="current-date-discreet">
+        <strong id="today-label">Today is:</strong> <span id="date-text"></span>
       </div>
       
-      <h2 class="section-title">Upcoming Classes</h2>
+      <h2 class="section-title" id="upcoming-title">Join Our Classes</h2>
       
       <div id="class-cta" class="class-cta-container">
         <div class="cta-header">
           <i class="fas fa-calendar-day pulse"></i>
-          <div id="cta-title">Today at Serrata Studio</div>
+          <div id="cta-title">Tonight at Serrata Studio</div>
           <i class="fas fa-star pulse"></i>
         </div>
         
         <div class="cta-schedule" id="cta-schedule">
-          10:30am Bachata | 11:30am Salsa
+          7:15pm Salsa | 8:15pm Bachata
         </div>
         
         <div class="cta-action" id="register-cta">
-          <span>Register Now</span> <span class="down-arrow"><i class="fas fa-arrow-down"></i></span>
+          <span id="register-cta-text">Register Now</span> <span class="down-arrow"><i class="fas fa-arrow-down"></i></span>
         </div>
       </div>
       
-      <h3 class="section-title">Class Schedule</h3>
+      <h3 class="section-title" id="schedule-title">Class Schedule</h3>
       
       <div class="links-grid" id="schedule-grid">
         <div class="link-card serrata next-class-highlight" 
              data-studio="Serrata Studio" 
              id="serrata-card">
-          <div class="new-class-badge">New Location</div>
+          <div class="new-class-badge" id="new-class-text">New Location</div>
           <div class="link-icon serrata-icon">
             <i class="fas fa-building"></i>
           </div>
@@ -1786,8 +1993,8 @@
       
       <!-- Registration Form with Participant Fields -->
       <div class="registration-form" id="registration-form">
-        <div class="form-title">Class Registration</div>
-        <div class="partner-notice">No partner needed - come dance with us!</div>
+        <div class="form-title" id="registration-title">Class Registration</div>
+        <div class="partner-notice" id="partner-text">No partner needed - come dance with us!</div>
         <form id="dance-registration">
           <!-- Participant Fields -->
           <div id="participant-container">
@@ -1823,29 +2030,31 @@
           </div>
           
           <button type="submit" class="submit-btn">
-            Complete Registration <i class="fas fa-check-circle"></i>
+            <span id="register-button">Complete Registration</span> 
+            <span class="spinner" id="form-spinner"></span>
           </button>
         </form>
         
         <div id="thank-you-message" class="thank-you-message">
-          <h3>Thank You for Registering!</h3>
-          <p class="en-only">We're excited to dance with you! Please arrive 10 minutes early to check in.</p>
-          <p class="es-only">¡Estamos emocionados de bailar contigo! Por favor llegue 10 minutos antes para registrarse.</p>
-          <button class="submit-btn" id="register-again-btn" style="margin-top: 25px;">
-            Register Another Person
+          <h3 id="thank-you-title">Thank You for Registering!</h3>
+          <p id="thank-you-text">We're excited to dance with you! Your spot is being saved.</p>
+          <button class="submit-btn" id="register-again-btn" style="margin-top: 20px;">
+            <span id="register-again-text">Register Another Person</span>
           </button>
         </div>
       </div>
       
-      <h2 class="section-title">Payment Options</h2>
+      <h2 class="section-title" id="payment-title">Payment Options</h2>
       <div class="links-grid">
-        <a href="https://venmo.com/code?user_id=2575920015605760344&created=1750346816" class="link-card venmo" target="_blank">
+        <a href="https://venmo.com/code?user_id=2575920015605760344&created=1750346816" 
+           class="link-card venmo" 
+           target="_blank">
           <div class="link-icon">
             <i class="fab fa-vimeo-v"></i>
           </div>
           <div class="link-text">
             <div class="link-title">Venmo</div>
-            <div class="link-subtitle">Secure payment option</div>
+            <div class="link-subtitle" id="venmo-sub">Secure payment option</div>
           </div>
         </a>
         
@@ -1855,36 +2064,43 @@
             <i class="fas fa-money-bill-wave"></i>
           </div>
           <div class="link-text">
-            <div class="link-title">Cash</div>
-            <div class="link-subtitle">Pay at the studio</div>
+            <div class="link-title" id="cash-title">Cash</div>
+            <div class="link-subtitle" id="cash-sub">Pay at the studio</div>
           </div>
           <div class="cash-note" id="cash-note">Exact change appreciated</div>
         </div>
       </div>
       
-      <h2 class="section-title">Contact Me</h2>
+      <h2 class="section-title" id="contact-title">Contact Me</h2>
       <div class="links-grid">
         <a href="mailto:rebecca@bachata.com" class="link-card contact" target="_blank">
           <div class="link-icon contact-icon">
             <i class="fas fa-envelope"></i>
           </div>
           <div class="link-text">
-            <div class="link-title">Professional Inquiries</div>
-            <div class="link-subtitle">Bookings and partnerships</div>
+            <div class="link-title" id="contact-title-text">Professional Inquiries</div>
+            <div class="link-subtitle" id="contact-subtitle">Bookings and partnerships</div>
           </div>
         </a>
       </div>
       
       <footer>
-        <div class="language-toggle" id="language-toggle">
-          <button class="lang-btn active" data-lang="en">English</button>
-          <button class="lang-btn" data-lang="es">Español</button>
+        <!-- Language Switcher -->
+        <div class="lang-switcher-container">
+          <div class="lang-label">Language</div>
+          <div class="lang-switcher en">
+            <button class="lang-btn active" id="lang-en" data-lang="en">EN</button>
+            <button class="lang-btn" id="lang-es" data-lang="es">ES</button>
+          </div>
         </div>
-        <p>© 2025 Rebecca Bachata | Professional Instruction</p>
-        <p>Dance is the poetry of the foot</p>
+        
+        <p id="copyright">© 2025 Rebecca Bachata | Professional Instruction</p>
+        <p id="quote">Dance is the poetry of the foot</p>
         
         <div class="signature-container">
-          <div class="signature-line"></div>
+          <div class="signature-line" id="signature-line" 
+               ondblclick="window.open('https://dancefirststep.github.io/class-schedule-/', '_blank')"
+               style="cursor: pointer;"></div>
         </div>
       </footer>
     </div>
@@ -1892,410 +2108,157 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Set current language
-      let currentLang = 'en';
-      document.body.classList.add('lang-en');
-      
       // Set current date
-      function updateDate() {
+      function updateCurrentDate(lang) {
         const now = new Date();
         const options = { 
           weekday: 'long', 
           year: 'numeric', 
           month: 'long', 
-          day: 'numeric'
+          day: 'numeric',
+          locale: lang === 'es' ? 'es-ES' : 'en-US'
         };
-        const dateString = now.toLocaleDateString(
-          currentLang === 'es' ? 'es-ES' : 'en-US', 
-          options
-        );
-        const prefix = currentLang === 'es' ? 'Hoy es' : 'Today is';
-        document.getElementById('date-text').innerHTML = `<strong>${prefix}:</strong> ${dateString}`;
+        const dateText = document.getElementById('date-text');
+        dateText.textContent = now.toLocaleDateString(lang === 'es' ? 'es-ES' : 'en-US', options);
       }
-      updateDate();
       
-      // Class schedule data with proper time values
-      const classSchedule = [
-        { 
-          day: "Monday", 
-          dayIndex: 1,
-          studio: "Stardust Ballroom",
-          classes: [
-            "6:30pm Bachata Intro",
-            "7:00pm Bachata Fundamentals",
-            "8:00pm Bachata Next Level"
-          ],
-          locationId: "stardust-card",
-          startTime: 1830, // 6:30pm
-          endTime: 2100    // 9:00pm
+      // Language switch functionality
+      const langSwitcher = document.querySelector('.lang-switcher');
+      const langButtons = langSwitcher.querySelectorAll('.lang-btn');
+      let currentLanguage = 'en';
+      
+      // Translations object
+      const translations = {
+        en: {
+          mainTitle: "Rebecca Bachata",
+          tagline: "Professional Bachata Instruction | Express Yourself Through Movement",
+          connectTitle: "Connect With Me",
+          facebookSub: "Follow for updates and dance tips",
+          todayLabel: "Today is:",
+          upcomingTitle: "Join Our Classes",
+          registerCta: "Register Now",
+          scheduleTitle: "Class Schedule",
+          newClassText: "New Location",
+          registrationTitle: "Class Registration",
+          partnerText: "No partner needed - come dance with us!",
+          namePlaceholder: "Full Name",
+          emailPlaceholder: "Email Address",
+          locationPlaceholder: "Select class location",
+          registerButton: "Complete Registration",
+          thankYouTitle: "Thank You for Registering!",
+          thankYouText: "We're excited to dance with you! Your spot is being saved.",
+          registerAgainText: "Register Another Person",
+          paymentTitle: "Payment Options",
+          venmoSub: "Secure payment option",
+          cashTitle: "Cash",
+          cashSub: "Pay at the studio",
+          contactTitle: "Contact Me",
+          contactTitleText: "Professional Inquiries",
+          contactSubtitle: "Bookings and partnerships",
+          copyright: "© 2025 Rebecca Bachata | Professional Instruction",
+          quote: "Dance is the poetry of the foot"
         },
-        { 
-          day: "Thursday", 
-          dayIndex: 4,
-          studio: "Stardust Ballroom",
-          classes: [
-            "6:30pm Intro to Salsa",
-            "7:00pm Salsa Open Level",
-            "8:00pm Bachata Open Level"
-          ],
-          locationId: "stardust-card",
-          startTime: 1830, // 6:30pm
-          endTime: 2100    // 9:00pm
-        },
-        { 
-          day: "Friday", 
-          dayIndex: 5,
-          studio: "Let's Bailar Dance Studio",
-          classes: [
-            "7:00pm Salsa",
-            "8:00pm Bachata"
-          ],
-          locationId: "letsbailar-card",
-          startTime: 1900, // 7:00pm
-          endTime: 2100    // 9:00pm
-        },
-        { 
-          day: "Saturday", 
-          dayIndex: 6,
-          studio: "Estilo Dance Studio",
-          classes: [
-            "4:00pm Salsa",
-            "5:00pm Bachata"
-          ],
-          locationId: "estilo-card",
-          startTime: 1600, // 4:00pm
-          endTime: 1800    // 6:00pm
-        },
-        { 
-          day: "Wednesday", 
-          dayIndex: 3,
-          studio: "Serrata Studio",
-          classes: [
-            "7:15pm Salsa",
-            "8:15pm Bachata"
-          ],
-          locationId: "serrata-card",
-          startTime: 1915, // 7:15pm
-          endTime: 2215    // 10:15pm
-        },
-        { 
-          day: "Saturday", 
-          dayIndex: 6,
-          studio: "Serrata Studio",
-          classes: [
-            "10:30am Bachata",
-            "11:30am Salsa"
-          ],
-          locationId: "serrata-card",
-          startTime: 1030, // 10:30am
-          endTime: 1230    // 12:30pm
+        es: {
+          mainTitle: "Rebecca Bachata",
+          tagline: "Instrucción Profesional de Bachata | Exprésate a Través del Movimiento",
+          connectTitle: "Conéctate Conmigo",
+          facebookSub: "Sigue para actualizaciones y consejos de baile",
+          todayLabel: "Hoy es:",
+          upcomingTitle: "Únete a Nuestras Clases",
+          registerCta: "Regístrate Ahora",
+          scheduleTitle: "Horario de Clases",
+          newClassText: "Nueva Ubicación",
+          registrationTitle: "Registro de Clase",
+          partnerText: "No necesitas pareja - ¡Ven a bailar con nosotros!",
+          namePlaceholder: "Nombre Completo",
+          emailPlaceholder: "Correo Electrónico",
+          locationPlaceholder: "Selecciona la ubicación de la clase",
+          registerButton: "Completar Registro",
+          thankYouTitle: "¡Gracias por Registrarte!",
+          thankYouText: "¡Estamos emocionados de bailar contigo! Tu lugar está siendo reservado.",
+          registerAgainText: "Registrar Otra Persona",
+          paymentTitle: "Opciones de Pago",
+          venmoSub: "Opción de pago seguro",
+          cashTitle: "Efectivo",
+          cashSub: "Paga en el estudio",
+          contactTitle: "Contáctame",
+          contactTitleText: "Consultas Profesionales",
+          contactSubtitle: "Reservas y colaboraciones",
+          copyright: "© 2025 Rebecca Bachata | Instrucción Profesional",
+          quote: "El baile es la poesía del pie"
         }
-      ];
-
-      // Find next class to highlight
-      function getNextClassInfo() {
-        const now = new Date();
-        const currentDayIndex = now.getDay(); 
-        const currentHours = now.getHours();
-        const currentMinutes = now.getMinutes();
-        const currentTime = currentHours * 100 + currentMinutes;
-        
-        // Create array of all upcoming classes
-        const upcomingClasses = [];
-        
-        for (const schedule of classSchedule) {
-            let daysUntil = schedule.dayIndex - currentDayIndex;
-            if (daysUntil < 0) daysUntil += 7; // Wrap around to next week
-            
-            // If it's today, check if class has ended
-            if (daysUntil === 0) {
-                if (currentTime < schedule.endTime) {
-                    upcomingClasses.push({
-                        ...schedule,
-                        daysUntil: 0,
-                        sortKey: schedule.startTime
-                    });
-                }
-            } else {
-                upcomingClasses.push({
-                    ...schedule,
-                    daysUntil: daysUntil,
-                    sortKey: daysUntil * 10000 + schedule.startTime
-                });
-            }
-        }
-        
-        // Sort by days until then start time
-        upcomingClasses.sort((a, b) => a.sortKey - b.sortKey);
-        
-        if (upcomingClasses.length === 0) {
-            return {
-                day: "Saturday",
-                studio: "Serrata Studio",
-                schedule: ["10:30am Bachata", "11:30am Salsa"],
-                timePrefix: "Today",
-                locationId: "serrata-card"
-            };
-        }
-        
-        const nextClass = upcomingClasses[0];
-        let timePrefix = "Tonight";
-        
-        // Only use "Tonight" for evening classes after 4 PM
-        if (nextClass.daysUntil === 0) {
-            if (nextClass.startTime < 1600) { // Before 4pm
-                timePrefix = "Today";
-            } else if (currentTime < 1600) { // Before 4pm now
-                timePrefix = "Today";
-            } else {
-                timePrefix = "Tonight";
-            }
-        } else if (nextClass.daysUntil === 1) {
-            timePrefix = "Tomorrow";
-        } else if (nextClass.daysUntil < 7) {
-            timePrefix = "This " + nextClass.day;
-        } else {
-            timePrefix = "Next " + nextClass.day;
-        }
-        
-        return {
-            day: nextClass.day,
-            studio: nextClass.studio,
-            schedule: nextClass.classes,
-            timePrefix: timePrefix,
-            locationId: nextClass.locationId
-        };
-      }
-
-      // Update the call-to-action section
-      function updateCTASection() {
-        const nextClass = getNextClassInfo();
-        const ctaTitle = document.getElementById('cta-title');
-        
-        // Translated prefixes
-        const prefixes = {
-          en: {
-            tonight: "Tonight",
-            today: "Today",
-            tomorrow: "Tomorrow",
-            this: "This",
-            next: "Next"
-          },
-          es: {
-            tonight: "Esta noche",
-            today: "Hoy",
-            tomorrow: "Mañana",
-            this: "Este",
-            next: "Próximo"
+      };
+      
+      // Set language function
+      function setLanguage(lang) {
+        // Update UI
+        langButtons.forEach(btn => {
+          if (btn.dataset.lang === lang) {
+            btn.classList.add('active');
+          } else {
+            btn.classList.remove('active');
           }
-        };
-        
-        let timePrefix;
-        if (nextClass.timePrefix === "Tonight") {
-          timePrefix = prefixes[currentLang].tonight;
-        } else if (nextClass.timePrefix === "Today") {
-          timePrefix = prefixes[currentLang].today;
-        } else if (nextClass.timePrefix === "Tomorrow") {
-          timePrefix = prefixes[currentLang].tomorrow;
-        } else if (nextClass.timePrefix.startsWith("This")) {
-          timePrefix = prefixes[currentLang].this + " " + nextClass.timePrefix.split(" ")[1];
-        } else if (nextClass.timePrefix.startsWith("Next")) {
-          timePrefix = prefixes[currentLang].next + " " + nextClass.timePrefix.split(" ")[1];
-        } else {
-          timePrefix = nextClass.timePrefix;
-        }
-        
-        ctaTitle.innerHTML = `<span class="pulse">${timePrefix}</span>: ${nextClass.studio}`;
-        document.getElementById('cta-schedule').textContent = nextClass.schedule.join(' | ');
-        
-        document.querySelectorAll('.link-card').forEach(card => {
-            card.classList.remove('next-class-highlight');
         });
         
-        const locationCard = document.getElementById(nextClass.locationId);
-        if (locationCard) {
-            locationCard.classList.add('next-class-highlight');
-        }
+        // Update language switcher visual
+        langSwitcher.className = 'lang-switcher ' + lang;
+        
+        // Update content based on language
+        const langData = translations[lang];
+        
+        document.getElementById('main-title').textContent = langData.mainTitle;
+        document.getElementById('tagline').textContent = langData.tagline;
+        document.getElementById('connect-title').textContent = langData.connectTitle;
+        document.getElementById('facebook-sub').textContent = langData.facebookSub;
+        document.getElementById('today-label').textContent = langData.todayLabel;
+        document.getElementById('upcoming-title').textContent = langData.upcomingTitle;
+        document.getElementById('register-cta-text').textContent = langData.registerCta;
+        document.getElementById('schedule-title').textContent = langData.scheduleTitle;
+        document.getElementById('new-class-text').textContent = langData.newClassText;
+        document.getElementById('registration-title').textContent = langData.registrationTitle;
+        document.getElementById('partner-text').textContent = langData.partnerText;
+        
+        // Update participant input placeholder
+        document.querySelectorAll('.participant-fields .form-input').forEach(input => {
+          input.placeholder = langData.namePlaceholder;
+        });
+        
+        document.getElementById('email').placeholder = langData.emailPlaceholder;
+        document.getElementById('location').querySelector('option[value=""]').textContent = langData.locationPlaceholder;
+        document.getElementById('register-button').textContent = langData.registerButton;
+        document.getElementById('thank-you-title').textContent = langData.thankYouTitle;
+        document.getElementById('thank-you-text').textContent = langData.thankYouText;
+        document.getElementById('register-again-text').textContent = langData.registerAgainText;
+        document.getElementById('payment-title').textContent = langData.paymentTitle;
+        document.getElementById('venmo-sub').textContent = langData.venmoSub;
+        document.getElementById('cash-title').textContent = langData.cashTitle;
+        document.getElementById('cash-sub').textContent = langData.cashSub;
+        document.getElementById('contact-title').textContent = langData.contactTitle;
+        document.getElementById('contact-title-text').textContent = langData.contactTitleText;
+        document.getElementById('contact-subtitle').textContent = langData.contactSubtitle;
+        document.getElementById('copyright').textContent = langData.copyright;
+        document.getElementById('quote').textContent = langData.quote;
+        
+        // Update date format
+        updateCurrentDate(lang);
+        
+        currentLanguage = lang;
+        localStorage.setItem('language', lang);
       }
       
-      // Update schedule display order
-      function updateScheduleDisplay() {
-        const now = new Date();
-        const currentDayIndex = now.getDay();
-        const currentHours = now.getHours();
-        const currentMinutes = now.getMinutes();
-        const currentTime = currentHours * 100 + currentMinutes;
-        
-        // Create a map of studios with their next class
-        const studioMap = {};
-        
-        for (const schedule of classSchedule) {
-            const locationId = schedule.locationId;
-            
-            // Calculate days until class
-            let daysUntil = schedule.dayIndex - currentDayIndex;
-            if (daysUntil < 0) daysUntil += 7;
-            
-            // Check if today's class has passed
-            if (daysUntil === 0 && currentTime >= schedule.endTime) {
-                daysUntil = 7; // Next week
-            }
-            
-            const sortKey = daysUntil * 10000 + schedule.startTime;
-            
-            // If we haven't seen this studio or this class is sooner
-            if (!studioMap[locationId] || sortKey < studioMap[locationId].sortKey) {
-                studioMap[locationId] = {
-                    ...schedule,
-                    daysUntil: daysUntil,
-                    sortKey: sortKey
-                };
-            }
-        }
-        
-        // Convert to array and sort by days until then start time
-        const sortedStudios = Object.values(studioMap).sort((a, b) => a.sortKey - b.sortKey);
-        
-        // Reorder the cards in the schedule grid
-        const scheduleGrid = document.getElementById('schedule-grid');
-        const cards = Array.from(scheduleGrid.children);
-        
-        // Remove all existing cards
-        while (scheduleGrid.firstChild) {
-            scheduleGrid.removeChild(scheduleGrid.firstChild);
-        }
-        
-        // Add cards in new order
-        sortedStudios.forEach(studio => {
-            const card = cards.find(c => c.id === studio.locationId);
-            if (card) {
-                scheduleGrid.appendChild(card);
-            }
+      // Event listeners for language buttons
+      langButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          setLanguage(button.dataset.lang);
         });
-      }
-
-      // Handle form submission
-      function initForm() {
-        const registrationForm = document.getElementById('dance-registration');
-        const thankYouMessage = document.getElementById('thank-you-message');
-        const submitBtn = registrationForm.querySelector('button[type="submit"]');
-        const registerAgainBtn = document.getElementById('register-again-btn');
-        
-        let formSubmitted = false;
-        
-        function resetForm() {
-            registrationForm.reset();
-            thankYouMessage.style.display = 'none';
-            registrationForm.style.display = 'block';
-            formSubmitted = false;
-            
-            // Reset participants to one
-            participantContainer.innerHTML = `
-                <div class="participant-fields name-field">
-                    <div class="participant-form-group">
-                        <input type="text" class="form-input" placeholder="${currentLang === 'es' ? 'Nombre completo' : 'Full Name'}" required>
-                    </div>
-                </div>
-            `;
-            participantCount = 1;
-            removeParticipantBtn.disabled = true;
-            addParticipantBtn.disabled = false;
-        }
-        
-        registerAgainBtn.addEventListener('click', resetForm);
-        
-        registrationForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            if (formSubmitted) return;
-            formSubmitted = true;
-            
-            // Collect participant names
-            const participantNames = [];
-            const nameInputs = participantContainer.querySelectorAll('.form-input');
-            nameInputs.forEach(input => {
-                if (input.value.trim()) {
-                    participantNames.push(input.value.trim());
-                }
-            });
-            
-            const email = document.getElementById('email').value;
-            const location = document.getElementById('location').value;
-            
-            if (participantNames.length === 0) {
-                showNotification(
-                  currentLang === 'es' 
-                    ? "Por favor ingrese al menos un nombre" 
-                    : "Please enter at least one name", 
-                  "info"
-                );
-                formSubmitted = false;
-                return;
-            }
-            
-            if (!email.trim()) {
-                showNotification(
-                  currentLang === 'es' 
-                    ? "Por favor ingrese su correo electrónico" 
-                    : "Please enter your email address", 
-                  "info"
-                );
-                formSubmitted = false;
-                return;
-            }
-            
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                showNotification(
-                  currentLang === 'es' 
-                    ? "Por favor ingrese un correo electrónico válido" 
-                    : "Please enter a valid email address", 
-                  "info"
-                );
-                formSubmitted = false;
-                return;
-            }
-            
-            if (!location) {
-                showNotification(
-                  currentLang === 'es' 
-                    ? "Por favor seleccione una ubicación" 
-                    : "Please select a class location", 
-                  "info"
-                );
-                formSubmitted = false;
-                return;
-            }
-            
-            submitBtn.textContent = currentLang === 'es' ? 'Procesando...' : 'Processing...';
-            submitBtn.disabled = true;
-            
-            setTimeout(function() {
-                registrationForm.style.display = 'none';
-                thankYouMessage.style.display = 'block';
-                thankYouMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                submitBtn.textContent = currentLang === 'es' 
-                  ? 'Completar Registro' 
-                  : 'Complete Registration';
-                submitBtn.disabled = false;
-                
-                showNotification(
-                  currentLang === 'es'
-                    ? "¡Registro exitoso!"
-                    : "Registration successful!", 
-                  "success"
-                );
-            }, 1000);
-        });
-      }
+      });
       
-      // Show notification
-      function showNotification(message, type) {
-        const notification = document.createElement('div');
-        notification.className = `notification notification-${type}`;
-        notification.innerHTML = `<i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i> ${message}`;
-        document.body.appendChild(notification);
-        setTimeout(() => { notification.remove(); }, 3000);
+      // Check for saved language preference
+      const savedLanguage = localStorage.getItem('language');
+      if (savedLanguage) {
+        setLanguage(savedLanguage);
+      } else {
+        updateCurrentDate('en');
       }
       
       // Participant Registration Functionality
@@ -2316,7 +2279,7 @@
           newParticipant.className = 'participant-fields name-field';
           newParticipant.innerHTML = `
             <div class="participant-form-group">
-              <input type="text" class="form-input" placeholder="${currentLang === 'es' ? 'Nombre completo' : 'Full Name'}" required>
+              <input type="text" class="form-input" placeholder="${translations[currentLanguage].namePlaceholder}" required>
             </div>
           `;
           
@@ -2350,131 +2313,347 @@
         }
       });
       
+      // FIXED: Properly ordered class schedule data
+      const classSchedule = [
+        { 
+          day: "Monday", 
+          dayIndex: 1,
+          studio: "Stardust Ballroom",
+          classes: [
+            "6:30pm Bachata Intro",
+            "7:00pm Bachata Fundamentals",
+            "8:00pm Bachata Next Level"
+          ],
+          locationId: "stardust-card",
+          startTime: 1830,
+          endTime: 2100
+        },
+        { 
+          day: "Wednesday", 
+          dayIndex: 3,
+          studio: "Serrata Studio",
+          classes: [
+            "7:15pm Salsa",
+            "8:15pm Bachata"
+          ],
+          locationId: "serrata-card",
+          startTime: 1915,
+          endTime: 2215
+        },
+        { 
+          day: "Thursday", 
+          dayIndex: 4,
+          studio: "Stardust Ballroom",
+          classes: [
+            "6:30pm Intro to Salsa",
+            "7:00pm Salsa Open Level",
+            "8:00pm Bachata Open Level"
+          ],
+          locationId: "stardust-card",
+          startTime: 1830,
+          endTime: 2100
+        },
+        { 
+          day: "Friday", 
+          dayIndex: 5,
+          studio: "Let's Bailar Dance Studio",
+          classes: [
+            "7:00pm Salsa",
+            "8:00pm Bachata"
+          ],
+          locationId: "letsbailar-card",
+          startTime: 1900,
+          endTime: 2100
+        },
+        { 
+          day: "Saturday", 
+          dayIndex: 6,
+          studio: "Serrata Studio",
+          classes: [
+            "10:30am Bachata",
+            "11:30am Salsa"
+          ],
+          locationId: "serrata-card",
+          startTime: 1030,
+          endTime: 1300
+        },
+        { 
+          day: "Saturday", 
+          dayIndex: 6,
+          studio: "Estilo Dance Studio",
+          classes: [
+            "4:00pm Salsa",
+            "5:00pm Bachata"
+          ],
+          locationId: "estilo-card",
+          startTime: 1600,
+          endTime: 1800
+        }
+      ];
+
+      // Find next class to highlight
+      function getNextClassInfo() {
+        const now = new Date();
+        const currentDayIndex = now.getDay(); 
+        const currentHours = now.getHours();
+        const currentMinutes = now.getMinutes();
+        const currentTime = currentHours * 100 + currentMinutes;
+        
+        // Sort classes by day and then by start time
+        const sortedClasses = [...classSchedule].sort((a, b) => {
+          // If same day, sort by start time
+          if (a.dayIndex === b.dayIndex) {
+            return a.startTime - b.startTime;
+          }
+          return a.dayIndex - b.dayIndex;
+        });
+        
+        // Find today's class if exists and hasn't ended
+        const todayClass = sortedClasses.find(s => 
+          s.dayIndex === currentDayIndex && 
+          currentTime < s.endTime
+        );
+        
+        if (todayClass) {
+          return {
+            day: todayClass.day,
+            studio: todayClass.studio,
+            schedule: todayClass.classes,
+            timePrefix: currentLanguage === 'es' ? "Esta noche" : "Tonight",
+            locationId: todayClass.locationId
+          };
+        }
+        
+        // Find next class in the same week
+        const futureClasses = sortedClasses.filter(s => s.dayIndex > currentDayIndex);
+        
+        if (futureClasses.length > 0) {
+          const nextClass = futureClasses[0];
+          const dayDifference = nextClass.dayIndex - currentDayIndex;
+          let timePrefix = "";
+          
+          if (dayDifference === 1) {
+            timePrefix = currentLanguage === 'es' ? "Mañana" : "Tomorrow";
+          } else if (dayDifference === 2) {
+            timePrefix = currentLanguage === 'es' ? "Este " : "This " + nextClass.day;
+          } else {
+            timePrefix = currentLanguage === 'es' ? "Próximo " : "Next " + nextClass.day;
+          }
+          
+          return {
+            day: nextClass.day,
+            studio: nextClass.studio,
+            schedule: nextClass.classes,
+            timePrefix: timePrefix,
+            locationId: nextClass.locationId
+          };
+        }
+        
+        // If no future classes in same week, take first class of next week
+        const nextClass = sortedClasses[0];
+        return {
+          day: nextClass.day,
+          studio: nextClass.studio,
+          schedule: nextClass.classes,
+          timePrefix: currentLanguage === 'es' ? "Próximo " : "Next " + nextClass.day,
+          locationId: nextClass.locationId
+        };
+      }
+
+      // Update the call-to-action section
+      function updateCTASection() {
+        const nextClass = getNextClassInfo();
+        
+        const ctaTitle = document.getElementById('cta-title');
+        ctaTitle.innerHTML = `<span class="pulse">${nextClass.timePrefix}</span>: ${nextClass.studio}`;
+        
+        document.getElementById('cta-schedule').textContent = nextClass.schedule.join(' | ');
+        
+        document.querySelectorAll('.link-card').forEach(card => {
+          card.classList.remove('next-class-highlight');
+        });
+        
+        const locationCard = document.getElementById(nextClass.locationId);
+        if (locationCard) {
+          locationCard.classList.add('next-class-highlight');
+          
+          // Scroll to highlight if it's not visible
+          const rect = locationCard.getBoundingClientRect();
+          if (rect.top < 0 || rect.bottom > window.innerHeight) {
+            locationCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }
+      }
+      
+      // Update schedule display order
+      function updateScheduleDisplay() {
+        const now = new Date();
+        const currentDayIndex = now.getDay();
+        const currentHours = now.getHours();
+        const currentMinutes = now.getMinutes();
+        const currentTime = currentHours * 100 + currentMinutes;
+        
+        // Create a map of studios with their next class
+        const studioMap = {};
+        classSchedule.forEach(schedule => {
+          const locationId = schedule.locationId;
+          
+          // Calculate days until class
+          let daysUntil = schedule.dayIndex - currentDayIndex;
+          if (daysUntil < 0) daysUntil += 7;
+          
+          // Check if today's class has passed
+          if (daysUntil === 0 && currentTime >= schedule.endTime) {
+            daysUntil = 7; // Schedule for next week
+          }
+          
+          // If we haven't seen this studio or this class is sooner
+          if (!studioMap[locationId] || daysUntil < studioMap[locationId].daysUntil) {
+            studioMap[locationId] = {
+              daysUntil: daysUntil,
+              schedule: schedule
+            };
+          }
+        });
+        
+        // Convert to array and sort by days until next class
+        const sortedStudios = Object.values(studioMap).sort((a, b) => {
+          return a.daysUntil - b.daysUntil;
+        });
+        
+        // Reorder the cards in the schedule grid
+        const scheduleGrid = document.getElementById('schedule-grid');
+        const cards = Array.from(scheduleGrid.children);
+        
+        // Create a new array with the cards in the correct order
+        const orderedCards = sortedStudios.map(studio => {
+          return cards.find(card => card.id === studio.schedule.locationId);
+        });
+        
+        // Remove all existing cards
+        while (scheduleGrid.firstChild) {
+          scheduleGrid.removeChild(scheduleGrid.firstChild);
+        }
+        
+        // Add cards in new order
+        orderedCards.forEach(card => {
+          if (card) {
+            scheduleGrid.appendChild(card);
+          }
+        });
+      }
+
+      // Handle form submission
+      function initForm() {
+        const registrationForm = document.getElementById('dance-registration');
+        const thankYouMessage = document.getElementById('thank-you-message');
+        const submitBtn = registrationForm.querySelector('button[type="submit"]');
+        const registerAgainBtn = document.getElementById('register-again-btn');
+        const spinner = document.getElementById('form-spinner');
+        
+        function resetForm() {
+          registrationForm.reset();
+          thankYouMessage.style.display = 'none';
+          registrationForm.style.display = 'block';
+          
+          // Reset participants to one
+          participantContainer.innerHTML = `
+            <div class="participant-fields name-field">
+              <div class="participant-form-group">
+                <input type="text" class="form-input" placeholder="${translations[currentLanguage].namePlaceholder}" required>
+              </div>
+            </div>
+          `;
+          participantCount = 1;
+          removeParticipantBtn.disabled = true;
+          addParticipantBtn.disabled = false;
+        }
+        
+        registerAgainBtn.addEventListener('click', resetForm);
+        
+        registrationForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          // Collect participant names
+          const participantNames = [];
+          const nameInputs = participantContainer.querySelectorAll('.form-input');
+          nameInputs.forEach(input => {
+            if (input.value.trim()) {
+              participantNames.push(input.value.trim());
+            }
+          });
+          
+          const email = document.getElementById('email').value;
+          const location = document.getElementById('location').value;
+          
+          if (participantNames.length === 0) {
+            showNotification(currentLanguage === 'es' ? "Por favor ingresa al menos un nombre" : "Please enter at least one name", "info");
+            return;
+          }
+          
+          if (!email.trim()) {
+            showNotification(currentLanguage === 'es' ? "Por favor ingresa tu correo electrónico" : "Please enter your email address", "info");
+            return;
+          }
+          
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(email)) {
+            showNotification(currentLanguage === 'es' ? "Por favor ingresa un correo electrónico válido" : "Please enter a valid email address", "info");
+            return;
+          }
+          
+          if (!location) {
+            showNotification(currentLanguage === 'es' ? "Por favor selecciona una ubicación" : "Please select a class location", "info");
+            return;
+          }
+          
+          // Show loading spinner
+          submitBtn.disabled = true;
+          spinner.style.display = 'inline-block';
+          
+          setTimeout(function() {
+            // Hide spinner and show success
+            spinner.style.display = 'none';
+            submitBtn.disabled = false;
+            
+            registrationForm.style.display = 'none';
+            thankYouMessage.style.display = 'block';
+            thankYouMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            showNotification(
+              currentLanguage === 'es' ? 
+                "¡Registro exitoso! Tu lugar está siendo reservado" : 
+                "Registration successful! Your spot is being saved", 
+              "success"
+            );
+          }, 1500);
+        });
+      }
+      
+      // Show notification
+      function showNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.className = `notification notification-${type}`;
+        notification.innerHTML = `<i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i> ${message}`;
+        document.body.appendChild(notification);
+        setTimeout(() => { notification.remove(); }, 3000);
+      }
+      
       // Enhanced registration flow
       function initRegistrationFlow() {
         const registerCta = document.getElementById('register-cta');
         const registrationForm = document.getElementById('registration-form');
         
         registerCta.addEventListener('click', function() {
-            registrationForm.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+          // Scroll to the registration form
+          registrationForm.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
         });
       }
       
-      // Translations object
-      const translations = {
-        en: {
-          tagline: "Professional Bachata Instruction | Express Yourself Through Movement",
-          connect: "Connect With Me",
-          upcoming: "Upcoming Classes",
-          schedule: "Class Schedule",
-          payment: "Payment Options",
-          contact: "Contact Me",
-          registration: "Class Registration",
-          partnerNotice: "No partner needed - come dance with us!",
-          completeReg: "Complete Registration",
-          venmo: "Venmo",
-          cash: "Cash",
-          professional: "Professional Inquiries",
-          bookings: "Bookings and partnerships",
-          today: "Today is:",
-          newLocation: "New Location",
-          registerNow: "Register Now",
-          copyright: "© 2025 Rebecca Bachata | Professional Instruction",
-          quote: "Dance is the poetry of the foot",
-          fullName: "Full Name",
-          email: "Email Address",
-          selectLocation: "Select class location",
-          processing: "Processing...",
-          registerAnother: "Register Another Person"
-        },
-        es: {
-          tagline: "Instrucción Profesional de Bachata | Exprésate a Través del Movimiento",
-          connect: "Conéctate Conmigo",
-          upcoming: "Próximas Clases",
-          schedule: "Horario de Clases",
-          payment: "Opciones de Pago",
-          contact: "Contáctame",
-          registration: "Registro de Clase",
-          partnerNotice: "No se necesita pareja - ¡ven a bailar con nosotros!",
-          completeReg: "Completar Registro",
-          venmo: "Venmo",
-          cash: "Efectivo",
-          professional: "Consultas Profesionales",
-          bookings: "Reservas y asociaciones",
-          today: "Hoy es:",
-          newLocation: "Nueva Ubicación",
-          registerNow: "Regístrate Ahora",
-          copyright: "© 2025 Rebecca Bachata | Instrucción Profesional",
-          quote: "El baile es la poesía del pie",
-          fullName: "Nombre completo",
-          email: "Correo electrónico",
-          selectLocation: "Seleccione ubicación",
-          processing: "Procesando...",
-          registerAnother: "Registrar otra persona"
-        }
-      };
-      
-      // Set language function
-      function setLanguage(lang) {
-        currentLang = lang;
-        
-        // Update body class for CSS targeting
-        document.body.classList.remove('lang-en', 'lang-es');
-        document.body.classList.add(`lang-${lang}`);
-        
-        // Update text elements
-        document.querySelector('.tagline').textContent = translations[lang].tagline;
-        document.querySelectorAll('.section-title').forEach((el, i) => {
-          const keys = ['connect', 'upcoming', 'schedule', 'payment', 'contact', 'registration'];
-          if (keys[i]) el.textContent = translations[lang][keys[i]];
-        });
-        document.querySelector('.partner-notice').textContent = translations[lang].partnerNotice;
-        document.querySelector('.submit-btn').innerHTML = `${translations[lang].completeReg} <i class="fas fa-check-circle"></i>`;
-        document.querySelector('.new-class-badge').textContent = translations[lang].newLocation;
-        document.querySelector('#register-cta span').textContent = translations[lang].registerNow;
-        document.querySelector('#register-again-btn').textContent = translations[lang].registerAnother;
-        
-        // Update form placeholders
-        document.querySelectorAll('.form-input[type="text"]').forEach(input => {
-          input.placeholder = translations[lang].fullName;
-        });
-        document.getElementById('email').placeholder = translations[lang].email;
-        document.querySelector('.form-select option[value=""]').textContent = translations[lang].selectLocation;
-        
-        // Update footer
-        const footerParagraphs = document.querySelectorAll('footer p');
-        footerParagraphs[0].textContent = translations[lang].copyright;
-        footerParagraphs[1].textContent = translations[lang].quote;
-        
-        // Update link titles
-        document.querySelector('.venmo .link-title').textContent = translations[lang].venmo;
-        document.querySelector('.cash .link-title').textContent = translations[lang].cash;
-        document.querySelector('.contact .link-title').textContent = translations[lang].professional;
-        document.querySelector('.contact .link-subtitle').textContent = translations[lang].bookings;
-        
-        // Update date display
-        updateDate();
-      }
-      
-      // Language toggle functionality
-      function initLanguageToggle() {
-        const langButtons = document.querySelectorAll('.lang-btn');
-        langButtons.forEach(btn => {
-            btn.addEventListener('click', function() {
-                const lang = this.getAttribute('data-lang');
-                setLanguage(lang);
-                
-                // Update active button
-                langButtons.forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
-      }
-      
-      // Welcome overlay functionality
+      // Triple-click functionality for logo
       function initWelcomeOverlay() {
         const musicNote = document.getElementById('music-note');
         const overlay = document.getElementById('welcome-overlay');
@@ -2511,40 +2690,117 @@
         });
       }
       
+      // POLISHED: Navigation button functionality
+      function initNavButtons() {
+        // Button 1: Social media section
+        document.getElementById('btn-social').addEventListener('click', () => {
+          document.getElementById('connect-title').scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center',
+            inline: 'nearest'
+          });
+        });
+        
+        // Button 2: Next class section
+        document.getElementById('btn-next-class').addEventListener('click', () => {
+          document.getElementById('class-cta').scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center',
+            inline: 'nearest'
+          });
+        });
+        
+        // Button 3: Schedule section
+        document.getElementById('btn-schedule').addEventListener('click', () => {
+          document.getElementById('schedule-title').scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center',
+            inline: 'nearest'
+          });
+        });
+        
+        // Button 4: First location card
+        document.getElementById('btn-location').addEventListener('click', () => {
+          const firstCard = document.querySelector('#schedule-grid > .link-card:first-child');
+          if (firstCard) {
+            firstCard.scrollIntoView({ 
+              behavior: 'smooth', 
+              block: 'center',
+              inline: 'nearest'
+            });
+          }
+        });
+      }
+      
+      // Set active section based on scroll position
+      function setActiveSection() {
+        const sections = [
+          {id: 'connect-title', btn: 'btn-social'},
+          {id: 'class-cta', btn: 'btn-next-class'},
+          {id: 'schedule-title', btn: 'btn-schedule'},
+          {id: 'schedule-grid', btn: 'btn-location'}
+        ];
+        
+        // Reset active states
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+          btn.classList.remove('active-section');
+        });
+        
+        // Find current active section
+        const currentSection = sections.find(section => {
+          const el = document.getElementById(section.id);
+          if (el) {
+            const rect = el.getBoundingClientRect();
+            return rect.top <= 200 && rect.bottom >= 100;
+          }
+          return false;
+        });
+        
+        // Set active state
+        if (currentSection) {
+          document.getElementById(currentSection.btn).classList.add('active-section');
+        }
+      }
+      
+      // Cash note functionality
+      function initCashNote() {
+        const cashCard = document.getElementById('cash-payment');
+        const cashNote = document.getElementById('cash-note');
+        
+        cashCard.addEventListener('click', function() {
+          cashNote.classList.toggle('show');
+          
+          // Hide after 3 seconds
+          setTimeout(() => {
+            cashNote.classList.remove('show');
+          }, 3000);
+        });
+        
+        // Close cash note when clicking elsewhere
+        document.addEventListener('click', function(e) {
+          if (!cashCard.contains(e.target)) {
+            cashNote.classList.remove('show');
+          }
+        });
+      }
+      
       // Initialize the page
       function initPage() {
         updateCTASection();
         updateScheduleDisplay();
         initForm();
         initRegistrationFlow();
-        initLanguageToggle();
         initWelcomeOverlay();
+        initNavButtons();
+        initCashNote();
         
-        // Cash note functionality
-        const cashCard = document.getElementById('cash-payment');
-        const cashNote = document.getElementById('cash-note');
-        
-        cashCard.addEventListener('click', function() {
-            cashNote.classList.toggle('show');
-            
-            // Hide after 3 seconds
-            setTimeout(() => {
-                cashNote.classList.remove('show');
-            }, 3000);
-        });
-        
-        // Close cash note when clicking elsewhere
-        document.addEventListener('click', function(e) {
-            if (!cashCard.contains(e.target)) {
-                cashNote.classList.remove('show');
-            }
-        });
+        // Set scroll event listener for active section
+        window.addEventListener('scroll', setActiveSection);
         
         // Update every minute
         setInterval(() => {
-            updateCTASection();
-            updateScheduleDisplay();
-            updateDate();
+          updateCTASection();
+          updateScheduleDisplay();
         }, 60000);
       }
 
