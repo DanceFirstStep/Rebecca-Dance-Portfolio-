@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>Rebecca & Daniel | Professional Dance Instruction</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- refined font stack: Inter (clean, professional) + Playfair for signature elegance -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..700;1,14..32,300..700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* ———— refined typography variables – same structure, polished font metrics ———— */
+        /* ===== ORIGINAL STYLES (fully preserved, only additions at the end) ===== */
         :root {
             --primary: #2c6e9d;
             --primary-light: #5dade2;
@@ -44,7 +43,6 @@
             --shadow-md: 0 8px 24px rgba(44, 90, 160, 0.08);
             --shadow-lg: 0 16px 40px rgba(44, 90, 160, 0.1);
             
-            /* improved salsa / bachata colors – deeper, richer, better contrast */
             --salsa: #b33e3e;
             --salsa-dark: #8b2e2e;
             --bachata: #1e4a8b;
@@ -64,7 +62,7 @@
             text-rendering: optimizeLegibility;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            font-feature-settings: "ss02", "ss03", "cv05", "cv11"; /* Inter stylistic alternates for elegance */
+            font-feature-settings: "ss02", "ss03", "cv05", "cv11";
         }
         
         body {
@@ -75,10 +73,10 @@
             padding: 24px;
             overflow-x: hidden;
             position: relative;
-            color: #1e2b3c;        /* refined, slightly softer dark */
+            color: #1e2b3c;
             background: linear-gradient(135deg, #f0f5fc, #e6edf7);
-            font-size: 1.05rem;     /* slightly larger base for better readability */
-            line-height: 1.7;        /* improved flow */
+            font-size: 1.05rem;
+            line-height: 1.7;
             scroll-behavior: smooth;
             text-shadow: 0 1px 1px rgba(255,255,255,0.8), 0 0 0.5px rgba(0,0,0,0.03);
             font-weight: 400;
@@ -89,7 +87,7 @@
         .welcome-title {
             font-family: 'Playfair Display', serif !important;
             font-weight: 700;
-            letter-spacing: 0.02em;      /* subtle luxury touch */
+            letter-spacing: 0.02em;
         }
         
         h1, h2, h3, h4, h5, h6 {
@@ -97,7 +95,7 @@
             color: var(--dark);
             font-weight: 600;
             line-height: 1.3;
-            letter-spacing: -0.01em;      /* modern, tighter headings */
+            letter-spacing: -0.01em;
         }
         
         .section-title {
@@ -125,14 +123,13 @@
             transition: filter 0.5s ease, opacity 0.5s ease;
         }
         
-        /* ===== WELCOME ARRAY – refined balance, colors intact, better flow ===== */
         #welcome-array {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 30% 40%, #f8faff, #ffffff); /* soft depth, keeps palette */
+            background: radial-gradient(circle at 30% 40%, #f8faff, #ffffff);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             z-index: 9999;
@@ -156,7 +153,7 @@
         .welcome-content {
             text-align: center;
             width: 100%;
-            max-width: 1000px;          /* slightly wider for better pill spacing */
+            max-width: 1000px;
             padding: 60px 40px;
             position: relative;
             z-index: 2;
@@ -164,19 +161,19 @@
         
         .welcome-title {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2.6rem, 8vw, 3.8rem);  /* refined size */
+            font-size: clamp(2.6rem, 8vw, 3.8rem);
             font-weight: 700;
             color: #1a2b3c;
-            margin-bottom: 12px;          /* tighter */
-            letter-spacing: -0.01em;       /* modern, elegant */
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
             line-height: 1.2;
             text-shadow: 0 1px 3px rgba(0,0,0,0.02);
         }
         
         .welcome-subtitle {
-            font-size: clamp(1.2rem, 4vw, 1.4rem);  /* slightly larger, balanced */
-            color: #2c3e50;                /* deeper, professional */
-            margin-bottom: 44px;            /* more breathing room */
+            font-size: clamp(1.2rem, 4vw, 1.4rem);
+            color: #2c3e50;
+            margin-bottom: 44px;
             font-weight: 400;
             letter-spacing: 0.3px;
             line-height: 1.6;
@@ -186,8 +183,8 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 32px;                     /* increased gap for cleaner separation */
-            margin-bottom: 48px;            /* more space before pills */
+            gap: 32px;
+            margin-bottom: 48px;
         }
         
         .app-icon {
@@ -254,7 +251,6 @@
             text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
         }
         
-        /* Increased brightness / contrast for primary icons (colors untouched) */
         .app-icon.facebook {
             background: linear-gradient(135deg, rgba(24, 119, 242, 0.28), rgba(59, 89, 152, 0.22));
             border: 2px solid rgba(24, 119, 242, 0.6);
@@ -365,7 +361,7 @@
         .welcome-footer {
             margin-top: 36px;
             color: #1e2b3c;
-            font-size: 1.15rem;          /* slightly larger, more presence */
+            font-size: 1.15rem;
             font-weight: 500;
             letter-spacing: 0.3px;
             opacity: 0.9;
@@ -376,25 +372,25 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 28px;                    /* consistent gap */
-            margin: 40px 0 24px;           /* top margin increased */
+            gap: 28px;
+            margin: 40px 0 24px;
         }
 
         .welcome-cta-pill {
             display: inline-block;
-            background: linear-gradient(145deg, #ffffff, #f5f9ff); /* soft gradient */
-            border-radius: 60px;            /* pill shape */
-            padding: 20px 36px;             /* larger touch area */
+            background: linear-gradient(145deg, #ffffff, #f5f9ff);
+            border-radius: 60px;
+            padding: 20px 36px;
             box-shadow: 0 12px 28px rgba(19,41,71,0.12), 0 2px 4px rgba(0,0,0,0.02);
-            border: 1px solid rgba(44,90,160,0.25);  /* subtle blue edge */
+            border: 1px solid rgba(44,90,160,0.25);
             color: #153e63;
             font-weight: 600;
-            font-size: 1.25rem;              /* prominent, readable */
+            font-size: 1.25rem;
             text-decoration: none;
             transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s;
             transform: translateZ(0);
             flex: 0 1 auto;
-            min-width: 340px;                 /* balanced width */
+            min-width: 340px;
             text-align: center;
             line-height: 1.5;
             letter-spacing: 0.3px;
@@ -1159,7 +1155,6 @@
             100% { transform: scale(1); }
         }
         
-        /* ===== REDESIGNED SCHEDULE CARDS – clean, with enhanced salsa/bachata colors ===== */
         .links-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
@@ -1327,11 +1322,10 @@
             background: rgba(44, 90, 160, 0.05);
         }
 
-        /* Improved class time – bolder, easier to read */
         .class-time {
             font-weight: 700;
             min-width: 95px;
-            color: #1e293b;   /* slightly darker */
+            color: #1e293b;
             font-size: 1rem;
             letter-spacing: 0.2px;
         }
@@ -1372,10 +1366,9 @@
             border: 1px solid #fecaca;
         }
 
-        /* ENHANCED SALSA / BACHATA COLORS – more contrast, professional, easy to read */
         .salsa-text, .bachata-text {
             font-weight: 600;
-            padding: 4px 10px;           /* slightly increased padding */
+            padding: 4px 10px;
             border-radius: 24px;
             display: inline-block;
             font-size: 0.95rem;
@@ -1385,13 +1378,13 @@
             transition: all 0.2s;
         }
         .salsa-text {
-            color: #8b2e2e;                /* deeper red */
-            background: rgba(179, 62, 62, 0.2);  /* higher opacity */
+            color: #8b2e2e;
+            background: rgba(179, 62, 62, 0.2);
             border-color: rgba(179, 62, 62, 0.3);
         }
         .bachata-text {
-            color: #12315e;                /* deep navy */
-            background: rgba(30, 74, 139, 0.2);  /* higher opacity */
+            color: #12315e;
+            background: rgba(30, 74, 139, 0.2);
             border-color: rgba(30, 74, 139, 0.3);
         }
         .salsa-text:hover, .bachata-text:hover {
@@ -1890,7 +1883,6 @@
             background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
         }
         
-        /* Video section collapsible styles */
         .video-library-section {
             margin: 40px 0;
             position: relative;
@@ -2881,10 +2873,103 @@
             margin: 20px auto;
             opacity: 0.7;
         }
+
+        /* ===== NEW CAROUSEL STYLES (preserve sizes, no layout changes) ===== */
+        .announcement-carousel {
+            position: relative;
+            margin: 28px 0 36px;  /* same as .modern-event-card margin */
+            width: 100%;
+            overflow: hidden;
+            border-radius: 24px;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .carousel-item {
+            flex: 0 0 100%;
+            width: 100%;
+        }
+
+        .carousel-item .modern-event-card {
+            margin: 0;  /* remove card margin to avoid double spacing */
+            width: 100%;
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            font-size: 1.8rem;
+            line-height: 1;
+            color: var(--primary-blue);
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+        .carousel-arrow:hover {
+            background: #ffffff;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+        }
+        .carousel-arrow.prev {
+            left: 16px;
+        }
+        .carousel-arrow.next {
+            right: 16px;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 12px;
+        }
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #cbd5e1;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .carousel-dot.active {
+            background: var(--primary-blue);
+            transform: scale(1.3);
+        }
+
+        /* hide arrows on very small screens if needed */
+        @media (max-width: 480px) {
+            .carousel-arrow {
+                width: 36px;
+                height: 36px;
+                font-size: 1.4rem;
+            }
+        }
     </style>
 </head>
 <body class="welcome-active no-scroll">
-    <!-- WELCOME ARRAY – unchanged content -->
+    <!-- WELCOME ARRAY – completely unchanged -->
     <div id="welcome-array">
         <div class="welcome-content">
             <h1 class="welcome-title">Rebecca & Daniel</h1>
@@ -2947,7 +3032,7 @@
 
             <p class="welcome-footer">No partner needed • All levels welcome.</p>
             
-            <!-- TWO PILLS – refined, larger, inviting -->
+            <!-- TWO PILLS – unchanged -->
             <div class="welcome-pills">
                 <a href="https://www.facebook.com/share/14WM9WjNj1a/?mibextid=wwXIfr" 
                    class="welcome-cta-pill" 
@@ -2965,7 +3050,7 @@
         </div>
     </div>
 
-    <!-- main container – all content exactly as original, only styles enhanced -->
+    <!-- main container – all content original except the two announcement cards replaced with carousel -->
     <div class="container" style="opacity: 0;">
         <div class="header-container">
             <div class="top-nav-buttons" id="nav-buttons">
@@ -3000,48 +3085,63 @@
         </div>
         
         <div class="content">
-            <!-- Updated modern-event card to 117 Old City Philly -->
-            <div class="modern-event-card section-animate">
-                <h3 class="event-title">117 Old City Philly – Noche de Bachata Cumbia Thursdays</h3>
-                <div class="event-datetime">
-                    <i class="far fa-calendar-alt"></i> Every Thursday: 9:45pm Class · 10:30pm Social until 1am
+            <!-- ===== ANNOUNCEMENT CAROUSEL (replaces the two modern-event-card) ===== -->
+            <div class="announcement-carousel section-animate" id="announcement-carousel">
+                <div class="carousel-container">
+                    <div class="carousel-track">
+                        <!-- First card: 117 Old City Philly (exact same HTML) -->
+                        <div class="carousel-item">
+                            <div class="modern-event-card">
+                                <h3 class="event-title">117 Old City Philly – Noche de Bachata Cumbia Thursdays</h3>
+                                <div class="event-datetime">
+                                    <i class="far fa-calendar-alt"></i> Every Thursday: 9:45pm Class · 10:30pm Social until 1am
+                                </div>
+                                <div class="event-venue">
+                                    <i class="fas fa-map-marker-alt"></i> 
+                                    <a href="https://maps.app.goo.gl/?q=117+Chestnut+Street+Philadelphia" target="_blank" class="address-link">
+                                        <i class="fas fa-location-dot"></i> 117 Chestnut Street, Philadelphia
+                                    </a>
+                                </div>
+                                <a href="https://www.facebook.com/share/14WM9WjNj1a/?mibextid=wwXIfr" class="event-cta-primary" target="_blank">JOIN THE EVENT</a>
+                                <div class="event-secondary-actions">
+                                    <a href="https://www.facebook.com/share/14WM9WjNj1a/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook"></i> Event</a>
+                                    <a href="https://maps.app.goo.gl/?q=117+Chestnut+Street+Philadelphia" target="_blank"><i class="fas fa-directions"></i> Directions</a>
+                                    <a href="#" class="add-calendar"><i class="far fa-calendar-plus"></i> Calendar</a>
+                                </div>
+                                <div class="event-note">No partner needed · All levels welcome · DJ every Thursday</div>
+                            </div>
+                        </div>
+                        <!-- Second card: Buena Vista Restaurant (exact same HTML) -->
+                        <div class="carousel-item">
+                            <div class="modern-event-card">
+                                <h3 class="event-title">Buena Vista Restaurant – Salsa & Bachata 2nd & 4th Saturday</h3>
+                                <div class="event-datetime">
+                                    <i class="far fa-calendar-alt"></i> Every 2nd & 4th Saturday: 9:45pm Class · 10:30pm Social until 1am
+                                </div>
+                                <div class="event-venue">
+                                    <i class="fas fa-map-marker-alt"></i> 
+                                    <a href="https://maps.app.goo.gl/kRUnNDkQM7vBHhB89?g_st=ic" target="_blank" class="address-link">
+                                        <i class="fas fa-location-dot"></i> Ardmore, PA
+                                    </a>
+                                </div>
+                                <a href="https://www.facebook.com/share/1EZWNdBBq1/?mibextid=wwXIfr" class="event-cta-primary" target="_blank">JOIN THE EVENT</a>
+                                <div class="event-secondary-actions">
+                                    <a href="https://www.facebook.com/share/1EZWNdBBq1/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook"></i> Event</a>
+                                    <a href="https://maps.app.goo.gl/kRUnNDkQM7vBHhB89?g_st=ic" target="_blank"><i class="fas fa-directions"></i> Directions</a>
+                                    <a href="#" class="add-calendar"><i class="far fa-calendar-plus"></i> Calendar</a>
+                                </div>
+                                <div class="event-note">No partner needed · All levels welcome · Special DJ every 2nd and 4th Saturday — Salsa · Bachata · Merengue</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Navigation arrows -->
+                    <button class="carousel-arrow prev" aria-label="Previous announcement">❮</button>
+                    <button class="carousel-arrow next" aria-label="Next announcement">❯</button>
                 </div>
-                <div class="event-venue">
-                    <i class="fas fa-map-marker-alt"></i> 
-                    <a href="https://maps.app.goo.gl/?q=117+Chestnut+Street+Philadelphia" target="_blank" class="address-link">
-                        <i class="fas fa-location-dot"></i> 117 Chestnut Street, Philadelphia
-                    </a>
-                </div>
-                <a href="https://www.facebook.com/share/14WM9WjNj1a/?mibextid=wwXIfr" class="event-cta-primary" target="_blank">JOIN THE EVENT</a>
-                <div class="event-secondary-actions">
-                    <a href="https://www.facebook.com/share/14WM9WjNj1a/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook"></i> Event</a>
-                    <a href="https://maps.app.goo.gl/?q=117+Chestnut+Street+Philadelphia" target="_blank"><i class="fas fa-directions"></i> Directions</a>
-                    <a href="#" class="add-calendar"><i class="far fa-calendar-plus"></i> Calendar</a>
-                </div>
-                <div class="event-note">No partner needed · All levels welcome · DJ every Thursday</div>
+                <!-- Dots container -->
+                <div class="carousel-dots" id="carousel-dots"></div>
             </div>
-            
-            <!-- NEW SECOND ANNOUNCEMENT EVENT CARD for Buena Vista, placed directly after the first -->
-            <div class="modern-event-card section-animate">
-                <h3 class="event-title">Buena Vista Restaurant – Salsa & Bachata 2nd & 4th Saturday</h3>
-                <div class="event-datetime">
-                    <i class="far fa-calendar-alt"></i> Every 2nd & 4th Saturday: 9:45pm Class · 10:30pm Social until 1am
-                </div>
-                <div class="event-venue">
-                    <i class="fas fa-map-marker-alt"></i> 
-                    <a href="https://maps.app.goo.gl/kRUnNDkQM7vBHhB89?g_st=ic" target="_blank" class="address-link">
-                        <i class="fas fa-location-dot"></i> Ardmore, PA
-                    </a>
-                </div>
-                <a href="https://www.facebook.com/share/1EZWNdBBq1/?mibextid=wwXIfr" class="event-cta-primary" target="_blank">JOIN THE EVENT</a>
-                <div class="event-secondary-actions">
-                    <a href="https://www.facebook.com/share/1EZWNdBBq1/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook"></i> Event</a>
-                    <a href="https://maps.app.goo.gl/kRUnNDkQM7vBHhB89?g_st=ic" target="_blank"><i class="fas fa-directions"></i> Directions</a>
-                    <a href="#" class="add-calendar"><i class="far fa-calendar-plus"></i> Calendar</a>
-                </div>
-                <div class="event-note">No partner needed · All levels welcome · Special DJ every 2nd and 4th Saturday — Salsa · Bachata · Merengue</div>
-            </div>
-            
+
             <hr class="section-separator" id="separator-1">
             
             <div class="date-section section-animate delay-1" id="current-date-discreet">
@@ -3070,12 +3170,10 @@
             
             <h3 class="section-title" id="schedule-title">Class Schedule</h3>
             
-            <!-- REDESIGNED SCHEDULE CARDS – clean, with improved salsa/bachata colors -->
+            <!-- REDESIGNED SCHEDULE CARDS – unchanged -->
             <div class="links-grid stagger-children section-animate" id="schedule-grid">
-                <!-- Stardust card – new 4‑week cycle, no extra intro badges -->
-                <div class="link-card stardust next-class-highlight" 
-                     data-studio="Stardust Ballroom" 
-                     id="stardust-card">
+                <!-- Stardust card -->
+                <div class="link-card stardust next-class-highlight" data-studio="Stardust Ballroom" id="stardust-card">
                     <div class="link-text">
                         <div class="studio-info">
                             <div class="studio-name-address">
@@ -3140,10 +3238,8 @@
                     </div>
                 </div>
                 
-                <!-- Estilo Card – clean, no extra badges -->
-                <div class="link-card estilo" 
-                     data-studio="Estilo Dance Studio" 
-                     id="estilo-card">
+                <!-- Estilo Card -->
+                <div class="link-card estilo" data-studio="Estilo Dance Studio" id="estilo-card">
                     <div class="link-text">
                         <div class="studio-info">
                             <div class="studio-name-address">
@@ -3176,10 +3272,8 @@
                     </div>
                 </div>
 
-                <!-- Old City Card (117) – simplified, no duplicate text -->
-                <div class="link-card oldcity" 
-                     data-studio="Old City Philly" 
-                     id="oldcity-card">
+                <!-- Old City Card -->
+                <div class="link-card oldcity" data-studio="Old City Philly" id="oldcity-card">
                     <div class="link-text">
                         <div class="studio-info">
                             <div class="studio-name-address">
@@ -3231,10 +3325,8 @@
                     </div>
                 </div>
 
-                <!-- Buena Vista Card – simplified, clean -->
-                <div class="link-card buenavista" 
-                     data-studio="Buena Vista Restaurant" 
-                     id="buenavista-card">
+                <!-- Buena Vista Card -->
+                <div class="link-card buenavista" data-studio="Buena Vista Restaurant" id="buenavista-card">
                     <div class="link-text">
                         <div class="studio-info">
                             <div class="studio-name-address">
@@ -3465,16 +3557,14 @@
             
             <hr class="section-separator" id="separator-2">
             
-            <!-- Video section with open/close buttons (collapsible) -->
+            <!-- Video section unchanged -->
             <section class="video-library-section section-animate" id="video-library">
                 <div class="video-header">
                     <h2 class="video-title">Dance Video Library</h2>
                     <p class="video-subtitle">Learn Bachata rhythm and timing with Rebecca & Daniel</p>
-                    <!-- OPEN BUTTON (visible when closed) -->
                     <button id="open-video-btn" class="video-toggle-btn">Open Video Library</button>
                 </div>
                 
-                <!-- COLLAPSIBLE CONTENT (initially hidden) -->
                 <div id="video-content" style="display: none;">
                     <div class="video-categories">
                         <button class="category-btn active" data-category="all">All Videos</button>
@@ -3500,7 +3590,6 @@
                         </div>
                     </div>
                     
-                    <!-- CLOSE BUTTON inside content -->
                     <div class="video-close-container">
                         <button id="close-video-btn" class="video-toggle-btn">Close Video Library</button>
                     </div>
@@ -3572,9 +3661,8 @@
         </div>
     </div>
 
-    <!-- JavaScript remains identical except for video toggle logic added at the end -->
     <script>
-        // (All original JavaScript unchanged – we only append video toggle logic)
+        // ORIGINAL JAVASCRIPT (unchanged, only addition at the end for carousel init)
         document.addEventListener('DOMContentLoaded', function() {
             const logo = document.querySelector('.logo');
             let clickCount = 0;
@@ -4134,7 +4222,6 @@
                             behavior: 'smooth', 
                             block: 'start'
                         });
-                        // Optionally open video section if closed
                         const videoContent = document.getElementById('video-content');
                         if (videoContent.style.display === 'none') {
                             openVideoSection();
@@ -4733,7 +4820,6 @@
                     });
                 }
 
-                // --- VIDEO TOGGLE FUNCTIONS ---
                 function openVideoSection() {
                     document.getElementById('video-content').style.display = 'block';
                     document.getElementById('open-video-btn').style.display = 'none';
@@ -4744,9 +4830,81 @@
                 }
                 document.getElementById('open-video-btn').addEventListener('click', openVideoSection);
                 document.getElementById('close-video-btn').addEventListener('click', closeVideoSection);
-                // Ensure initial state: open button visible, content hidden
                 document.getElementById('video-content').style.display = 'none';
                 document.getElementById('open-video-btn').style.display = 'inline-block';
+
+                // ===== NEW CAROUSEL INITIALIZATION =====
+                function initAnnouncementCarousel() {
+                    const track = document.querySelector('.carousel-track');
+                    const items = document.querySelectorAll('.carousel-item');
+                    const prevBtn = document.querySelector('.carousel-arrow.prev');
+                    const nextBtn = document.querySelector('.carousel-arrow.next');
+                    const dotsContainer = document.getElementById('carousel-dots');
+                    
+                    if (!track || items.length === 0) return;
+                    
+                    let currentIndex = 0;
+                    const totalItems = items.length;
+                    
+                    // Create dots
+                    for (let i = 0; i < totalItems; i++) {
+                        const dot = document.createElement('button');
+                        dot.classList.add('carousel-dot');
+                        if (i === 0) dot.classList.add('active');
+                        dot.setAttribute('data-index', i);
+                        dot.addEventListener('click', () => goToSlide(i));
+                        dotsContainer.appendChild(dot);
+                    }
+                    
+                    const dots = document.querySelectorAll('.carousel-dot');
+                    
+                    function updateDots() {
+                        dots.forEach((dot, idx) => {
+                            dot.classList.toggle('active', idx === currentIndex);
+                        });
+                    }
+                    
+                    function goToSlide(index) {
+                        if (index < 0) index = totalItems - 1;
+                        if (index >= totalItems) index = 0;
+                        currentIndex = index;
+                        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                        updateDots();
+                    }
+                    
+                    prevBtn.addEventListener('click', () => {
+                        goToSlide(currentIndex - 1);
+                    });
+                    
+                    nextBtn.addEventListener('click', () => {
+                        goToSlide(currentIndex + 1);
+                    });
+                    
+                    // Auto-rotate every 6 seconds
+                    let autoRotate = setInterval(() => goToSlide(currentIndex + 1), 6000);
+                    
+                    const carousel = document.querySelector('.announcement-carousel');
+                    carousel.addEventListener('mouseenter', () => clearInterval(autoRotate));
+                    carousel.addEventListener('mouseleave', () => {
+                        autoRotate = setInterval(() => goToSlide(currentIndex + 1), 6000);
+                    });
+                    
+                    // Touch swipe support
+                    let touchStartX = 0;
+                    let touchEndX = 0;
+                    carousel.addEventListener('touchstart', (e) => {
+                        touchStartX = e.changedTouches[0].screenX;
+                    }, { passive: true });
+                    
+                    carousel.addEventListener('touchend', (e) => {
+                        touchEndX = e.changedTouches[0].screenX;
+                        const diff = touchStartX - touchEndX;
+                        if (Math.abs(diff) > 50) {
+                            if (diff > 0) goToSlide(currentIndex + 1);
+                            else goToSlide(currentIndex - 1);
+                        }
+                    }, { passive: true });
+                }
 
                 function initPage() {
                     initSectionAnimations();
@@ -4755,8 +4913,9 @@
                     initReviewsCarousel();
                     initNavButtons();
                     initNavScrollBehavior();
-                    initVideoLibrary();      // initializes feed, but content hidden – fine
+                    initVideoLibrary();
                     initReviewsToggle();
+                    initAnnouncementCarousel();  // added
                     
                     window.addEventListener('scroll', setActiveSection);
                     
