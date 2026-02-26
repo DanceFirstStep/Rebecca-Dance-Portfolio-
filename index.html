@@ -71,7 +71,7 @@
             position: relative;
             color: var(--text-medium);
             background: linear-gradient(135deg, #f0f5fc, #e6edf7);
-            font-size: 1.1rem; /* slight increase for readability */
+            font-size: 1.1rem;
             line-height: 1.6;
             scroll-behavior: smooth;
             text-shadow: 0 1px 1px rgba(255,255,255,0.8), 0 0 0.5px rgba(0,0,0,0.02);
@@ -3057,7 +3057,8 @@
                    rel="noopener">
                     <span>117 Old City Philly – Noche de bachata and cumbia Thursday</span>
                 </a>
-                <a href="https://www.facebook.com/share/1EZWNdBBq1/?mibextid=wwXIfr" 
+                <!-- Updated Buena Vista pill with new event link -->
+                <a href="https://www.facebook.com/share/1AWmNno2FJ/" 
                    class="welcome-cta-pill pill-saturday" 
                    target="_blank" 
                    rel="noopener">
@@ -3306,6 +3307,7 @@
                     </div>
                 </div>
 
+                <!-- Updated Buena Vista card with new event link -->
                 <div class="link-card buenavista" 
                      data-studio="Buena Vista Restaurant" 
                      id="buenavista-card">
@@ -3320,7 +3322,8 @@
                                 </div>
                             </div>
                             <div class="location-icons">
-                                <a href="https://www.facebook.com/share/1EZWNdBBq1/?mibextid=wwXIfr" class="location-icon facebook-icon" target="_blank" rel="noopener" title="Buena Vista Facebook Event" aria-label="Facebook Event">
+                                <!-- Updated Facebook icon link -->
+                                <a href="https://www.facebook.com/share/1AWmNno2FJ/" class="location-icon facebook-icon" target="_blank" rel="noopener" title="Buena Vista Facebook Event" aria-label="Facebook Event">
                                     <i class="fab fa-facebook-f"></i>
                                 </a>
                                 <a href="https://maps.app.goo.gl/kRUnNDkQM7vBHhB89?g_st=ic" class="location-icon maps-icon" target="_blank" rel="noopener" title="Open in Google Maps" aria-label="Google Maps">
@@ -3354,7 +3357,8 @@
                             <i class="fas fa-dj"></i> Special DJ every 2nd and 4th Saturday — Salsa · Bachata · Merengue
                         </div>
 
-                        <a href="https://www.facebook.com/share/1EZWNdBBq1/?mibextid=wwXIfr" class="card-cta" target="_blank" rel="noopener">
+                        <!-- Updated CTA link -->
+                        <a href="https://www.facebook.com/share/1AWmNno2FJ/" class="card-cta" target="_blank" rel="noopener">
                             Event Info <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -3644,6 +3648,7 @@
     </div>
 
     <script>
+        // (script unchanged - all existing functionality preserved)
         document.addEventListener('DOMContentLoaded', function() {
             const logo = document.querySelector('.logo');
             let clickCount = 0;
@@ -4784,7 +4789,6 @@
                         const isHidden = reviewsSection.classList.contains('hidden');
                         reviewsSection.classList.toggle('hidden');
                         toggleBtn.classList.toggle('active', !isHidden);
-                        // change chevron direction
                         chevron.className = isHidden ? 'fas fa-chevron-up' : 'fas fa-chevron-down';
                         if (!isHidden) {
                             setTimeout(() => {
